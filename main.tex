@@ -186,14 +186,6 @@
 % | the commands..." and uncomment the lines in that section.
 % +--------------------- ----------------------------------------------+
 
-\input{tex/front_matter/abstracttitle.tex}  % Masters students - comment or delete this line
-
-\begin{abstract} % Masters students - comment or delete this line
-   \setcounter{page}{-1} % Masters students - comment or delete this line
-   \pdfbookmark[0]{Abstract}{PDFAbstractPage} % Masters students - comment or delete this line
-   \input{tex/front_matter/abstract.tex} % Masters students - comment or delete this line
-   \vfill % Masters students - comment or delete this line
-\end{abstract} % Masters students - comment or delete this line
 
 % +--------------------------------------------------------------------+
 % | Title Page -- Required for both Doctoral and Masters Students
@@ -218,8 +210,8 @@
 % | two lines (\setcounter and \pdfbookmark)
 % +--------------------------------------------------------------------+
 
-   %\setcounter{page}{-1}
-   %\pdfbookmark[0]{Abstract}{PDFAbstractPage}
+\setcounter{page}{-1}
+\pdfbookmark[0]{Abstract}{PDFAbstractPage}
 
 \input{tex/front_matter/abstract.tex}
 \vfill
@@ -357,7 +349,7 @@
 
 % +--------------------------------------------------------------------+
 % | Included for Gather Purpose only.  Do NOT uncomment the next line.
-%input "references.bib"
+%input "tex/refs/references.bib"
 % | In order for the WinEDT editor to index references correctly, it
 % | has to know where the "references.bib" file resides.  This
 % | command will be ignored completely by LaTeX
