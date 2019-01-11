@@ -3,6 +3,7 @@ Houses all information related to my master's thesis and graduation.
 -----
 
 
+## Master's Requirements
 
 Info on master's requirements can be found in the [`Graduate Student Handbook`](https://www.mne.k-state.edu/docs/academics/graduate/18-19%20grad%20student%20handbook.pdf).
 
@@ -39,4 +40,24 @@ Requriements for Master's degree - Thesis Option
     - Up to 2 additional credit hours of Master's Thesis Research (ME 899 or NE 899)
     - Up to 3 credit hours of ME 800 Seminar/Research Paper (refer to ME 800 course requirements)
     - Up to 3 credit hours of independent study 
-    - Up to 6 credit hours of additional coursework 
+    - Up to 6 credit hours of additional coursework
+
+
+
+## Thesis
+
+Info on thesis formatting can be found in the [`ETDR Handbook`](https://www.k-state.edu/grad/etdr/etdr-handbook.pdf).
+
+
+#### March 29
+ - Complete Graduation Application on KSIS
+ - Submit approval to schedule final examination form to graduate school
+
+#### April 19
+ - Deliver final examination ballot to graduate school
+ - Deliver final ETDR ballot to graduate school
+ - Submit final ETDR ballot in pdf to K-REx
+ - Complete graduate school exit survey
+ - Complete ETDR survey
+ - Update contact info with alumni association
+ - Register for commencement
