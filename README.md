@@ -9,17 +9,17 @@ Info on master's requirements can be found in the [`Graduate Student Handbook`](
 Requriements for Master's degree - Thesis Option
 
 
-
 | Requirement | Statue |
 |---|---|
-| 1 | Incomplete |
-| 2 | Incomplete |
-| 3 | Incomplete |
-| 4 | Incomplete |
-| 5 | Incomplete |
-| 6 | Incomplete |
-| 7 | Incomplete |
-| 8 | Incomplete |
+| 1. File POS | Complete |
+| 2. Minimum 18 hrs graded coursework | Complete |
+| 3. Complete one engineering math course | Complete |
+| 4a. Minimum 6 hours NE899| Complete |
+| 4b. Defend thesis| Incomplete |
+| 5. Minimum 18 hrs over 700 level | Complete |
+| 6. No 500 level courses | Complete |
+| 7. ME800 | Complete |
+| 8. Total 30 credit hrs | Complete |
 
 1. All MS students must formulate their POS in consultation with their major professor and their supervisory committee. Full-time students must file their programs before the end of their second semester of graduate study, and part-time students must do so upon the completion of 9 credit hours.
 
@@ -36,7 +36,7 @@ Requriements for Master's degree - Thesis Option
 7. The MS candidate must satisfy the 75% attendance requirement (0 credit hour) in at least two semesters of ME 800 Graduate Seminar/Research Paper, (refer to ME 800 course requirements).
 
 8. In addition to the minimum graded coursework requirement (18 credit hours) and the minimum Master's Thesis Research requirement (6 credit hours), the candidate must complete 6 more credit hours to meet the minimum credit requirement of 30 credit hours. This can be done through any combination of the following:
- - Up to 2 additional credit hours of Master's Thesis Research (ME 899 or NE 899)
- - Up to 3 credit hours of ME 800 Seminar/Research Paper (refer to ME 800 course requirements)
- - Up to 3 credit hours of independent study 
- - Up to 6 credit hours of additional coursework 
+    - Up to 2 additional credit hours of Master's Thesis Research (ME 899 or NE 899)
+    - Up to 3 credit hours of ME 800 Seminar/Research Paper (refer to ME 800 course requirements)
+    - Up to 3 credit hours of independent study 
+    - Up to 6 credit hours of additional coursework 
