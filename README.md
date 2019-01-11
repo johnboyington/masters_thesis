@@ -48,6 +48,8 @@ Requriements for Master's degree - Thesis Option
 
 Info on thesis formatting can be found in the [`ETDR Handbook`](https://www.k-state.edu/grad/etdr/etdr-handbook.pdf).
 
+Info on how to use the ETDR Template can be found in [`Latex Instructions`](https://www.k-state.edu/grad/etdr/template/Instructions%20for%20Using%20LaTeX%20ETDR%20Template.pdf).
+
 
 #### March 29
  - Complete Graduation Application on KSIS
