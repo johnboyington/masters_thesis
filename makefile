@@ -18,6 +18,9 @@ all: $(manuscript).pdf
 
 main.pdf: main.tex
 	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make $(manuscript).tex
+	rm main.bbl
+	latexmk -c
 
 clean:
-	latexmk -CA
+	latexmk -C
+

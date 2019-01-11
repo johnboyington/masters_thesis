@@ -64,7 +64,7 @@
 % | desired.
 % +--------------------------------------------------------------------+
 
-\documentclass[final,letterpaper,12pt,oneside]{class_diss}
+\documentclass[final,letterpaper,12pt,oneside]{tex/styles/class_diss}
 
 % +--------------------------------------------------------------------+
 % | Here are added external packages that will be used throughout
@@ -72,6 +72,10 @@
 % +--------------------------------------------------------------------+
 
 \usepackage{graphicx} % Extended graphics package.
+\usepackage{booktabs} % nice rules (thick lines) for tables
+\usepackage{tabulary}
+\usepackage{microtype} % improves typography for PDF
+\usepackage{xcolor} % Allows color
 \usepackage{amsmath} % American Mathematics Society standards
 \usepackage{amsxtra} % Additional math symbols
 \usepackage{amssymb} % Additional math symbols
@@ -80,6 +84,34 @@
 \usepackage{setspace} % Controls line spacing
 \usepackage[margin=1in]{geometry} % Sets page margins to 1 inch on all sides
 \usepackage[titles]{tocloft} % Adds leader dots to all entries in the table of contents
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{braket}
+\usepackage{longtable}
+
+
+% +--------------------------------------------------------------------+
+% | put your own definitions here
+% +--------------------------------------------------------------------+
+
+\newcommand{\SN}{S$_N$}
+\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
+\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
+\newcommand{\grad}{\vec{\nabla}} % gradient
+\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
+\newcommand{\oper}[1]{\mathcal{#1}}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\newcommand{\CHAPTER}[1]{Chapter~\ref{#1}} 
+\newcommand{\EQ}[1]{Eq.~(\ref{#1})}               %-- Eq. (refeq)
+\newcommand{\EQUATION}[1]{Equation~(\ref{#1})}    %-- Equation (refeq)
+\newcommand{\FIG}[1]{Fig.~\ref{#1}}               %-- Fig. refig
+\newcommand{\FIGURE}[1]{Figure~\ref{#1}} 
+\newcommand{\TAB}[1]{Table~\ref{#1}}              %-- Table tablref
+\newcommand{\EQS}[2]{Eqs.~(\ref{#1})--(\ref{#2})}            %-- Eqs. (refeqs)
+\newcommand{\EQUATIONS}[2]{Equations~(\ref{#1})--(\ref{#2})}   %-- Eqs. (refeqs)
+\newcommand{\EQSTWO}[2]{Eqs.~(\ref{#1})~and~(\ref{#2})}     %-- Eqs. (refeqs)
+\newcommand{\EQUATIONSTWO}[2]{Equations~(\ref{#1})~and~(\ref{#2})} 
 
 % +--------------------------------------------------------------------+
 % |
@@ -154,12 +186,12 @@
 % | the commands..." and uncomment the lines in that section.
 % +--------------------- ----------------------------------------------+
 
-\input{abstracttitle.tex}  % Masters students - comment or delete this line
+\input{tex/front_matter/abstracttitle.tex}  % Masters students - comment or delete this line
 
 \begin{abstract} % Masters students - comment or delete this line
    \setcounter{page}{-1} % Masters students - comment or delete this line
    \pdfbookmark[0]{Abstract}{PDFAbstractPage} % Masters students - comment or delete this line
-   \input{abstract.tex} % Masters students - comment or delete this line
+   \input{tex/front_matter/abstract.tex} % Masters students - comment or delete this line
    \vfill % Masters students - comment or delete this line
 \end{abstract} % Masters students - comment or delete this line
 
@@ -167,13 +199,13 @@
 % | Title Page -- Required for both Doctoral and Masters Students
 % +--------------------------------------------------------------------+
 
-\input{title.tex}
+\input{tex/front_matter/title.tex}
 
 % +--------------------------------------------------------------------+
 % | Copyright Page -- Required for both Doctoral and Masters Students
 % +--------------------------------------------------------------------+
 
-\input{copyright.tex}
+\input{tex/front_matter/copyright.tex}
 
 % +--------------------------------------------------------------------+
 % |  Abstract -- Required for both Doctoral and Masters Students
@@ -189,7 +221,7 @@
    %\setcounter{page}{-1}
    %\pdfbookmark[0]{Abstract}{PDFAbstractPage}
 
-\input{abstract.tex}
+\input{tex/front_matter/abstract.tex}
 \vfill
 \end{abstract}
 
@@ -250,6 +282,14 @@
 \listoftables
 
 % +--------------------------------------------------------------------+
+% | Symbols Page
+% +--------------------------------------------------------------------+
+
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Symbols}
+\input{tex/front_matter/symbols.tex}
+
+% +--------------------------------------------------------------------+
 % | Acknowledgements Page
 % |
 % | If you choose not to have an Acknowledgements page, comment out
@@ -259,7 +299,7 @@
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Acknowledgements}
-\input{acknowledge.tex}
+\input{tex/front_matter/acknowledge.tex}
 
 % +--------------------------------------------------------------------+
 % | Dedication Page
@@ -271,7 +311,7 @@
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Dedication}
-\input{dedication.tex}
+\input{tex/front_matter/dedication.tex}
 
 % +--------------------------------------------------------------------+
 % | Preface Page
@@ -283,7 +323,7 @@
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Preface}
-\input{preface.tex}
+\input{tex/front_matter/preface.tex}
 
 
 % +--------------------------------------------------------------------+
@@ -300,9 +340,9 @@
 % | command.
 % +--------------------------------------------------------------------+
 
-\input{chapter1.tex}
-\input{chapter2.tex}
-\input{chapter3.tex}
+\input{tex/chapters/chapter1.tex}
+\input{tex/chapters/chapter2.tex}
+\input{tex/chapters/chapter3.tex}
 
 % +--------------------------------------------------------------------+
 % | Uncomment the lines below to add additional chapters.
@@ -340,8 +380,8 @@
 % +--------------------------------------------------------------------+
 
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibdata{references}
-\bibliography{references}
+\bibdata{tex/refs/references}
+\bibliography{tex/refs/references}
 
 % +--------------------------------------------------------------------+
 % | The following commands add the appendices  To add or delete
@@ -358,8 +398,8 @@
 % +--------------------------------------------------------------------+
 
 \appendix
-\input{appendixA.tex}
-\input{appendixB.tex}
+\input{tex/appendices/appendixA.tex}
+\input{tex/appendices/appendixB.tex}
 
 \end{document}
 

@@ -2,6 +2,9 @@
 Houses all information related to my master's thesis and graduation.
 -----
 
+To produce the thesis, simply type `make` into the terminal while in `masters_thesis/`.
+To remove the .pdf that is created, type `make clean`, or simply remove the file.
+
 
 ## Master's Requirements
 
