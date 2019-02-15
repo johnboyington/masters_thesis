@@ -25,7 +25,7 @@ In practice, active and passive detectors and measurement techniques can appear 
 However, for the purpose of mathematical formulation, it is possible, and indeed useful, to abstract their similitudes.
 The above mentioned detection methods are resemblant in the fact that they provide a set of unique, discrete responses in the presence of an unknown, continuous neutron flux.
 These discrete responses can vary greatly between different neutron environments.
-For example, the LiI detection crystal of the BSS responds strongly in the presence of thermal neutrons and shows indifference towards neutrons of the faster variety, whereas certian reactions utilized in activation foil analysis, such as ($n, \alpha$), will not occur below specific, fast, threshold neutron energies and the detector is considered to have a fast response.
+For example, the LiI detection crystal of the BSS responds strongly in the presence of thermal neutrons and shows indifference towards neutrons of the faster variety, whereas certian reactions utilized in activation foil analysis, such as ($n, \alpha$), will not occur below specific, fast, threshold neutron energies, thus the detector is considered to have a fast response.
 These largely energy-dependent responses, often related to material properties and reaction cross sections, can be considered functions.
 A detector's `Response Function', now formally stated, is the measureable effect exhibited by a detector in a particular geometric configuration as a function of energy to a particular neutron source.
 It is true that the response function is more technically also a function of parameters like geometry, source angle and position, etc.; however, it proves efficacious here to hold those details constant and consider response unidimensional in energy.
@@ -37,12 +37,12 @@ N_k + \epsilon_k = \int_E R_k(E) \phi(E) dE .
 \end{equation}
 
 Here, $N_k$ represents the measured response of the detector, $\epsilon_k$ is the unknown error associated with $N_k$, $R_k(E)$ is the response function, and $\phi(E)$ is the flux.
-By placing a detector, $k$, with associated response function, $R(E)$, in a neutron environment, $\phi(E)$, it should exhibit some response $N_k$ that is $\epsilon_k$ away from the expected response.
+By placing a detector, $k$, with associated response function, $R(E)$, in a neutron environment, $\phi(E)$, it should exhibit some response $N_k$ that is dispaired $\epsilon_k$ from the expected response.
 
 As posed, this formulation bears a certain number of issues.
 It is impossible to derive a continuous function from a finite set of equations.
 With any discrete number of measurements, the solution remains non-unique; the equation thus satisified by an infinite number of solutions.
-The fact that $\epsilon_k$ term is unknown implies that just as there is a limit to the confidence one can have in a real measurement, there too, is a limit on the intelligibility of the final spectrum.
+The fact that the $\epsilon_k$ term is unknown implies that just as there is a limit to the confidence one can have in a real measurement, there too, is a limit on the intelligibility of the final spectrum.
 
 A number of approximations serve to remedy these dilemmata.
 An energy bin structure can be introduced, with energy bins $\Delta E_i (i = 1, \ldots, n)$, which discretize the problem.
@@ -57,7 +57,21 @@ The unknown $\epsilon_k$ term can be handled by removing it entirely, although m
 
 
 % ------------------------------------------------------------------------------
-\subsection{Proposed Methods}
+\subsection{Proposed Methods of Solution}
+
+% Write this ROUGHLY and then reword later. Get the points in.
+% a priori necessary
+The process of obtaining the solution for the unknown neutron spectrum from the set of possible solutions is known as spectral deconvolution (or unfolding), and given the number of valid solutions to the ill-posed problem, the volume of existing deconvolution methods is, perhaps unsurprisingly, commensurate to the number of solutions themselves.
+Several algorithms exist that are only math based, but they aren't great.
+This is inferred from a prior understanding of the physics that underly a neutronic problem.
+Although many solutions are valid, a reactor physicist can tell you that a lot of them are bad.
+Solution spectra based on pure-math approaches could lack or include features that aren't reasonable, because the solution is meant to represent a *REAl* phenomenon.
+It's therefore necessary to incorporate some of these physics into the method of solution.
+The solution method should incorporate these constraints as to maximize the verisimilitude of the solution.
+The most commonly applied version of this is by using an estimate for the final spectrum.
+Codes refer to this as either the guess, trial, or default spectrum.
+This spectrum 
+
 
 
 %                   -------------------------------------
