@@ -6,12 +6,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Beam Port Characterization Experiments}
 
-(Placeholder text)
-When measuring charged particles, the energy is directly measurable, which is nice.
-You can't do that with neutrons because they are neutral particles, which is less nice.
-Instead, most modern methods use discrete responses of individual detectors or detector configurations.
+%(Placeholder text)
+%When measuring charged particles, the energy is directly measurable, which is nice.
+%You can't do that with neutrons because they are neutral particles, which is less nice.
+%Instead, most modern methods use discrete responses of individual detectors or detector configurations.
 
-Will talk about Bonner Spheres and Foil Activation here.
+%Will talk about Bonner Spheres and Foil Activation here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Spectral Unfolding Methods}
@@ -63,16 +63,25 @@ The unknown $\epsilon_k$ term can be handled by removing it entirely, although m
 % there's a lot of methods
 The process of obtaining the solution for the unknown neutron spectrum from the set of possible solutions is known as spectral deconvolution (or unfolding), and given the number of valid solutions to the ill-posed problem, the volume of existing deconvolution methods is, perhaps unsurprisingly, commensurate to the number of solutions themselves.
 % it is possible to just use a math-based approach
+One can feasibly produce a valid solution using a method derived entirely from the realm of mathematics.
 % lots of math based methods exist that give acceptable solutions
-% however, these can produce spectra with features that are unreasonable
-Solution spectra based on pure-math approaches could lack or include features that aren't reasonable, because the solution is meant to represent a *REAl* phenomenon.
+In fact, an expansive literature exists on pure-math methods to solving ill-posed, linear, inverse problems such as the one posed.
+% how can we say if they're any good though?
+Though these may produce solutions that satisfy the equation, what can be said of the verisimilitude of these solutions?
+% these can produce spectra with features that are unreasonable
+Unfortunately, solution spectra derived from these methods can exhibit features that lack a physical basis or be deficient of features present in the actual neutron spectrum.
 % this claim can be made because much is already known about the physics in a reactor core
-It's therefore necessary to incorporate some of these physics into the method of solution.
+Though the neutron spectrum under inspection is technically unknown, a strong theoretical foundation allows one to make this claim.
 % reactors have been studied for a long time
+Nearly a century's worth of effort has gone into understanding neutronics and reactor physics, beginning with James Chadwick's 1932 discovery of the neutron (CITE).
 % this has led to the development of a strong theory of reactor theory and neutronics
+Since then, this effort has ultimately led to the development of a robust and nearly comprehensive theory of nuclear reactor physics that have allowed us to construct a diverse fleet of hundreds of nuclear fission reactors.
 % this knowledge is crutial for discriminating bad or un-physical spectra, without it, there'd be know way to reasonablly accept a solution
+It is this knowledge that is crucial for assisting in the discrimination of derived neutron spectra, for without it, there would be no scientifically-grounded criteria for acceptance or rejection.
 % this means that math only approaches are no good
+Deconvolution methods built solely from mathematic principles must be abandoned.
 % to have a good solution method, we need to incorporate this information into our analysis
+For a method to bear utility, it must weave this theoretical information into its analysis.
 
 % it is common practice to analize the spectrum after unfolding to see if it appears physically reasonable
 % the features in the spectrum should match that of our understanding
