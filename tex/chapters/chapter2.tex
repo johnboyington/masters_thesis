@@ -59,15 +59,49 @@ The unknown $\epsilon_k$ term can be handled by removing it entirely, although m
 % ------------------------------------------------------------------------------
 \subsection{Proposed Methods of Solution}
 
-% Write this ROUGHLY and then reword later. Get the points in.
-% a priori necessary
+% here, i mention the ammount of solution methods and then explain why there is a problem with a math-only approach
+% there's a lot of methods
 The process of obtaining the solution for the unknown neutron spectrum from the set of possible solutions is known as spectral deconvolution (or unfolding), and given the number of valid solutions to the ill-posed problem, the volume of existing deconvolution methods is, perhaps unsurprisingly, commensurate to the number of solutions themselves.
-Several algorithms exist that are only math based, but they aren't great.
-This is inferred from a prior understanding of the physics that underly a neutronic problem.
-Although many solutions are valid, a reactor physicist can tell you that a lot of them are bad.
+% it is possible to just use a math-based approach
+% lots of math based methods exist that give acceptable solutions
+% however, these can produce spectra with features that are unreasonable
 Solution spectra based on pure-math approaches could lack or include features that aren't reasonable, because the solution is meant to represent a *REAl* phenomenon.
+% this claim can be made because much is already known about the physics in a reactor core
 It's therefore necessary to incorporate some of these physics into the method of solution.
-The solution method should incorporate these constraints as to maximize the verisimilitude of the solution.
+% reactors have been studied for a long time
+% this has led to the development of a strong theory of reactor theory and neutronics
+% this knowledge is crutial for discriminating bad or un-physical spectra, without it, there'd be know way to reasonablly accept a solution
+% this means that math only approaches are no good
+% to have a good solution method, we need to incorporate this information into our analysis
+
+% it is common practice to analize the spectrum after unfolding to see if it appears physically reasonable
+% the features in the spectrum should match that of our understanding
+% however, this leaves the problem of infinity solutions, and doesn't assist the liklihood that we'll arrive on a reasonable solution
+
+% constraints can be added and the problem viewed as an optimizaiton problem
+% examples of these constraints include avoiding jumps, and other stuff, and these will be discussed later
+
+% by far, the most common approach to this dilema is the inclusion of what is called a default spectrum
+% this spectrum, also known as a guess or trial spectrum, is the best initial guess for what the final spectrum could be
+% it makes sense, since ya know, perfect guess, then we've already got the answer
+% if the trial spectrum is slightly off, our solution method just has to tweak it slightly to arrive at a solution
+% this changes the view of unfolding from a ground up production of a solution, to a tweaking process
+
+% but can we do this?
+% it's the a priori understanding we've got of reactor cores that allow us to do this
+% taking for example a typical lwr, a spectrum should generally consist of a superposition of 3 features
+% these features are the fission neutron spectrum, the 1/e region and the maxwellian distribution
+% these all can conveniently be represented mathematically, however, the exact values of certain constants are unknown
+% using this as a default spectrum input to an unfolding method, the spectrum can be tweaked to match the detector measurement and the solution is almost guaranteed to be physically reasonable, as it won't be a huge departure from something that is *by defintion* reasonable
+
+% do we want more accuracy?
+% we also might not be in a lwr reactor core?
+% even if we're not in one of these locations, we don't have to worry, numerical simulations often can provide us with a guess for the neutron spectrum
+% these go beyond the scope of just regular analytical solutions
+% modern computers with lots of computing power allow for the modeling of incredibly complex physical features
+% both MC and deterministic methods can be applied to a neturonic problem and obtain a neutron spectrum
+
+
 The most commonly applied version of this is by using an estimate for the final spectrum.
 Codes refer to this as either the guess, trial, or default spectrum.
 This spectrum 
