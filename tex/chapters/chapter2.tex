@@ -123,12 +123,17 @@ The constants associated with any of these models are all physically meaningful 
 Unfolding, viewed as a tuning process and initialized with a modeled guess spectrum such as this, will, with high likelihood, produce a physically valid solution spectrum because it is just a slight alteration to some spectrum that is, {\it by definition}, physically valid.
 
 % do we want more accuracy?
+This LWR default spectrum model provides a formidable starting point for unfolding; however, it is deficient in its capacity to capture finer resolution, spatially or temporally dependent, in-core intricacies.
 % we also might not be in a lwr reactor core?
-% even if we're not in one of these locations, we don't have to worry, numerical simulations often can provide us with a guess for the neutron spectrum
-% these go beyond the scope of just regular analytical solutions
+The interest in neutron spectrometry is certainly not limited to only in-core applications, so other, more general approaches for hypothesizing a defaults spectrum are necessary.
+% even if we're not in one of these locations, we don't have to worry, numerical simulations often can provide us with a guess for the neutron spectrum; these go beyond the scope of just regular analytical solutions
+To achieve this level of detail in a default spectrum model, we must turn our attention to numerical approaches, a methodology that allows for a departure from, or maybe, remarkable enhancement to, the usefulness of analytical models.
 % modern computers with lots of computing power allow for the modeling of incredibly complex physical features
+The computing power available to modern reactor theorists have allowed for the generation of incredibly complex representations of neutronic environments with high fidelity and often reasonable computational times.
 % both MC and deterministic methods can be applied to a neturonic problem and obtain a neutron spectrum
+Subdivided into two major classes, stochastic and deterministic methods, with both bearing unique advantages, these numerical approaches are the contemporary standard for obtaining a default spectrum.
 % this allows us to depart from typical problems into the domain of any understood or semi-understood problem and allows for the application of spectral unfolding methods to almost any concievable physically possible experimental configuration
+Programs such as MCNP and Geant have paved a road from the domain of typical or simplified problems into that of any well-understood or semi-understood spectral obtention problem and grant deconvolutions methods value in almost any concievable, physically-possible experimental configuration.
 
 % a number of unfolding methods have been proposed that utilize equation above and the default spectra
 % talk about them here, first in summary, then each of them individually, then finally a paragraph talking about other methods
