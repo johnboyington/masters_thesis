@@ -68,12 +68,13 @@ One can feasibly produce a valid solution using a method derived entirely from t
 In fact, an expansive literature exists on pure-math methods to solving ill-posed, linear, inverse problems such as the one posed.
 % how can we say if they're any good though?
 Though these may produce solutions that satisfy the equation, what can be said of the verisimilitude of these solutions?
+
 % these can produce spectra with features that are unreasonable
 Unfortunately, solution spectra derived from these methods can exhibit features that lack a physical basis or be deficient of features present in the actual neutron spectrum.
 % this claim can be made because much is already known about the physics in a reactor core
 Though the neutron spectrum under inspection is technically unknown, a strong theoretical foundation allows one to make this claim.
 % reactors have been studied for a long time
-Nearly a century's worth of effort has gone into understanding neutronics and reactor physics, beginning with James Chadwick's 1932 discovery of the neutron (CITE).
+Nearly a century's worth of effort has gone into understanding neutronics and reactor physics, perhaps beginning with James Chadwick's 1932 discovery of the neutron (CITE).
 % this has led to the development of a strong theory of reactor theory and neutronics
 Since then, this effort has ultimately led to the development of a robust and nearly comprehensive theory of nuclear reactor physics that have allowed us to construct a diverse fleet of hundreds of nuclear fission reactors.
 % this knowledge is crutial for discriminating bad or un-physical spectra, without it, there'd be know way to reasonablly accept a solution
@@ -94,7 +95,7 @@ Although this inspection, however useful, can sanction the acceptance of a solut
 Another path to include this information is through constraints imposition.
 In this way, the problem is considered an optimization, specifically a minimization of the difference in the measured and calculated responses, subject to certain physical constraints.
 % examples of these constraints include avoiding jumps, and other stuff, and these will be discussed later
-Examples of these constraints include jump limitation and regional enforcing of increase or decrease, and will be discussed in more detail later.
+Examples of these constraints include jump limitation and regional enforcing of increasement or decreasement, and will be discussed in more detail later.
 
 % by far, the most common approach to this dilema is the inclusion of what is called a default spectrum
 Undoubtedly, the most ubiquitous solution to the dilema of theory inclusion is the utilization of a `default spectrum'.
@@ -108,11 +109,18 @@ If the default spectrum is correct in essense (general shape and magnitude), but
 This refashions the entire problem of unfolding to one of inferrence, where substantial weight is placed on the construction of the greatest default spectrum, and not necessarily on the math-mechanics of the method.
 
 % but can we do this?
+Convienient as this appears, the skeptic may inquire as to the viability of such a refashioning.
 % it's the a priori understanding we've got of reactor cores that allow us to do this
+The response: ``How confident are you in our models?"
 % taking for example a typical lwr, a spectrum should generally consist of a superposition of 3 features
+Let's take for example a typical light water reactor (LWR).
+In the general case, the neutron spectrum present in such a reactor can be justifiably simplified to the superposition of three features.
 % these features are the fission neutron spectrum, the 1/e region and the maxwellian distribution
+The fast region is comprised of fission neutrons, commonly modeled via Watt's distribution; the thermal end resembles a gas dependent on reactor temperature and can be modeled as a Maxwell-Boltzmann distribution; and downscattering, a slowing down process proportional to the inverse of the neutron energy, affixes the two peaks.
 % these all can conveniently be represented mathematically, however, the exact values of certain constants are unknown
+The constants associated with any of these models are all physically meaningful and can be selected heuristically, aided by other known reactor parameters, measurements, or standards, which guarantees the absence of guess-work.
 % using this as a default spectrum input to an unfolding method, the spectrum can be tweaked to match the detector measurement and the solution is almost guaranteed to be physically reasonable, as it won't be a huge departure from something that is *by defintion* reasonable
+Unfolding, viewed as a tuning process and initialized with a modeled guess spectrum such as this, will, with high likelihood, produce a physically valid solution spectrum because it is just a slight alteration to some spectrum that is, {\it by definition}, physically valid.
 
 % do we want more accuracy?
 % we also might not be in a lwr reactor core?
