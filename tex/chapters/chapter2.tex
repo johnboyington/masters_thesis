@@ -267,36 +267,56 @@ The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko m
 
 %                   -------------------------------------
 
-\subsubsection{Maximum Entropy}
+\subsubsection{MAXED}
 
+% introduction
+Other maximum entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a fortran based code from Reginatto and Goldhagen was introduced that has been widely used and become very popular since then.
+
+This algorithm begins with \EQN{eqn:disc-response} but adds an additional constraint
 
 \begin{equation}\label{eqn:maxed-omega}
-\Omega = \sum_i \frac{\epsilon_i^2}{\sigma_i^2} .
+\Omega = \sum_i \frac{\epsilon_i^2}{\sigma_i^2} ,
 \end{equation}
+
+where $\Omega$ is a user-selected parameter that relates the measurement error of the detectors to the allowable deviation in the measured and calculated responses.
+
+The unique feature of MAXED is that entropy, while normally considered a measure of the solution spectrum itself, is here instead characterized as a value associated with the deviation between the default and solution spectra.
+The code will then search for the maximum entropy solution that is most similar to the default spectrum using the following equation for entropy,
 
 \begin{equation}\label{eqn:maxed-skilling}
 S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] .
 \end{equation}
 
+In this way, the in-built hypothesis in the starting spectrum are more likely conserved, as they are considered parts of the $a priori$ information inclusion process described earlier.
+
+To solve this equation, it first can be shown the the maximization of the entropy as defined above is associatied with the Lagrangian,
+
 \begin{equation}\label{eqn:maxed-lagrangian}
-L(\phi_j, \epsilon_i, \lambda_i, \mu) = -\sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] - \sum \lambda_i [\sum R_{ij} \phi_j - N_i - \epsilon_i] - \mu [\sum (\frac{\epsilon_i}{\sigma_k})^2 - \Omega] .
+L(\phi_j, \epsilon_i, \lambda_i, \mu) = -\sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] - \sum \lambda_i [\sum R_{ij} \phi_j - N_i - \epsilon_i] - \mu [\sum (\frac{\epsilon_i}{\sigma_k})^2 - \Omega] ,
 \end{equation}
+
+and that $\lamda_i$ and $\mu$ are Lagrange multipliers.
+Reginatto and Goldhagen show that variation of $L$ is equivalent to the maximization of the following potential function, $Z$,
 
 \begin{equation}\label{eqn:maxed-potential}
 Z = \sum \phi_j^{DEF} \exp(-\sum \lambda_i R_{ij}) - [\Omega \sum (\lambda_i \sigma_i)^2]^{1/2} - \sum N_i \lambda_i .
 \end{equation}
 
+Although many methods can be applied to maximize the function, the chosen method for MAXED was simulated annealing for its ability to discriminate between local and global optima.
+This process will give the $\lambda_i$ that maximize $Z$ which then can be used in the following two relationships to provide a solution flux and errors associated each response,
+
 \begin{equation}\label{eqn:maxed-flux}
-\phi_j = \phi_j^{DEF} \exp(- \sum_i \lambda_k R_{ij})
+\phi_j = \phi_j^{DEF} \exp(- \sum_i \lambda_k R_{ij}) ,
 \end{equation}
 
 \begin{equation}\label{eqn:maxed-error}
-\epsilon_i = \frac{\lambda_i \sigma_i^2}{2} (\frac{4 \Omega}{\sum_j (\lambda_j \sigma_j)^2})^{1/2}
+\epsilon_i = \frac{\lambda_i \sigma_i^2}{2} (\frac{4 \Omega}{\sum_j (\lambda_j \sigma_j)^2})^{1/2} .
 \end{equation}
 
-
-
-
+% conculsions
+The method is shown to work in a variety of cases and been included in many comparitive studies.
+Much of the emphasis in Reginatto and Goldhagen's work is on the importance of inference in obtaining the solution.
+Without proper $a priori$ information, the solution should not be considered useful.
 
 
 %                   -------------------------------------
