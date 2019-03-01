@@ -147,43 +147,66 @@ Programs such as MCNP and Geant have paved a road from the domain of typical or 
 
 % the sand ii algorithm was introduced in 1967 by McElroy et. al. at air force weapons lab in a paper titled 'A COMPUTER-AUTOMATED V0 ITERATIVE METHOD FOR NEUTRON FLUX SPECTRA DETERMINATIONBY FOIL ACTIVATION'
 The Sand II algorithm was first introduced in a 1967 paper from the Air Force Weapons Lab by McElroy et. al. describing `A Computer-Automated Iterative Method for Neutron Flux Spectra determination by Foil Activation'. (CITE)
-% the codes purpose was unfolding, specifically in the case of 
+% the codes purpose was unfolding, specifically in the case of
+Sand II was built specifically with foil activation unfolding in mind, using a specially-designed, iterative, spectral adjustment procedure.
 % it used a default spectrum as the first step in an iterative scheme
-
+The procedure utilized a user-provided default spectrum, then would use built in cross section libraries to compose the response matrix.
 
 % the algorithm
+The algorithm itself is a relatively simple procedure meant to minimize the differences in the measured and calculated responses.
 % first it folded the default spectrum and the response functions
+First, the default spectrum and response functions are folded together to obtain a set of calculated responses.
 % these were compared with each measured response to obtain correction factors for each foil
-% a weighting function is obtained (for each foil) based on the 'sensitivity function' (differential cross section times differential flux)
+Then, these are compared with each measured response to obtain correction factors for each foil.
+% a weighting function is obtained (for each foil) based on the 'sensitivity function' (differenial cross section times differential flux)
+A weighting function, which is just the differential flux times the differential cross sections, is then obtained for each foil.
 % an energy dependent correction function is obtained by comparing the weighting functions and the correction factors
+An energy dependent correction function is obtained by comparing these weighting functions with each foil's correction factor.
 % these correction functions are applied to the flux and the flux is updated
+The correction functions are applied to the current step's flux, and an new flux is obtained.
 
 % put the actual equation here and talk about it
+The many steps from above can be written in a concise format,
 
 % the sand ii iteration scheme
 \begin{equation}\label{eqn:sandii}
-\phi_j^{k + 1} = \phi_j^{k} exp(\frac{\sum_i W_{ji}^k \log(\frac{N_i}{\sum_{j'} R_{ij'} \phi_{j'}^k})}{\sum_i W_{ji}^k}) .
+\phi_j^{k + 1} = \phi_j^{k} exp(\frac{\sum_i W_{ji}^k \log(\frac{N_i}{\sum_{j'} R_{ij'} \phi_{j'}^k})}{\sum_i W_{ji}^k}) ,
 \end{equation}
+
+where the weighting function is provided by
 
 % the sand ii weighting function
 \begin{equation}\label{eqn:sandii-w}
 W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} .
 \end{equation}
 
-% the modified gravel weighting function
-\begin{equation}\label{eqn:gravel-w}
-W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{\sigma_i^2} .
-\end{equation}
-
 % discuss the solution acceptability
-% first, as Ameasured ~= Acalculated
+Because Sand II is iterative, there needs to be a criteria defined for solution acceptability.
 % then how close successive iterations will converge on an acceptable solution
+A user provides a value which represents the degree to which each differential flux value for two successive iterations must agree for a solution to be considered achieved.
 
 % initially, since its purpose was foil activation, it imposed a bin structure with 621 points between 10**-10 and 18 MeV.
+Because the purpose of the code was foil activation, a bin structure is imposed with 621 points between $10^{-10}$ to $18$ MeV.
 % 29 foil activations came with it, too since its purpose was foil activation, those were built in
+A library is distibuted with the code that contained, originally, 29 foil activation cross sections, plus built-in covers that could be applied to correct the cross sections.
 
 % also mention how sand ii has a rejection criterion
-% talk about that here
+There is also a neat feature built into the code that will, given a user defined value, discard an individual foil measurement that is a given number of standard deviations away from the calculated value using the solution spectrum.
+This will cause the solution to be recomputed without this measured value.
+
+% other codes
+The Sand II algorithm has seen a lot of application since its introduction in the sixties.
+Many other codes have built upon the foundation of the algorithm since then, such as Sand IV and MSANDB.
+The popular unfolding code, Gravel, utilizes the same algorithm, but includes one small change.
+The weighting function is updated like so,
+
+% the modified gravel weighting function
+\begin{equation}\label{eqn:gravel-w}
+W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{\sigma_i^2} ,
+\end{equation}
+
+to include a term that incorporates the measurement errors into the solution finding process.
+
 
 
 %                   -------------------------------------
