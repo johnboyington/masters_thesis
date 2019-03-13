@@ -264,7 +264,7 @@ which will tend to rapidly converge on a finite value, so the change in $\chi$ i
 % discuss positivity, etc.
 Similar to Sand II, the solution found in this way is guaranteed to be positive, given $R$ is positive.
 One advantage exhibited by this algorithm is it's relative simplicity and easiness to implement.
-It's basis in infomation theory means it has a grounding in mathematics that is related to neutronic behavior, and obvious advantage for the application.
+It's basis in infomation theory means it has a grounding in mathematics that is related to neutronic behavior, an obvious advantage for the application.
 
 % talk about different codes that use doroshenko
 The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko method, and since then it has been used in several other unfolding codes, such as the popular BUNKI, as well as AFITBUNKI and NSDUAZ.
@@ -276,9 +276,9 @@ The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko m
 \subsubsection{MAXED}
 
 % introduction
-Other maximum entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a fortran based code from Reginatto and Goldhagen was introduced that has been widely used and become very popular since then.
+Other maximum entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a fortran-based, maximum entropy, unfolding code from Reginatto and Goldhagen was introduced that has since seen wide-spread use and huge popularity across the field of neutron spectral unfolding.
 
-This algorithm begins with \EQN{eqn:disc-response} but adds an additional constraint
+This algorithm, MAXED, begins with \EQN{eqn:disc-response} but adds an additional constraint
 
 \begin{equation}\label{eqn:maxed-omega}
 \Omega = \sum_i \frac{\epsilon_i^2}{\sigma_i^2} ,
@@ -286,14 +286,14 @@ This algorithm begins with \EQN{eqn:disc-response} but adds an additional constr
 
 where $\Omega$ is a user-selected parameter that relates the measurement error of the detectors to the allowable deviation in the measured and calculated responses.
 
-The unique feature of MAXED is that entropy, while normally considered a measure of the solution spectrum itself, is here instead characterized as a value associated with the deviation between the default and solution spectra.
+The unique feature of MAXED is that entropy, while normally considered an information measure of the solution spectrum itself, is here instead characterized as a value associated with the deviation between the default and solution spectra.
 The code will then search for the maximum entropy solution that is most similar to the default spectrum using the following equation for entropy,
 
 \begin{equation}\label{eqn:maxed-skilling}
 S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] .
 \end{equation}
 
-In this way, the in-built hypothesis in the starting spectrum are more likely conserved, as they are considered parts of the $a priori$ information inclusion process described earlier.
+In this way, the in-built hypotheses in the starting spectrum are more likely conserved, as they are considered parts of the $a priori$ information inclusion process described earlier.
 
 To solve this equation, it first can be shown the the maximization of the entropy as defined above is associatied with the Lagrangian,
 
@@ -301,7 +301,7 @@ To solve this equation, it first can be shown the the maximization of the entrop
 L(\phi_j, \epsilon_i, \lambda_i, \mu) = -\sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] - \sum \lambda_i [\sum R_{ij} \phi_j - N_i - \epsilon_i] - \mu [\sum (\frac{\epsilon_i}{\sigma_k})^2 - \Omega] ,
 \end{equation}
 
-and that $\lamda_i$ and $\mu$ are Lagrange multipliers.
+and that $\lambda_i$ and $\mu$ are Lagrange multipliers.
 Reginatto and Goldhagen show that variation of $L$ is equivalent to the maximization of the following potential function, $Z$,
 
 \begin{equation}\label{eqn:maxed-potential}
@@ -325,9 +325,53 @@ Much of the emphasis in Reginatto and Goldhagen's work is on the importance of i
 Without proper $a priori$ information, the solution should not be considered useful.
 
 
+\subsubsection{A Note on Entropy}
+Although a formal or complete treatment of entropy extends beyond the scope of this work, a note will be included here, since two of the above methods are derived from this information theory.
+
+% entropy is a measure of the information contained within some signal
+Entropy is a quantifiable measure of the potential information contained within some signal.
+% the higher the entropy, the less likely there is information contained
+The higher the entropy, the less likely it is for information to be encoded within the signal.
+% the signal is considered more random
+In other words, the signal (or data, or vector), is considered to be more random and more likely in processes that produce random behavior.
+
+% entropy governs some physical processes like heat transfer and kinetic gas theory
+As a measure, entropy is very important in the theory of kinetic gases and heat transfer, since both involve numerous, stochastic interactions that tend to degrade inhomogeneities in data over time.
+% neutrons behave like gasses
+% their large number, fast speeds etc. make them look like gasses
+Neutrons, often large in quantity, behave similar to gasses.
+% this is one of the reasons diffusion theory can be applied to model neutronic behavior
+This is one of the reasons that allow diffusion theory to be applied successfully to model neutronic behavior.
+% especially because of the slowing down process in reactors, neutrons are unlikely to exhibit sharp features outside of that known by theory
+Since the neutron environments are often well understood, it is highly unlikely that sharp spectral features will form in solution spectra outside of those expected.
+% therefore, neutron spectra that develop features in the unfolding process may be rightfully treated skeptically, since there's no great reason for this 'information' to have been created
+Therefore, neutron spectra that develop features in the unfolding process may be, rightfully, treated skeptically, since there's no known reason for this `information' to have been created.
+% maximizing entropy is therefore a reasonable thing to put into an unfolding method
+It is for this reason that the maximization of entropy has seen such widespread use in the neutron spectral unfolding.
+
 %                   -------------------------------------
 
 \subsubsection{Other Methods}
+
+% the three methods above are popular but don't begin to cover the entire armada of unfolding techniques
+Although the three above methods are among the most popular, they don't begin to represent the whole of unfolding techniques.
+
+% parametric models get used
+Several codes have been developed that utilize parametric models.
+Since neutron spectra are often goverened by known, analytic models, unfolding can be considered a process perturbing model coefficients instead of energy bin values.
+This aids in the default spectrum selection, since it becomes a matter of selecting an analytic model and initial coefficients instead of providing a numerical default spectrum vector.
+These models can be simply selected based on the neutron environment in which the experiment was conducted.
+Codes like FRUIT, MITOM, BONMA, BON94, and MINUIT all use parametric models for unfolding.
+
+% least square models get used
+A simple mathematical least squares inversion can be done to obtain a solution.
+The codes LOUHI and STAY'NL are among those that use this inversion technique.
+% stay'nl is great because of error
+STAY'NL is particularly useful for its ability to incorporate error from the measurements, response functions, {\it and} default spectrum into its final solution.
+
+% other optimization techniques, GA, ANN
+A variety of other unfolding techniques have been successfully applied to the problem of spectral unfolding.
+These include genetic algorithms, like in the code BONDI-97; artificial neural networks, seen in BUMS; and many other iterative and non-iterative methods such as the Backus-Gilbert methods, the Bryan-Caudill Model, and the code BON.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
