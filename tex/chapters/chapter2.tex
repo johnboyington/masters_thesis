@@ -159,9 +159,13 @@ First, the default spectrum and response functions are folded together to obtain
 % these were compared with each measured response to obtain correction factors for each foil
 Then, these are compared with each measured response to obtain correction factors for each foil.
 % a weighting function is obtained (for each foil) based on the 'sensitivity function' (differenial cross section times differential flux)
-A weighting function, which is just the differential flux times the differential cross sections, is then obtained for each foil.
+A weighting function, which is simply the differential flux times the differential cross sections, is then obtained for each foil.
+% talk about weighting functions
+These weighting functions relate the input spectrum to the calculated activities.
+Perturbing an energy bin with a higher weight will lead to a more drastic change in the final calculated response.
 % an energy dependent correction function is obtained by comparing the weighting functions and the correction factors
-An energy dependent correction function is obtained by comparing these weighting functions with each foil's correction factor.
+Then, an energy dependent correction function is obtained by comparing these weighting functions with each foil's correction factor.
+This function maps the adjustment scheme required for the flux spectrum to create calculated responses that more closely resemble the measured responses.
 % these correction functions are applied to the flux and the flux is updated
 The correction functions are applied to the current step's flux, and an new flux is obtained.
 
@@ -173,7 +177,7 @@ The many steps from above can be written in a concise format,
 \phi_j^{k + 1} = \phi_j^{k} exp(\frac{\sum_i W_{ji}^k \log(\frac{N_i}{\sum_{j'} R_{ij'} \phi_{j'}^k})}{\sum_i W_{ji}^k}) ,
 \end{equation}
 
-where the weighting function is provided by
+where the function $W_{ji}^k$ is provided by
 
 % the sand ii weighting function
 \begin{equation}\label{eqn:sandii-w}
@@ -186,13 +190,14 @@ Because Sand II is iterative, there needs to be a criteria defined for solution 
 A user provides a value which represents the degree to which each differential flux value for two successive iterations must agree for a solution to be considered achieved.
 
 % initially, since its purpose was foil activation, it imposed a bin structure with 621 points between 10**-10 and 18 MeV.
-Because the purpose of the code was foil activation, a bin structure is imposed with 621 points between $10^{-10}$ to $18$ MeV.
+Because the purpose of the code was foil activation in a typical fission reactor environment, a bin structure is imposed with 621 points between $10^{-10}$ to $18$ MeV, representing the range covered by neutrons in that environment.
 % 29 foil activations came with it, too since its purpose was foil activation, those were built in
-A library is distibuted with the code that contained, originally, 29 foil activation cross sections, plus built-in covers that could be applied to correct the cross sections.
+A library is distibuted with the code that contained, originally, 29 foil activation cross sections, plus built-in cover data (Cd, etc.) that could be applied to the foil cross sections.
 
 % also mention how sand ii has a rejection criterion
-There is also a neat feature built into the code that will, given a user defined value, discard an individual foil measurement that is a given number of standard deviations away from the calculated value using the solution spectrum.
-This will cause the solution to be recomputed without this measured value.
+Accommodating the somewhat unpredictable or error-prone nature of experimentation, there is also a feature built into the code that will, given a user defined value in standard deviations, discard an individual foil measurement that value's distance away from the calculated value using the solution spectrum.
+This allows the user to mathematically (and automatically) classify and remove outlying data.
+The solution is then recomputed without this troublesome and unphysical value.
 
 % other codes
 The Sand II algorithm has seen a lot of application since its introduction in the sixties.
@@ -206,6 +211,7 @@ W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{
 \end{equation}
 
 to include a term that incorporates the measurement errors into the solution finding process.
+Another feature of Gravel in its current distribution is the removal of the required input format of Sand II, meaning the application is no longer locked to the domain of foil activation, but can be applied to any unfolding situation, given the proper, user-provided response functions.
 
 
 
