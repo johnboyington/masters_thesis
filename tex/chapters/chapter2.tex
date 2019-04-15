@@ -39,16 +39,16 @@ N_k + \epsilon_k = \int_E R_k(E) \phi(E) dE .
 
 \noindent
 Here, $N_k$ represents the measured response of the detector, $\epsilon_k$ is the unknown error associated with $N_k$, $R_k(E)$ is the response function, and $\phi(E)$ is the flux.
-By placing a detector $k$ with associated response function $R(E)$ in a neutron spectrum $\phi(E)$, a response $N_k$ is exhibited subject to an uncertainty $\epsilon_k$ that may come from measurement noise or other sources.
+By placing a detector $k$ with associated response function $R(E)$ in a neutron environment $\phi(E)$, a response $N_k$ is exhibited that is dispaired $\epsilon_k$ from the expected response due to noise or other sources.
 
 As posed, this formulation bears a certain number of issues.
 It is impossible to derive a continuous function for the flux from a finite set of equations.
 With any discrete number of measurements, the solution remains non-unique; the equation thus satisfied by an infinite number of solutions.
-The fact that the $\epsilon_k$ term is unknown implies that just as there is a limit to the confidence one can have in a real measurement, there too, is a limit on the intelligibility of the final spectrum.
+The fact that the $\epsilon_k$ term is unknown implies that just as there is a limit to the confidence one can have in a real measurement, there too, is a limit on the confidence in the final spectrum.
 
-A number of approximations serve to remedy these dilemmata.
+A number of approximations serve to remedy these dilemmas.
 An energy bin structure can be introduced, with energy bins $\Delta E_i (i = 1, \ldots, n)$, which discretize the problem.
-Then, for a problem with $m$ detector configurations, equation \ref{eqn:cont-response} is rewritten as
+Then, for a problem with $m$ detector configurations, equation \EQ{eqn:cont-response} is rewritten as
 
 \begin{equation}
 \label{eqn:disc-response}
@@ -70,16 +70,16 @@ One can feasibly produce a valid solution using a method derived entirely from t
 % lots of math based methods exist that give acceptable solutions
 In fact, an expansive literature exists on pure-math methods to solving ill-posed, linear, inverse problems such as the one posed.
 % how can we say if they're any good though?
-Though these may produce solutions that satisfy the equation, what can be said of the verisimilitude of these solutions?
+However, though these may produce solutions that satisfy the equation, what can be said of the accuracy of these solutions?
 
 % these can produce spectra with features that are unreasonable
 Unfortunately, solution spectra derived from these methods can exhibit features that lack a physical basis or be deficient of features present in the actual neutron spectrum.
 % this claim can be made because much is already known about the physics in a reactor core
 Though the neutron spectrum under inspection is technically unknown, a strong theoretical foundation allows one to make this claim.
 % reactors have been studied for a long time
-Nearly a century's worth of effort has gone into understanding neutronics and reactor physics, perhaps beginning with James Chadwick's 1932 discovery of the neutron (CITE).
+Nearly a century's worth of effort has gone into understanding neutronics and reactor physics after with James Chadwick's 1932 discovery of the neutron.
 % this has led to the development of a strong theory of reactor theory and neutronics
-Since then, this effort has ultimately led to the development of a robust and nearly comprehensive theory of nuclear reactor physics that have allowed us to construct a diverse fleet of hundreds of nuclear fission reactors.
+Since then, this effort has ultimately led to the development of a robust and quite comprehensive theory of nuclear reactor physics that have allowed us to construct a diverse fleet of hundreds of nuclear fission reactors.
 % this knowledge is crucial for discriminating bad or un-physical spectra, without it, there'd be know way to reasonablly accept a solution
 It is this knowledge that is crucial for assisting in the discrimination of derived neutron spectra, for without it, there would be no scientifically-grounded criteria for acceptance or rejection.
 % this means that math only approaches are no good
@@ -101,9 +101,9 @@ In this way, the problem is considered an optimization, specifically a minimizat
 Examples of these constraints include jump limitation and regional enforcing of increasement or decreasement, and will be discussed in more detail later.
 
 % by far, the most common approach to this dilema is the inclusion of what is called a default spectrum
-Undoubtedly, the most ubiquitous solution to the dilemma of theory inclusion is the utilization of a `default spectrum'.
+Undoubtedly, the most common solution to the dilemma of theory inclusion is the utilization of a `default spectrum'.
 % this spectrum, also known as a guess or trial spectrum, is the best initial guess for what the final spectrum could be
-This default spectrum, also commonly referred to as a guess spectrum or trial spectrum, is a theoretically-based, {\it a priori} solution hypothesis - the best guess at the final answer.
+This default spectrum, also often referred to as a guess spectrum or trial spectrum, is a theoretically-based, {\it a priori} solution hypothesis - the best guess at the final answer.
 % it makes sense, since ya know, perfect guess, then we've already got the answer
 If we have access to the true solution, cast as a perfect guess, the reliance on the uninformed mathematics behind deconvolution is completely alleviated.
 % if the trial spectrum is slightly off, our solution method just has to tweak it slightly to arrive at a solution
@@ -112,9 +112,9 @@ If the default spectrum is correct in essence (general shape and magnitude), but
 This refashions the entire problem of unfolding to one of inference, where substantial weight is placed on the construction of the greatest default spectrum, and not necessarily on the math-mechanics of the method.
 
 % but can we do this?
-Convenient as this appears, the skeptic may inquire as to the viability of such a refashioning.
+Convenient as this appears, a skeptic may inquire as to the viability of such a refashioning.
 % it's the a priori understanding we've got of reactor cores that allow us to do this
-The response: ``How confident are you in our models?"
+Before continuing, it may be helpful to provide a discussion of the fidelity of our current reactor models.
 % taking for example a typical lwr, a spectrum should generally consist of a superposition of 3 features
 Let's take for example a typical light water reactor (LWR).
 In the general case, the neutron spectrum present in such a reactor can be justifiably simplified to the superposition of three features.
@@ -136,7 +136,7 @@ The computing power available to modern reactor theorists have allowed for the g
 % both MC and deterministic methods can be applied to a neturonic problem and obtain a neutron spectrum
 Subdivided into two major classes, stochastic and deterministic methods, with both bearing unique advantages, these numerical approaches are the contemporary standard for obtaining a default spectrum.
 % this allows us to depart from typical problems into the domain of any understood or semi-understood problem and allows for the application of spectral unfolding methods to almost any concievable physically possible experimental configuration
-Programs such as MCNP and Geant have paved a road from the domain of typical or simplified problems into that of any well-understood or semi-understood spectral obtention problem and grant deconvolution methods value in almost any conceivable, physically-possible experimental configuration.
+Programs such as MCNP and Geant have paved a road from the domain of typical or simplified problems into that of any well-understood or semi-understood neutronic problem and grant deconvolution methods value in almost any conceivable experimental configuration.
 
 % now to discuss the algorithms themselves
 % these algorithms have all been written into codes over and over again, and although that will be discussed, the underlyting algorithm is the important part, so that's what they'll be discussed in terms of
@@ -149,7 +149,7 @@ Programs such as MCNP and Geant have paved a road from the domain of typical or 
 \subsubsection{Sand II}
 
 % the sand ii algorithm was introduced in 1967 by McElroy et. al. at air force weapons lab in a paper titled 'A COMPUTER-AUTOMATED V0 ITERATIVE METHOD FOR NEUTRON FLUX SPECTRA DETERMINATIONBY FOIL ACTIVATION'
-The Sand II algorithm was first introduced in a 1967 paper from the Air Force Weapons Lab by McElroy et. al. describing `A Computer-Automated Iterative Method for Neutron Flux Spectra determination by Foil Activation'. (CITE)
+The Sand II algorithm was first introduced in a 1967 paper from the Air Force Weapons Lab by McElroy et. al. describing `A Computer-Automated Iterative Method for Neutron Flux Spectra determination by Foil Activation'.
 % the codes purpose was unfolding, specifically in the case of
 Sand II was built specifically with foil activation unfolding in mind, using a specially-designed, iterative, spectral adjustment procedure.
 % it used a default spectrum as the first step in an iterative scheme
@@ -181,6 +181,7 @@ The many steps from above can be written in a concise format,
 \phi_j^{k + 1} = \phi_j^{k} exp(\frac{\sum_i W_{ji}^k \log(\frac{N_i}{\sum_{j'} R_{ij'} \phi_{j'}^k})}{\sum_i W_{ji}^k}) ,
 \end{equation}
 
+\noindent
 where the function $W_{ji}^k$ is provided by
 
 % the sand ii weighting function
@@ -216,6 +217,7 @@ The weighting function is updated like so,
 W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{\sigma_i^2} ,
 \end{equation}
 
+\noindent
 to include a term that incorporates the measurement errors into the solution finding process.
 Another feature of Gravel in its current distribution is the removal of the required input format of Sand II, meaning the application is no longer locked to the domain of foil activation, but can be applied to any unfolding situation, given the proper, user-provided response functions.
 
@@ -228,7 +230,7 @@ Another feature of Gravel in its current distribution is the removal of the requ
 % doroshenko et. al. released an algorithm
 In 1975, an algorithm was introduced by Doroshenko et. al. to tackle the problem of spectral unfolding.
 % the basis of the algorithm was unfolding via maximization of `directed divergence'
-The basis of the algorithm was to provide a solution that satisfies \EQN{eqn:disc-response} while also maximizing a quantity called `directed divergence'.
+The basis of the algorithm was to provide a solution that satisfies \EQ{eqn:disc-response} while also maximizing a quantity called `directed divergence'.
 % directed divergence, or entropy is an information measure that is related to the likelihood of a neutron spectrum taking a particular shape
 Directed divergence, also referred to as entropy, is a measure related to the likelihood that a neutron spectrum will take a particular shape.
 A more complete treatment of entropy will be handled later.
@@ -288,13 +290,14 @@ The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko m
 % introduction
 Other maximum entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a fortran-based, maximum entropy, unfolding code from Reginatto and Goldhagen was introduced that has since seen wide-spread use and huge popularity across the field of neutron spectral unfolding.
 
-This algorithm, MAXED, begins with \EQN{eqn:disc-response} but adds an additional constraint
+This algorithm, MAXED, begins with \EQ{eqn:disc-response} but adds an additional constraint
 
 \begin{equation}
 \label{eqn:maxed-omega}
 \Omega = \sum_i \frac{\epsilon_i^2}{\sigma_i^2} ,
 \end{equation}
 
+\noindent
 where $\Omega$ is a user-selected parameter that relates the measurement error of the detectors to the allowable deviation in the measured and calculated responses.
 
 The unique feature of MAXED is that entropy, while normally considered an information measure of the solution spectrum itself, is here instead characterized as a value associated with the deviation between the default and solution spectra.
