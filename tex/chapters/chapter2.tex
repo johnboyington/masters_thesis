@@ -22,25 +22,27 @@
 
 
 In practice, active and passive detectors and measurement techniques can appear very different.
-However, for the purpose of mathematical formulation, it is possible, and indeed useful, to abstract their similitudes.
-The above mentioned detection methods are resemblant in the fact that they provide a set of unique, discrete responses in the presence of an unknown, continuous neutron flux.
+However, for the purpose of mathematical formulation, it is possible, and indeed useful, to abstract their similarities.
+The above mentioned detection methods resemble eachother in the fact that they provide a set of unique, discrete responses in the presence of an unknown, continuous neutron flux.
 These discrete responses can vary greatly between different neutron environments.
-For example, the LiI detection crystal of the BSS responds strongly in the presence of thermal neutrons and shows indifference towards neutrons of the faster variety, whereas certain reactions utilized in activation foil analysis, such as ($n, \alpha$), will not occur below specific, fast, threshold neutron energies, thus the detector is considered to have a fast response.
+For example, the LiI detection crystal of the BSS responds strongly to thermal neutrons and weakly to fast neutrons, whereas certian reactions utilized in activation foil analysis, such as ($n, \alpha$), will not occur below specific, fast, threshold neutron energies, thus the detector is considered to have a fast response.
 These largely energy-dependent responses, often related to material properties and reaction cross sections, can be considered functions.
-A detector's `Response Function', now formally stated, is the measurable effect exhibited by a detector in a particular geometric configuration as a function of energy to a particular neutron source.
-It is true that the response function is more technically also a function of parameters like geometry, source angle and position, etc.; however, it proves efficacious here to hold those details constant and consider response unidimensional in energy.
+A detector {\it response function}, is the measureable effect exhibited by a detector in a particular geometric configuration as a function of energy to a particular neutron source.
+A response function is generally a function of the system geometry and the source emission profile (as a function of space, angle, and energy), but for fixed source-detector configurations, the response can be considered unidimensional in energy.
 
-This conceptualization of response allows for a stated relationship between flux, response function and response for detector configuration $k$, shown in the following Fredholm integral equation of the first kind,
+With this understanding of the response and response function, the relationship between the flux, response function, and response for detector configuration $k$ can be represented as Fredholm integral equation of the first kind, i.e.,
 
-\begin{equation}\label{eqn:cont-response}
+\begin{equation}
+\label{eqn:cont-response}
 N_k + \epsilon_k = \int_E R_k(E) \phi(E) dE .
 \end{equation}
 
+\noindent
 Here, $N_k$ represents the measured response of the detector, $\epsilon_k$ is the unknown error associated with $N_k$, $R_k(E)$ is the response function, and $\phi(E)$ is the flux.
-By placing a detector, $k$, with associated response function, $R(E)$, in a neutron environment, $\phi(E)$, it should exhibit some response $N_k$ that is dispaired $\epsilon_k$ from the expected response.
+By placing a detector $k$ with associated response function $R(E)$ in a neutron spectrum $\phi(E)$, a response $N_k$ is exhibited subject to an uncertainty $\epsilon_k$ that may come from measurement noise or other sources.
 
 As posed, this formulation bears a certain number of issues.
-It is impossible to derive a continuous function from a finite set of equations.
+It is impossible to derive a continuous function for the flux from a finite set of equations.
 With any discrete number of measurements, the solution remains non-unique; the equation thus satisfied by an infinite number of solutions.
 The fact that the $\epsilon_k$ term is unknown implies that just as there is a limit to the confidence one can have in a real measurement, there too, is a limit on the intelligibility of the final spectrum.
 
@@ -48,7 +50,8 @@ A number of approximations serve to remedy these dilemmata.
 An energy bin structure can be introduced, with energy bins $\Delta E_i (i = 1, \ldots, n)$, which discretize the problem.
 Then, for a problem with $m$ detector configurations, equation \ref{eqn:cont-response} is rewritten as
 
-\begin{equation}\label{eqn:disc-response}
+\begin{equation}
+\label{eqn:disc-response}
 N_k + \epsilon_k = \sum_i R_{ki} \phi_i, \quad k = 1,\ldots, m .
 \end{equation}
 
@@ -173,14 +176,16 @@ The correction functions are applied to the current step's flux, and an new flux
 The many steps from above can be written in a concise format,
 
 % the sand ii iteration scheme
-\begin{equation}\label{eqn:sandii}
+\begin{equation}
+\label{eqn:sandii}
 \phi_j^{k + 1} = \phi_j^{k} exp(\frac{\sum_i W_{ji}^k \log(\frac{N_i}{\sum_{j'} R_{ij'} \phi_{j'}^k})}{\sum_i W_{ji}^k}) ,
 \end{equation}
 
 where the function $W_{ji}^k$ is provided by
 
 % the sand ii weighting function
-\begin{equation}\label{eqn:sandii-w}
+\begin{equation}
+\label{eqn:sandii-w}
 W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} .
 \end{equation}
 
@@ -206,7 +211,8 @@ The popular unfolding code, Gravel, utilizes the same algorithm, but includes on
 The weighting function is updated like so,
 
 % the modified gravel weighting function
-\begin{equation}\label{eqn:gravel-w}
+\begin{equation}
+\label{eqn:gravel-w}
 W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{\sigma_i^2} ,
 \end{equation}
 
@@ -230,7 +236,8 @@ A more complete treatment of entropy will be handled later.
 In the case of Doroshenko's algorithm, the following method of entropy calculation is used
 
 % entropy equation used in doroshenko
-\begin{equation}\label{eqn:doroshenko-entropy}
+\begin{equation}
+\label{eqn:doroshenko-entropy}
 J = - \sum_i N_i \ln(\frac{N_i}{\sum_j \phi_j R_{ij}}) .
 \end{equation}
 
@@ -240,7 +247,8 @@ An iterative scheme can then be derived that will, after sufficient iteration, c
 This relationship is shown in the following equation,
 
 % the doroshenko iteration scheme
-\begin{equation}\label{eqn:doroshenko}
+\begin{equation}
+\label{eqn:doroshenko}
 \phi_j^{k + 1} = \phi_j^{k} (\frac{\sum_i \frac{R_{ji}}{\sum_j R_{ij} \phi_j^k}}{\sum_i \frac{R_{ji}}{N_i}}) .
 \end{equation}
 
@@ -250,14 +258,16 @@ These are used to produce a weighting function that will correct the flux more i
 A measure of error can be computed to compare responses,
 
 % the doroshenko iteration scheme
-\begin{equation}\label{eqn:doroshenko-error}
+\begin{equation}
+\label{eqn:doroshenko-error}
 \chi^2 = \frac{1}{N} \sum_{i=1}^N [\frac{\sum_j R_{ij} \phi_j^k - N_i}{N_i}]^2 ,
 \end{equation}
 
 which will tend to rapidly converge on a finite value, so the change in $\chi$ is used as a convergence criteria,
 
 % the doroshenko iteration scheme
-\begin{equation}\label{eqn:doroshenko-error-delta}
+\begin{equation}
+\label{eqn:doroshenko-error-delta}
 \delta \chi^k = \chi^k - \chi^{k-1} .
 \end{equation}
 
@@ -280,7 +290,8 @@ Other maximum entropy unfolding methods have been proposed since Doroshenko, suc
 
 This algorithm, MAXED, begins with \EQN{eqn:disc-response} but adds an additional constraint
 
-\begin{equation}\label{eqn:maxed-omega}
+\begin{equation}
+\label{eqn:maxed-omega}
 \Omega = \sum_i \frac{\epsilon_i^2}{\sigma_i^2} ,
 \end{equation}
 
@@ -289,7 +300,8 @@ where $\Omega$ is a user-selected parameter that relates the measurement error o
 The unique feature of MAXED is that entropy, while normally considered an information measure of the solution spectrum itself, is here instead characterized as a value associated with the deviation between the default and solution spectra.
 The code will then search for the maximum entropy solution that is most similar to the default spectrum using the following equation for entropy,
 
-\begin{equation}\label{eqn:maxed-skilling}
+\begin{equation}
+\label{eqn:maxed-skilling}
 S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] .
 \end{equation}
 
@@ -297,25 +309,29 @@ In this way, the in-built hypotheses in the starting spectrum are more likely co
 
 To solve this equation, it first can be shown the the maximization of the entropy as defined above is associated with the Lagrangian,
 
-\begin{equation}\label{eqn:maxed-lagrangian}
+\begin{equation}
+\label{eqn:maxed-lagrangian}
 L(\phi_j, \epsilon_i, \lambda_i, \mu) = -\sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] - \sum \lambda_i [\sum R_{ij} \phi_j - N_i - \epsilon_i] - \mu [\sum (\frac{\epsilon_i}{\sigma_k})^2 - \Omega] ,
 \end{equation}
 
 and that $\lambda_i$ and $\mu$ are Lagrange multipliers.
 Reginatto and Goldhagen show that variation of $L$ is equivalent to the maximization of the following potential function, $Z$,
 
-\begin{equation}\label{eqn:maxed-potential}
+\begin{equation}
+\label{eqn:maxed-potential}
 Z = \sum \phi_j^{DEF} \exp(-\sum \lambda_i R_{ij}) - [\Omega \sum (\lambda_i \sigma_i)^2]^{1/2} - \sum N_i \lambda_i .
 \end{equation}
 
 Although many methods can be applied to maximize the function, the chosen method for MAXED was simulated annealing for its ability to discriminate between local and global optima.
 This process will give the $\lambda_i$ that maximize $Z$ which then can be used in the following two relationships to provide a solution flux and errors associated each response,
 
-\begin{equation}\label{eqn:maxed-flux}
+\begin{equation}
+\label{eqn:maxed-flux}
 \phi_j = \phi_j^{DEF} \exp(- \sum_i \lambda_k R_{ij}) ,
 \end{equation}
 
-\begin{equation}\label{eqn:maxed-error}
+\begin{equation}
+\label{eqn:maxed-error}
 \epsilon_i = \frac{\lambda_i \sigma_i^2}{2} (\frac{4 \Omega}{\sum_j (\lambda_j \sigma_j)^2})^{1/2} .
 \end{equation}
 
