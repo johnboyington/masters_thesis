@@ -113,6 +113,16 @@ The borated polyethylene extends the entire distance of the collimator.
 \end{figure}
 
 
+% Write about the actual implementation
+The NEBP itself consists primarily of cylinders and planes, so its implementation in the model was relatively straightforward.
+The surrounding concrete structure was modeled as a large cylinder as opposed to the complex polygon.
+This is because the intracies in the outer areas of the structure will not affect the tally at the end of the beam port.
+Only the concrete directly around the beam port should make much of a difference.
+% hole in the graphite reflector
+A penetration was added to the graphite reflector.
+The reactor documentation was unclear about some specifics regarding this penetration, so it was assumed that it was not encased by any aluminum, but the aluminum surrounding the reflector was left intact to not let water in.
+
+
 
 
 % table that contains the material data for the model
@@ -176,9 +186,6 @@ Concrete & 2.4 &  $^{1}$H (0.0221) $^{2}$H (0.00000509) \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-
-\subsection{Rotation of the model}
 
 
 % ------------------------------------------------------------------------------
