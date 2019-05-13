@@ -127,30 +127,7 @@ The reactor documentation was unclear about some specifics regarding this penetr
 
 % table that contains the material data for the model
 % density of steel 8.03
-%m4         6012 -0.00039536233
-%           6013 -4.6336713e-06
-%          14028.80c -0.0045932784
-%          14029.80c -0.00024167903
-%          14030.80c -0.00016499257
-%          15031.80c -0.0002299977
-%          16032.80c -0.00014207158
-%          16033.80c -1.1567992e-06
-%          16034.80c -6.7532956e-06
-%          16036.80c -1.6825336e-08
-%          24050.80c -0.007929925
-%          24052.80c -0.1590272 
-%          24053.80c -0.018379631
-%          24054.80c -0.0046613454
-%          25055.80c -0.0099999 
-%          26054.80c -0.03961618
-%          26056.80c -0.64489415
-%          26057.80c -0.015159803
-%          26058.80c -0.0020528512
-%          28058.80c -0.062157351
-%          28060.80c -0.024767425
-%          28061.80c -0.0010945963
-%          28062.80c -0.003547273
-%          28064.80c -0.00093242912
+
 \begin{table}[h]\centering
 \caption{Materials used in the NEBP model.}
 \begin{tabular}{ r c l }
@@ -183,6 +160,19 @@ Concrete & 2.4 &  $^{1}$H (0.0221) $^{2}$H (0.00000509) \\
 & &          $^{48}$Ca (0.00009622)    $^{54}$Fe (0.00036) \\
 & &          $^{56}$Fe (0.00592)   $^{57}$Fe (0.000139) \\
 & &          $^{58}$Fe (0.0000189) \\
+\midrule
+Steel & 8.03 & $^{12}$C (0.00039536233)  $^{13}$C (0.0000046336713) \\
+& &            $^{28}$Si (0.0045932784) $^{29}$Si  (0.00024167903) \\
+& &            $^{30}$Si  (0.00016499257) $^{31}$P  (0.0002299977) \\
+& &            $^{32}$S  (0.00014207158)  $^{33}$S  (0.0000011567992) \\
+& &            $^{34}$S  (0.0000067532956) $^{36}$S  (0.000000016825336) \\
+& &            $^{50}$Cr  (0.007929925)   $^{52}$Cr  (0.1590272) \\
+& &            $^{53}$Cr  (0.018379631)   $^{54}$Cr  (0.0046613454) \\
+& &            $^{55}$Mn  (0.0099999)   $^{54}$Fe  (0.03961618) \\
+& &            $^{56}$Fe  (0.64489415)   $^{57}$Fe  (0.015159803) \\
+& &            $^{58}$Fe  (0.0020528512)  $^{58}$Ni  (0.062157351) \\
+& &            $^{60}$Ni  (0.024767425)  $^{61}$Ni  (0.0010945963) \\
+& &            $^{62}$Ni  (0.003547273)  $^{64}$Ni  (0.00093242912) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -218,10 +208,34 @@ The {\tt EXT} (extent) variable means length of the cylinder, in this case the l
 Because base MCNP doesn't easily allow for nested dependent distributions, the {\tt RAD} (radial) distribution was considered an independent variable, and the distribution used was the normalized, averaged radial fission rate across each fuel element.
 
 Along with the tally, several plots were made of this fission rate data.
-% ************************
-% discuss results here   *
-% ************************
 
+% the fission rates tallied inside a fuel element
+\begin{figure}[htb]
+\centering
+\includegraphics[height=4in]{tex/figures/rr_dist_B1.png}
+\caption[Fission Rate Dist. B1]{The fission rate distribution within the element B1.}
+\label{fig:rr_dist_b1}
+\end{figure}
+
+% the radial reaction rate density within the B ring
+\begin{figure}[htb]
+\centering
+\includegraphics[height=4in]{tex/figures/radial_rr_density_B.png}
+\caption[Radial Fission Rate Density B]{The radial fission rate within the B ring.}
+\label{fig:radial_rr_density_B}
+\end{figure}
+
+% the axial reaction rate densities
+\begin{figure}
+\centering
+\subfloat[B Ring]{\includegraphics[height = 4in]{tex/figures/axial_rr_density_B.png}} 
+\subfloat[C Ring]{\includegraphics[height = 4in]{tex/figures/axial_rr_density_C.png}}
+\subfloat[D Ring]{\includegraphics[height = 4in]{tex/figures/axial_rr_density_D.png}}\\
+\subfloat[E Ring]{\includegraphics[height = 4in]{tex/figures/axial_rr_density_E.png}} 
+\subfloat[F Ring]{\includegraphics[height = 4in]{tex/figures/axial_rr_density_F.png}} 
+\caption[Axial Fission Rates]{The axial fission rates within each ring of the core.}
+\label{fig:axial_rr_density}
+\end{figure}
 
 % ------------------------------------------------------------------------------
 \section{Application of ADVANTG}
