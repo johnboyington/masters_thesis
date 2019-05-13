@@ -191,6 +191,38 @@ Concrete & 2.4 &  $^{1}$H (0.0221) $^{2}$H (0.00000509) \\
 % ------------------------------------------------------------------------------
 \section{KCODE to SDEF/Fission Rates}
 
+% the goal is transport, so no kcode
+The ultimate goal here is to obtain, via simulation, the flux departing from the beam port.
+However, the existing model is setup only for KCODE problems.
+The difficult nature of this transport problem, due to the low probability of a simulated particle streaming down the collimator and exiting the reactor, requires some form of variance reduction.
+Because of an incompatibility between KCODE problems and the code ADVANTG (used to generate weight windows), this problem must first be converted into an SDEF-type problem.
+This conversion required the collection of spatially-dependent fission site data.
+This fission map could provide the set of pdfs to inform the steady-state sampling problem.
+This was done in the following way.
+First, the fuel cells were discretized axially and radially.
+It was decided that 40 axial sections and 5 radial sections were used for each of the 85 fuel elements to create a total of 17,000 cells.
+Then a fission rate tally was created for these cells.
+This was done using an F4 tally (flux averaged over a cell) with an FM (tally multiplier) card which would multiply the flux by the total fission cross section for the fresh fuel material.
+With these tallys in place, the KCODE problem was then run for a total of 4,400 cycles where the first 10 were discarded and each cycle consisted of 100,000 particles.
+After running this problem, a python script was used to parse the output and generate an SDEF source to be used in the next step.
+This card is shown here.
+
+\begin{center}
+{\tt SDEF ERG=D1 RAD=D2  AXS=0 0 1  POS=D3  EXT=FPOS=D4}
+\end{center}
+
+The {\tt ERG} (energy) distribution used for the source was MCNP's built-in Watt spectrum, indicated simply by a -3 on the source probability card.
+The source's spatial distribution is a series of cylinders co-located with the fuel elements within the core.
+The {\tt POS} (position) variable contained the center points of each of the fuel elements, whose probabilty was proportional to their integrated fission rate.
+The {\tt EXT} (extent) variable means length of the cylinder, in this case the length of the fuel meat, and refers to a series of distributions dependent on the {\tt POS} of the fuel.
+Because base MCNP doesn't easily allow for nested dependent distributions, the {\tt RAD} (radial) distribution was considered an independent variable, and the distribution used was the normalized, averaged radial fission rate across each fuel element.
+
+Along with the tally, several plots were made of this fission rate data.
+% ************************
+% discuss results here   *
+% ************************
+
+
 % ------------------------------------------------------------------------------
 \section{Application of ADVANTG}
 
