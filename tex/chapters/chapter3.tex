@@ -172,6 +172,7 @@ Steel & 8.03 & $^{12}$C (0.00039536233)  $^{13}$C (0.0000046336713) \\
 \end{tabular}
 \end{table}
 
+\clearpage
 
 % ------------------------------------------------------------------------------
 \section{KCODE to SDEF/Fission Rates}
@@ -212,6 +213,11 @@ Along with the tally, several plots were made of this fission rate data.
 \label{fig:rr_dist_b1}
 \end{figure}
 
+% talk about the B1 element plot
+The heatmap in \FIG{fig:rr_dist_b1} demonstrates visually how the fissions are distributed within a typical fuel element.
+Because there was no azimuthal discretization in the tallies, the values here are rotationally symmetric.
+Although it is hard to draw any quantitative conclusions from this image, it is useful for visualizing fission rates within an element.
+
 % the radial reaction rate density within the B ring
 \begin{figure}[htb]
 \centering
@@ -231,6 +237,16 @@ Along with the tally, several plots were made of this fission rate data.
 \caption[Axial Fission Rates]{The axial fission rates within each ring of the core.}
 \label{fig:axial_rr_density}
 \end{figure}
+
+% the integrated fission rates for each ring
+\begin{figure}[htb]
+\centering
+\includegraphics[height=5in]{tex/figures/totals_azi.png}
+\caption[Whole Core Azimuthal Fission Rate Density]{The fission rate density for each element in the core as a function of core position.}
+\label{fig:totals_azi}
+\end{figure}
+
+\clearpage
 
 % ------------------------------------------------------------------------------
 \section{Application of ADVANTG}
