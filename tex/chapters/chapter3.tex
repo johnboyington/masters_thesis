@@ -214,9 +214,10 @@ Along with the tally, several plots were made of this fission rate data.
 \end{figure}
 
 % talk about the B1 element plot
-The heatmap in \FIG{fig:rr_dist_b1} demonstrates visually how the fissions are distributed within a typical fuel element.
+The heatmap in \FIG{fig:rr_dist_b1} demonstrates how the fissions are distributed within a typical fuel element.
 Because there was no azimuthal discretization in the tallies, the values here are rotationally symmetric.
 Although it is hard to draw any quantitative conclusions from this image, it is useful for visualizing fission rates within an element.
+The fission rate appears to be a maximum at the center of the rod, both axially and radially.
 
 % the radial reaction rate density within the B ring
 \begin{figure}[htb]
@@ -226,8 +227,13 @@ Although it is hard to draw any quantitative conclusions from this image, it is 
 \label{fig:radial_rr_density_B}
 \end{figure}
 
+In \FIG{fig:radial_rr_density_B}, one can see the radial behavior of the fission rates within ring B.
+Although the curves here are different, they differ primarily in magnitude and not shape.
+The other rings not pictured here all show similar behavior.
+The fission rate density is highest towards the center of the rod and lowest in the outermost region.
+
 % the axial reaction rate densities
-\begin{figure}
+\begin{figure}[htb]
 \centering
 \subfloat[B Ring]{\includegraphics[height = 4in]{tex/figures/axial_rr_density_B.png}} 
 \subfloat[C Ring]{\includegraphics[height = 4in]{tex/figures/axial_rr_density_C.png}}
@@ -238,6 +244,24 @@ Although it is hard to draw any quantitative conclusions from this image, it is 
 \label{fig:axial_rr_density}
 \end{figure}
 
+
+\FIGURE{fig:axial_rr_density} shows the axial fission rate densities within each ring of the core.
+Each of these rings shows a cosine-like distribution with a slight upturn at each extrema.
+The cosine shape is due to the flux having a similar shape within a cylindrical geometry, like the reactor core.
+The upturn is caused by the graphite on each end of the fuel elements which reflects neutrons back towards the rod.
+There are two rings in particular that show additional behavior outside of these two phemonena.
+The first is the depression within the B ring below 0 $cm$.
+This is caused by the central thimble, which currently occupies the A1 location.
+Moderating water which would normally occupy that location is replaced by this thimblem which is currently modeled as an aluminum rod that extends halfway up the core.
+This lack of neutron moderation means lower thermal flux in that region and results in the depressed fission rate.
+
+The second is the depressed fission rate within F1-F9.
+This is caused by the addition of the NEBP.
+Recall, the beam port includes a penetration situated 8.3 $cm$ below the z axis within the graphite reflector.
+This lack of relfection means more neutrons will stream out of the core within that region, thus lowering the local flux and fission rate.
+This effect can be seen some within the E ring, but it is much less pronounced.
+
+
 % the integrated fission rates for each ring
 \begin{figure}[htb]
 \centering
@@ -245,6 +269,10 @@ Although it is hard to draw any quantitative conclusions from this image, it is 
 \caption[Whole Core Azimuthal Fission Rate Density]{The fission rate density for each element in the core as a function of core position.}
 \label{fig:totals_azi}
 \end{figure}
+
+By studying \FIG{fig:totals_azi}, one can again see the effect the NEBP has on the F ring's fission rates.
+This depression is seen when sweeping past the NEBP from around 12$^{\circ}$-75$^{\circ}$.
+Other peaks and vally's seen in the figure are likely the cause of control rod, central thimble, and source placement.
 
 \clearpage
 
