@@ -24,7 +24,7 @@ The goal of the effort was to produce, from the ground up, a python-based suite 
 The model currently contains all of the major features from the actual reactor.
 There are 85 fuel elements, containing fresh fuel, that are able to be automatically discretized axially, radially, and azimuthally into up to 10,000 cells.
 The four control rods are also included, and a user may specify their exact position to match that of in-core experiments.
-The central thimble, grid plates, and source location are all also included in the core model, which is surrounded by the graphite reflector.
+The central thimble, grid plates, and source location are all also included in the core model, which is surrounded by a graphite reflector.
 Before the addition of the beam port, this is the furthest the model extended.
 This model can be seen in \FIG{fig:existing}.
 
@@ -46,9 +46,9 @@ Using this model as a starting point, the northeast beam port (NEBP) was then ad
 The NEBP, also known as the penetrating beam port or the fast beam port, is in essence, a large collimating cavity in the reactor's structure that allows neutrons to stream from the core to the outside of the reactor.
 % purpose
 The primary purpose of this is to provide a monodirectional neutron source, the strength of which can be scaled easily via reactor control.
-This can be used for detector calibrations and testing, neutron imaging, or sample irradiation through neutron activation analysis.
+This can be used for detector calibrations and testing, neutron imaging, or sample irradiation for neutron activation analysis.
 The NEBP is unique in the fact that it penetrates the graphite reflector providing, in theory, the hardest neutron spectrum of the four beam ports at KSU.
-This is due to the absence of significant moderating material between the fuel and the beam port.
+This is due to the absence of significant moderating material between the fuel and the beam port, as all other beam ports are located outside of the graphite reflector.
 
 % isometric view of the solidworks model of the beam port
 \begin{figure}[htb]
@@ -63,25 +63,25 @@ The NEBP geometry is relatively simple.
 % two sections 6 and 8 inch
 It is comprised of two, six-foot, cylindrical segments; the inner and outer segments being 6" and 8" in diameter, respectively.
 % coupled by shadow shield
-A lead ``shadow shield" is at the junction of these two sections to help reduce the gamma component of the outgoing particle stream.
+A lead ``shadow shield" sits at the junction of these two sections to help reduce the gamma component of the outgoing particle stream.
 The shadow shield is 4'x4' and 4" thick and contains a hole through the center, through which the outer portion of the NEBP's 6" section extends.
 % material
-The walls of each section are made of aluminum 11/32" thick.
+The walls of each section are made of 11/32" thick aluminum.
 % wooden plugs but now empty
-Originally, these sections contained removable wooden plugs that would dissallow neutron to stream through; however, water leaks in the beam caused damage to these plugs and at present they have been removed.
+Originally, these sections contained removable wooden plugs that would dissallow neutron to stream through; however, water leaks in the port caused damage to these plugs and at present they have been removed.
 
 % collimator
-Within the 8" section lives a collimator.
+A collimator is situated within the 8" section.
 % who made it
 This was designed by a KSU senior design team attempting to further constrain the neutron beam.
 % describe design
 The collimator is an aluminum tube of 0.75" ID and 1" OD.
 An aluminum plate is affixed to this tube on the reactor side and contains a throughhole to maintain line of sight with the reactor core.
-This allows borated polyethylene disks to be stacked around the collimator for the purpose of absorping neutrons that escape the beam.
+Borated polyethylene disks have been stacked around the tube to act as the primary absorption medium for collimating neutrons.
 The borated polyethylene extends the entire distance of the collimator. 
 
 
-\subsection{How it was implemented in mcnp}
+\subsection{MCNP Implementation}
 
 % mcnp with beamport geometry (zx)
 \begin{figure}[htb]
@@ -167,18 +167,18 @@ Steel & 8.03 & $^{12}$C (0.00039536233)  $^{13}$C (0.0000046336713) \\
 \clearpage
 
 % ------------------------------------------------------------------------------
-\section{KCODE to SDEF/Fission Rates}
+\section{Fission Rate Tallying and Steady-State Source Generation}
 
 % the goal is transport, so no kcode
 The ultimate goal here is to obtain, via simulation, the flux departing from the beam port.
 However, the existing model is setup only for KCODE problems.
 The difficult nature of this transport problem, due to the low probability of a simulated particle streaming down the collimator and exiting the reactor, requires some form of variance reduction.
-Because of an incompatibility between KCODE problems and the code ADVANTG (used to generate weight windows), this problem must first be converted into an SDEF-type problem.
+Because of an incompatibility between KCODE problems and the code ADVANTG (selected for variance reduction and used to generate weight windows), this problem must first be converted into an SDEF-type problem.
 This conversion required the collection of spatially-dependent fission site data.
-This fission map could provide the set of pdfs to inform the steady-state sampling problem.
+This ``fission map'' could provide the set of probability vectors to inform the source sampling in the steady-state problem.
 This was done in the following way.
 First, the fuel cells were discretized axially and radially.
-It was decided that 40 axial sections and 5 radial sections were used for each of the 85 fuel elements to create a total of 17,000 cells.
+It was decided that 40 axial sections and 5 radial sections were used for each of the 85 fuel elements to create a total of 17,000 individual cells.
 Then a fission rate tally was created for these cells.
 This was done using an F4 tally (flux averaged over a cell) with an FM (tally multiplier) card which would multiply the flux by the total fission cross section for the fresh fuel material.
 With these tallys in place, the KCODE problem was then run for a total of 4,400 cycles where the first 10 were discarded and each cycle consisted of 100,000 particles.
@@ -189,13 +189,13 @@ This card is shown here.
 {\tt SDEF ERG=D1 RAD=D2  AXS=0 0 1  POS=D3  EXT=FPOS=D4}
 \end{center}
 
-The {\tt ERG} (energy) distribution used for the source was MCNP's built-in Watt spectrum, indicated simply by a -3 on the source probability card.
-The source's spatial distribution is a series of cylinders co-located with the fuel elements within the core.
-The {\tt POS} (position) variable contained the center points of each of the fuel elements, whose probabilty was proportional to their integrated fission rate.
+The {\tt ERG} (energy) distribution used for the source was MCNP's built-in Watt spectrum, indicated simply by a {\tt -3} on the source probability card.
+The source's spatial distribution is a series of cylinders co-located with the respective fuel elements within the core.
+The {\tt POS} (position) variable contained the center points of each of the fuel elements, whose probability of sampling is proportional to their integrated fission rate.
 The {\tt EXT} (extent) variable means length of the cylinder, in this case the length of the fuel meat, and refers to a series of distributions dependent on the {\tt POS} of the fuel.
 Because base MCNP doesn't easily allow for nested dependent distributions, the {\tt RAD} (radial) distribution was considered an independent variable, and the distribution used was the normalized, averaged radial fission rate across each fuel element.
 
-Along with the tally, several plots were made of this fission rate data.
+Along with the source, several plots were made of this fission rate data.
 
 % the fission rates tallied inside a fuel element
 \begin{figure}[htb]
@@ -239,19 +239,20 @@ The fission rate density is highest towards the center of the rod and lowest in 
 
 \FIGURE{fig:axial_rr_density} shows the axial fission rate densities within each ring of the core.
 Each of these rings shows a cosine-like distribution with a slight upturn at each extrema.
-The cosine shape is due to the flux having a similar shape within a cylindrical geometry, like the reactor core.
+Neutron flux within a {\it roughly} cylindrical geometry, like a reactor core, will {\it roughly} exhibit a cosine shape, which causes a similar shape for the fission distribution.
 The upturn is caused by the graphite on each end of the fuel elements which reflects neutrons back towards the rod.
 There are two rings in particular that show additional behavior outside of these two phemonena.
 The first is the depression within the B ring below 0 $cm$.
 This is caused by the central thimble, which currently occupies the A1 location.
-Moderating water which would normally occupy that location is replaced by this thimblem which is currently modeled as an aluminum rod that extends halfway up the core.
-This lack of neutron moderation means lower thermal flux in that region and results in the depressed fission rate.
+Moderating water which would normally occupy that location is replaced by this thimble which is currently modeled as an aluminum rod that extends halfway up the core.
+This lack of neutron moderation means lower thermal flux in that region and results in the depression.
 
-The second is the depressed fission rate within F1-F9.
+The second is the depressed fission rate within the lower region of F1-F9.
 This is caused by the addition of the NEBP.
-Recall, the beam port includes a penetration situated 8.3 $cm$ below the z axis within the graphite reflector.
-This lack of relfection means more neutrons will stream out of the core within that region, thus lowering the local flux and fission rate.
-This effect can be seen some within the E ring, but it is much less pronounced.
+Recall, the beam port includes a penetration within the graphite reflector. 
+This penetration is situated 8.3 $cm$ below the $z$ axis.
+This lack of reflection means more neutrons will stream out of the core within that region, thus lowering the local flux and fission rate.
+This effect can be seen to a degree within the E ring, but it is much less pronounced.
 
 
 % the integrated fission rates for each ring
