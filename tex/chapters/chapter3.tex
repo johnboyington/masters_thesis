@@ -21,11 +21,10 @@ In the summer of 2017, a reactor modeling effort was initiated at KSU.
 % why it started
 The goal of the effort was to produce, from the ground up, a python-based suite that would interpret geometric and material data related to KSU's Triga Mark II research reactor and produce input files for various transport codes.
 % what has been produced so far
-The model currently contains all of the major features from the actual reactor.
+The model, though still currently under development, contains a majority of the features from the actual reactor, including any of those which would have a major neutronic impact.
 There are 85 fuel elements, containing fresh fuel, that are able to be automatically discretized axially, radially, and azimuthally into up to 10,000 cells.
 The four control rods are also included, and a user may specify their exact position to match that of in-core experiments.
 The central thimble, grid plates, and source location are all also included in the core model, which is surrounded by a graphite reflector.
-Before the addition of the beam port, this is the furthest the model extended.
 This model can be seen in \FIG{fig:existing}.
 
 % the existing reactor model
@@ -102,20 +101,20 @@ The borated polyethylene extends the entire distance of the collimator.
 
 % Write about the actual implementation
 The NEBP itself consists primarily of cylinders and planes, so its implementation in the model was relatively straightforward.
-The surrounding concrete structure was modeled as a large cylinder as opposed to the complex polygon.
-This is because the intracies in the outer areas of the structure will not affect the tally at the end of the beam port.
-Only the concrete directly around the beam port should make much of a difference.
+The surrounding concrete structural region was modeled as a large cylindrical cell, with the assumption that the geometric intracies a great distance from the NEBP would have a minimal effect on the flux in the NEBP.
+As described above, the NEBP, including both sections and the shadow shield, was added within this concrete region.
 % hole in the graphite reflector
-A penetration was added to the graphite reflector.
-The reactor documentation was unclear about some specifics regarding this penetration, so it was assumed that it was not encased by any aluminum, but the aluminum surrounding the reflector was left intact to not let water in.
-
-
+A penetration was added to the existing graphite reflector.
+The reactor documentation was unclear about some specifics regarding this penetration, so it was assumed that it was not radially encased by any aluminum, but the aluminum surrounding the reflector was left intact to not let water in.
+The materials used for the NEBP can be seen in \TAB{tab:nebp_materials}.
+Material data in the model came from {\tt pyne}.
 
 
 % table that contains the material data for the model
 % density of steel 8.03
 
 \begin{table}[h]\centering
+\label{tab:nebp_materials}
 \caption{Materials used in the NEBP model.}
 \begin{tabular}{ r c l }
 \toprule
@@ -168,6 +167,7 @@ Steel & 8.03 & $^{12}$C (0.00039536233)  $^{13}$C (0.0000046336713) \\
 
 % ------------------------------------------------------------------------------
 \section{Fission Rate Tallying and Steady-State Source Generation}
+\subsection{SDEF Generation}
 
 % the goal is transport, so no kcode
 The ultimate goal here is to obtain, via simulation, the flux departing from the beam port.
@@ -182,6 +182,7 @@ It was decided that 40 axial sections and 5 radial sections were used for each o
 Then a fission rate tally was created for these cells.
 This was done using an F4 tally (flux averaged over a cell) with an FM (tally multiplier) card which would multiply the flux by the total fission cross section for the fresh fuel material.
 With these tallys in place, the KCODE problem was then run for a total of 4,400 cycles where the first 10 were discarded and each cycle consisted of 100,000 particles.
+
 After running this problem, a python script was used to parse the output and generate an SDEF source to be used in the next step.
 This card is shown here.
 
@@ -195,6 +196,7 @@ The {\tt POS} (position) variable contained the center points of each of the fue
 The {\tt EXT} (extent) variable means length of the cylinder, in this case the length of the fuel meat, and refers to a series of distributions dependent on the {\tt POS} of the fuel.
 Because base MCNP doesn't easily allow for nested dependent distributions, the {\tt RAD} (radial) distribution was considered an independent variable, and the distribution used was the normalized, averaged radial fission rate across each fuel element.
 
+\subsection{Fission Tally Results}
 Along with the source, several plots were made of this fission rate data.
 
 % the fission rates tallied inside a fuel element
@@ -236,6 +238,7 @@ The fission rate density is highest towards the center of the rod and lowest in 
 \label{fig:axial_rr_density}
 \end{figure}
 
+\clearpage
 
 \FIGURE{fig:axial_rr_density} shows the axial fission rate densities within each ring of the core.
 Each of these rings shows a cosine-like distribution with a slight upturn at each extrema.
@@ -254,6 +257,7 @@ This penetration is situated 8.3 $cm$ below the $z$ axis.
 This lack of reflection means more neutrons will stream out of the core within that region, thus lowering the local flux and fission rate.
 This effect can be seen to a degree within the E ring, but it is much less pronounced.
 
+\clearpage
 
 % the integrated fission rates for each ring
 \begin{figure}[htb]
@@ -267,7 +271,6 @@ By studying \FIG{fig:totals_azi}, one can again see the effect the NEBP has on t
 This depression is seen when sweeping past the NEBP from around 12$^{\circ}$-75$^{\circ}$.
 Other peaks and vally's seen in the figure are likely the cause of control rod, central thimble, and source placement.
 
-\clearpage
 
 % ------------------------------------------------------------------------------
 \section{Application of ADVANTG}
