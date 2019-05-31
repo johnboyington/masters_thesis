@@ -37,21 +37,77 @@ It became quickly apparent that this problem was in need of some serious form of
 For this application, the code ADVANTG was select to provide the VR needed to do the transport.
 
 % but what is advantg?
-% i will talk about it a bit here
+ADVANTG, the AutomateD VAriaNce reducTion Generator, generates weight window parameters for a fixed-source, continuous-energy MCNP problem.
+This is accomplished by solving the 3-D discrete ordinates neutron (or photon or coupled neutron-photon) transport problem using the Denovo package.
+The adjoint solution obtained in this way is used to generate the weight window mesh to be used in the MCNP problem.
+ADVANTG also creates biasing parameters for the source.
+Both the weight windows and biasing parameters work together to provide a significant reduction in computational time for obtaining accurate tally results on difficult transport problems.
 % then i'll explain why it's useful for our problem
+In the case of the NEBP, the large source-to-tally distance, small tally solid angle, and large amount of present moderating and absorbing materials mean that the transport problem is a challenging one, but that ADVANTG can prove extremely useful when applied.
 
 % how did i apply it to our problem
+There were first a few issues that needed to be addressed with the formulation of the transport problem before ADVANTG could be used effectively.
 
 % first, we rotated the model
-% that's because since advantg uses a mesh, we can set the bp on axis, which is much better
+Recall, the NEBP sits at a 50$^{\circ}$ angle from the core.
+Denovo solves problems on a 3-D fixed mesh, meaning that capturing the details of the NEBP will not be intuitive, as the axis of the beam doesn't directly lie along one of the axes.
+In addition to this, the full transport problem requires a large amount of memory to solve, which became a limiting factor when selecting ADVANTG parameters.
+Because of these issues, the model needed to be rotated so that way the beam could lie on axis and the mesh resolution could be altered in a way that fully captured the effects of the beam and collimator while not wasting memory solving for fluxes in the structural material outside of the beam.
+Alterations were then made to the input-generating python scripts to allow the user to rotate the entire model by altering a single parameter.
+The model was then rotated 50$^{\circ}$ clockwise so the NEBP lied on the positive $x$-axis.
+The KCODE problem was rerun to verify the rotated model still produced the same fission rates and that no biases were introduced.
+The results from this verification did match the original fission-rate tallies.
 
 % then here, i'll just talk about all of the advantg parameters and why they were used
+ADVANTG was then run with the NEBP problem.
+The parameters selected are shown in \TAB{tab:advantg_params}.
+
+% this contains all of the advantg parameters
+\begin{table}[h]\centering
+\label{tab:advantg_params}
+\caption{Input parameters used for ADVANTG.}
+\begin{tabular}{ r | l }
+\toprule
+model                     &   mcnp\\
+method                    &   cadis\\
+outputs                   &   mcnp\\
+mcnp\_input               &   ksun.inp\\
+mcnp\_tallies             &   11\\
+mesh\_refinement          &   mcnp\\
+mesh\_x                   &   -55 -22 22 184 368\\
+mesh\_y                   &   -55 -22 -12 -2 2 12 22 55\\
+mesh\_z                   &   -35 -16 -11 -5 0 35\\
+mesh\_x\_ints             &   17 25 25 25\\
+mesh\_y\_ints             &   75 14 17 22 17 14 17\\
+mesh\_z\_ints             &   17 14 35 14 17\\
+anisn\_library            &   bplus\\
+denovo\_pn\_order         &   4\\
+denovo\_quad\_num\_azi    &   15\\
+denovo\_quad\_num\_polar  &   12\\
+denovo\_x\_blocks         &   8\\
+denovo\_y\_blocks         &   8\\
+denovo\_z\_blocks         &   1\\
+\end{tabular}
+\end{table}
+
 % basically, everything comes down to runtime, memory, and FOM
+Several of the parameters are self-explanatory, but the non-intuitive ones will be discussed here.
+First, {\tt cadis} refers to the method used to solve the transport problem.
+{\tt mesh\_x}, etc. refer to the major planes where the resolution of the mesh changes and {mesh\_x\_ints}, etc. refers to the number of elements between two planes in the mesh.
+This mesh was selected to focus on the core and NEBP, so the region surrounding the beam is high resolution and the regions outside of the core and beam are low resolution.
+The {\tt bplus} library was selected because it contained all of the materials used in the model and had a relatively large number of groups (47).
+The degree of anisotropy modeled is adjusted by the {\tt denovo\_pn\_order}, which was selected to be 4.
+A higher order in this case would increase the runtime, but not necessarily produce a more accurate solution for this particular problem.
+The parameters, {\tt denovo\_quad\_num\_azi} and {\tt denovo\_quad\_num\_polar} refer to the number of angles used by the problem.
+Because the problem has a high angular dependence (a beam of neutrons streaming down a long collimator), these were selected to be higher than the defaults.
+Increasing this parameter also helped to reduce ray effects present within the solution.
+Finally, {\tt denovo\_x\_blocks}, etc. refer to the parallelization scheme.
+The computer used for this calculation had 64 cores available, so these values 8, 8, and 1 all multiply to that value.
 
 % so i ran it, that gave me a wwinp file that was how many MB?
+Using these parameters, ADVANTG was run and biasing parameters and a weight window input file was produced.
 
+% here i will talk about the weight windows and the images from VISIT.
 % let's put pics here of the wws and talk about them
 % like, quite a bit of discussion here is warranted
-
 % then, talk about some of the modifications to the source term and stuff.
-% i think that's probably good for advantg
