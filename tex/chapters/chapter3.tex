@@ -3,3 +3,55 @@
 
 
 \chapter{Northeast Beam Port Modeling}
+
+
+\section{Application of Advantg}
+
+% okay, we've got an SDEF problem, what kind of tallies would we like?
+After obtaining the fission rate tallies and creating an appropriate SDEF card, an MCNP problem formulation is now only missing a beam port tally.
+The tallies are setup here to provide the maximum detail and understanding of what is happening at the outer aperture of the NEBP.
+First, the outer face of the NEBP is used in a surface tally (F2) to find the fluence departing.
+This tally was divided spatially using different concentric cylinders, providing information on seven regions of the NEBP.
+The first three are all equivalent area tallies within the collimator itself.
+This will provide an understanding of the radial distribution with the main beam.
+The fourth segment was the face of the aluminum collimator.
+Then, the last three were equivalent area tallies within the BP collimator.
+This would give an idea for how neutrons managed to escape the beam but still contribute to the fluence that leaves the beam.
+
+% we've also got them divided into cosine and energy
+Then, both angular and spectral groupings were used to bin each of these regions.
+For the angle, a custom, fine, 109-group structure was used.
+The first 20 bins were tenth degree increments between 0$^{\circ}$ and 2$^{\circ}$.
+Following that, a resolution of one degree were used between 2$^{\circ}$ and 90$^{\circ}$
+All of the backward fluence was captured by one bin between 90$^{\circ}$ and 180$^{\circ}$.
+
+For the energy structure, the scale252 group structure was used.
+This medium-resolution structure was selected because of the trade off between wanting to capture finer spectral details and the run-time to resolve statistics.
+
+% great, can we run this?
+With the tally now in place, MCNP was run, first without any variance reduction (VR).
+Unsurprisingly, only a handful of the several million simulated particles survived to the end of the NEBP and were captured by the tally.
+It became quickly apparent that this problem was in need of some serious form of VR to be able to achieve decent tally results in any reasonable amount of time.
+
+% let's pick advantg.
+For this application, the code ADVANTG was select to provide the VR needed to do the transport.
+
+% but what is advantg?
+% i will talk about it a bit here
+% then i'll explain why it's useful for our problem
+
+% how did i apply it to our problem
+
+% first, we rotated the model
+% that's because since advantg uses a mesh, we can set the bp on axis, which is much better
+
+% then here, i'll just talk about all of the advantg parameters and why they were used
+% basically, everything comes down to runtime, memory, and FOM
+
+% so i ran it, that gave me a wwinp file that was how many MB?
+
+% let's put pics here of the wws and talk about them
+% like, quite a bit of discussion here is warranted
+
+% then, talk about some of the modifications to the source term and stuff.
+% i think that's probably good for advantg
