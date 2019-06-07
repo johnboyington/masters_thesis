@@ -20,17 +20,36 @@ Write about the tallying in general.
 
 Write about the tallying in general.
 
-%
+% this image depicts the nebp flux as a function of energy
 \begin{figure}[htb]
 \centering
 \includegraphics[height=4in]{tex/figures/flux_erg.png}
-\caption[]{}
-\label{fig:}
+\caption[Flux vs. Energy]{The differential flux as a function of energy.}
+\label{fig:flux_erg}
 \end{figure}
 
-What is depicted here?
+% this is the differential flux as a function of energy
+Shown in \FIG{fig:flux_erg} is the differential flux as a function of energy.
+% it has been integrated over both angle and tally region
+This has been integrated over both angle as well as the seven tally regions.
+% because of this, the spectrum resembles that which one would find within the core
+The spectrum resembles that which one would find within a reactor core.
+% you've got your watt distribution % you've got your 1/E region % you've got your maxwellian distrubution
+Centered around 1 MeV is the Watt fission distribution, the intermediate region is comprised of $1/E$ slowing down neutrons, and peaking around $3 \times 10^{-8}$ is the Maxwellian distribution.
+% the main contribution to this tally is line of sight down the beam
+This is likely because the line-of-sight neutrons streaming from the core are the primary component to this flux tally.
+% as you can see, those are clearly on display because, ya know it should look like that
+The borated polyethylene within the collimator is a very strong absorber and also very long, so it's unlikely that moderated neutrons escape and manage to contribute to the tally.
 
-Why is it the way it is?
+% there are two noisy locations
+There are also two regions seen in this plot that are heavily affected by statistical noise, the slower half of the $1/E$ region and the slow tail of the Maxwellian distribution.
+% this is because of low probability tallies
+This is because there is such a low probability that a neutron at that energy will be tallied.
+% this is because of small bin widths in the 1/e region and low probability within the super slow region
+Specifically, within the scale252 bin structure, there are several narrow bins within the $1/E$ region, and tally probability is proportional to the bin width times the true flux, therefore, it's reasonable to see high errors within that region.
+The flux in the tail end of the Maxwellian distribution is also very low, causing the poor resolution within that region.
+These could ultimately be resolved via simulation of more particles.
+
 
 \clearpage
 
@@ -38,13 +57,32 @@ Why is it the way it is?
 \begin{figure}[htb]
 \centering
 \includegraphics[height=4in]{tex/figures/flux_rad_erg.png}
-\caption[]{}
-\label{fig:}
+\caption[Radial Flux vs. Energy]{The differential flux plotted against energy and broken into each tally region.}
+\label{fig:flux_rad_erg}
 \end{figure}
 
-What is depicted here?
-
-Why is it the way it is?
+% the erg dependent flux can be seen broken down into region in figure whatever.
+The energy-dependent flux can be seen broken down into it's separate regional tallies within \FIG{fig:flux_rad_erg}.
+% regions 0-7 refer to whatever
+Recall, regions 0-2 are equal-area tallies within the beam, region 3 refers to the aluminum collimator, and regions 5-7 are equal-area tallies within the borated polyethylene.
+% this gives us a first glance at comparing magnitudes
+This plot gives us a first glance at comparing the magnitudes within each region.
+Over three orders of magnitude lie between the highest and lowest regional fluxes here.
+% let's comment on noise for a sec, too
+The noise problem \FIG{fig:flux_erg} is also amplified here, as separating the tallies by region furthur slows individual tally bin convergence.
+However, it's still possible to draw meaningful conclusions from this plot.
+% okay, first, there's like no difference in the first three
+First, apart from statistical noise, there's no obvious difference between the spectra within the in-beam regions.
+% in the aluminum, the fast flux seems flattened
+It's in the aluminum where the flux begins to depart, being separated both by magnitude and also exibiting a flatness within the fast region.
+% the bp sections are clearly moderated
+Differences seen in the borated polyethylene regions are much more obvious, as the spectra are clearly moderated variants of those in-beam.
+% look how the fast peak shrinks the further out you go
+The furthur from the center of the beam, the more flat the fast region becomes.
+% the 1/e region shows some curvature here. interesting
+The $1/E$ region begins to demonstrate some curvature, which is likely in relation to the absorption and scattering cross sections of the borated polyethylene.
+% also, maxwell is flattened
+The Maxwellian distributions within these sections are also flattened and exibit much less drastic tapering in the slowest regions.
 
 \clearpage
 
@@ -52,8 +90,8 @@ Why is it the way it is?
 \begin{figure}[htb]
 \centering
 \includegraphics[height=4in]{tex/figures/flux_cos.png}
-\caption[]{}
-\label{fig:}
+\caption[Flux vs. Angle]{The differential flux as a fuction of angle.}
+\label{fig:flux_cos}
 \end{figure}
 
 What is depicted here?
