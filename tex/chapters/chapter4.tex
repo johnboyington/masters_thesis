@@ -42,9 +42,14 @@ The entire decoupled model is wrapped in python to allow for variation in input 
 \subsection{Gold Foil Tube}
 
 % the foil tube was a type of spectrometer
+The gold foil tube is a kind of neutron spectrometer.
 % the gold foil tube design was based on the bonner sphere - thermal responsing detector with varying moderation
+In design, it is principally based on the bonner sphere spectrometer.
+Gold foils, which preferentially absorb thermal neutrons are spaced with sections of high density polyethylene (HDPE).
 % produce independent responses
+HDPE is a strong neutron moderator, meaning that the response of each foil will be somewhat independent of the others, since neutrons are slowing down and being absorbed between foils.
 % it was also meant to help with beam alignment and to simplify the beam characterization process
+This design also is advantageous in that it solves issues with beam alignment and only requires a single irradiation to generate multiple responses.
 
 %
 %\begin{figure}[htb]
@@ -56,15 +61,24 @@ The entire decoupled model is wrapped in python to allow for variation in input 
 
 
 % you can see the device in FIG
+The gold foil device can be seen in FIG.
 % there are three major components, the aluminum tube, the hdpe separators and the gold foils
+The tube is comprised of three separate materials, the gold foils, the HDPE separators, and the aluminum containment tube.
 % the gold foils are __ diameter and __ thickness
+Each of the gold foils are 5$mm$ in diameter and 0.1$mm$ thick.
 % the hdpe was cylinders of __ size
+The HDPE sections were 1" thick cylinders.
 % each hdpe piece had a __ size hole drilled into it where the gold foil would be situated
+A 1$mm$ depth, 5$mm$ OD hole was drilled into the front of each section where the gold foil was situated.
 % all of these would be encased in __ID __OD aluminum tubing
+All of these sections were sandwiched together and encased in 0.75" OD, 1/24" thick aluminum tubing.
 % aluminum is chosen because it's relative insensitivity towards neutrons
+Aluminum was chosen because of its relative insensitivity to neutrons.
 % the whole apparatus had __ hdpe pieces and foils, with the first foil being exposed and a gap of __ at the beginning
+The whole apparatus was comprised of 12 HDPE pieces and foils, with the first, exposed foil being situated 1" from the start of the tubing.
 
 % this device was modeled in mcnp, where f4 flux tallies, folded with the au n,g response were used with a scx card to produce the rfs
+This device was modeled in MCNP, where f4 flux tallies, folded with the $^{198}$Au(n,$\gamma$) cross sections were used with an SCX card to produce the response functions.
 
 \subsection{Bonner Sphere Spectrometer}
 
