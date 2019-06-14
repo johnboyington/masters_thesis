@@ -114,7 +114,17 @@ The F4 flux tally over the detection crystal was folded with the (n,t) reaction 
 
 % describe any post processing used for these results to get the values in cm2
 
-% add the plots and then discuss
+Post processing for the gold foil tube and BSS response functions is relatively straightforward.
+The response function value for energy $j$, $R_j$, is multiplied by the number of energy groups, $n_{groups}$ and then converted from $b$ to $cm^2$.
+This is because the SCX card, which allows a user to tally based on what source distribution bin a particle was born in, will naturally be weighted by the probability of a particle being born in that bin.
+To generate the response functions, all bins were considered equiprobable, which means that the true result requires the simple multiplying by the number of bins.
+The $cm^2$ conversion is because flux is generally understood in $cm^{-2}s^{-1}$, so using response functions in these units allows one to avoid that conversion later.
+
+\begin{equation}
+\label{eqn:postprocessing_au}
+R_j = R_{j, mcnp} \times n_{groups} \times 10^{-24}
+\end{equation}
+
 
 % the gold foil tube response functions
 \begin{figure}[htb]
@@ -125,6 +135,13 @@ The F4 flux tally over the detection crystal was folded with the (n,t) reaction 
 \end{figure}
 
 % discuss the ft_au response functions
+The response functions for the gold foil tube are pictured in \FIG{fig:ft_au_rfs}.
+As distance from the tube front increases, many interesting features form and decay.
+The first response very closely resembles the $^{198}$Au(n,$\gamma$) reaction, since it is exposed to the source and backscattering contributes relatively little to this response.
+However, the addition of HDPE tapers the thermal tail of this response very quickly and shifts peak behavior towards the right.
+The four sections that follow the first actually have an even higher response than the exposed foil.
+Throughout the epithermal region, the relatively slow curvature doesn't seem much affected by the increasing foil distance, but in the fast region, a peak forms after 2", and then grows (relatively) and is pushed to the right as foil distance increases.
+Overall, the goal of producing response functions that are independent was met to at least some degree with this device design.
 
 % the bonner sphere response functions
 \begin{figure}[htb]
@@ -134,7 +151,14 @@ The F4 flux tally over the detection crystal was folded with the (n,t) reaction 
 \label{fig:bs_rfs}
 \end{figure}
 
-% discuss the bss response functions
+The trends in the BSS are similar to that of the gold foil tubes.
+The bare response is thermally dominated, but as HDPE spheres are added, a peak begins to form and then is pushed towards the right.
+The main difference between the two devices, besides number of detectors, is their respective responses to thermal neutrons.
+Even though the thermal response is depressed in the gold foil tube, the BSS is almost completely insensitive to thermal neutrons, and there is a much larger difference between the fast and thermal response.
+This is likely due to the spherical geometry used.
+The BSS have lots of room around the detector for neutrons to thermalize, meaning that the fast peaks will grow to be very sharp.
+In the foil tube's case, a scattered neutron is much more likely to escape the device and not be absorbed by the foil, meaning that the contribution to the fast portion of the spectrum will be much lower, relatively.
+
 
 % ----------------------------------------------------------------------------
 % other stuff here
