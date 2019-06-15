@@ -20,11 +20,11 @@ This is done using the following equation,
 % how to get saturation activities
 \begin{equation}
 \label{eqn:a_sat}
-A_{sat} = A_{meas} \frac{R_{meas} R_{sat}}{n_a K I_{rel}} ,
+A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \end{equation}
 
 % where, (explain these terms)
-where $R_{meas}$ is the ratio that corrects for decay during measurement, $R_{sat}$ is the saturation ratio which will be detailed below, $n_a$ is the number of sample atoms, equal to $\rho N_A / M$, $K$ is the isotopic abundance, and $I_{rel}$ is the relative intensity of the counted gamma ray.
+where $R_{meas}$ is the ratio that corrects for decay during measurement, $R_{sat}$ is the saturation ratio which will be explained below, $n_a$ is the number of sample atoms, equal to $\rho N_A / M$, $K$ is the isotopic abundance, and $I_{rel}$ is the relative intensity of the counted gamma ray.
 
 % give the term and explain for r_meas
 The term, $R_{meas}$ is the ratio of the activity at the beginning of the gamma counting to the activity assuming the decay is constant during counting.
@@ -38,8 +38,39 @@ R_{meas} = \frac{\lambda t_{meas}}{1 - e^{\lambda t_{meas}}},
 
 in which $\lambda$ is the decay constant and $t_{meas}$ is the time during measurement.
 
-
 % explain the concept of saturation ratio
-% this is the big one
+The saturation ratio, $R_{sat}$, is the ratio between the activity at the time of measurement and the saturation activity.
+Although this value generally assumes constant production during irradiation followed by a period of decay with no production, a method has been developed that captures transient behavior in reactor fluxes which will be detailed here.
+
+The production and decay of radioisotopes is expressed mathematically through the bateman equation,
+
+\begin{equation}
+\label{eqn:bateman}
+\frac{dN(t)}{dt} = C(t) - \lambda N(t)
+\end{equation}
+
+where $N(t)$ is the number of radioactive nuclei in the sample, C(t) is the production term in nuclei per second, and $\lambda$ is the decay constant for the isotope in consideration. The change in radionuclei is simply the production minus the loss.
+
+\begin{equation}
+\label{eqn:bateman_activity}
+\frac{A(t)}{dt} = \lambda (C(t) - A(t))
+\end{equation}
+
+\begin{equation}
+\label{eqn:bateman_ratios}
+\frac{A(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
+\end{equation}
+
+\begin{equation}
+\label{eqn:bateman_r_sat}
+\frac{R_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
+\end{equation}
+
+
 
 \subsection{Bonner Sphere Spectrometer}
+
+
+
+
+
