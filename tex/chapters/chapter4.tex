@@ -13,17 +13,31 @@
 
 
 % postprocessing includes taking the measured activities and converting them to saturation activities
+The postprocessing necessary for a foil activation experiment involves taking the measured activities, which are reported from the gamma spectrometry software, and backing out the saturation activities for each foil.
 % this is done using the following equation
+This is done using the following equation,
 
 % how to get saturation activities
 \begin{equation}
 \label{eqn:a_sat}
-A_{sat} = A_{meas} \frac{R_{meas} R_{sat}}{n_a K I_{rel}}
+A_{sat} = A_{meas} \frac{R_{meas} R_{sat}}{n_a K I_{rel}} ,
 \end{equation}
 
 % where, (explain these terms)
+where $R_{meas}$ is the ratio that corrects for decay during measurement, $R_{sat}$ is the saturation ratio which will be detailed below, $n_a$ is the number of sample atoms, equal to $\rho N_A / M$, $K$ is the isotopic abundance, and $I_{rel}$ is the relative intensity of the counted gamma ray.
 
 % give the term and explain for r_meas
+The term, $R_{meas}$ is the ratio of the activity at the beginning of the gamma counting to the activity assuming the decay is constant during counting.
+It is given by the following equation
+
+% measurement ratio/correction factor
+\begin{equation}
+\label{eqn:r_meas}
+R_{meas} = \frac{\lambda t_{meas}}{1 - e^{\lambda t_{meas}}},
+\end{equation}
+
+in which $\lambda$ is the decay constant and $t_{meas}$ is the time during measurement.
+
 
 % explain the concept of saturation ratio
 % this is the big one
