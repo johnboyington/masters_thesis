@@ -49,23 +49,36 @@ The production and decay of radioisotopes is expressed mathematically through th
 \frac{dN(t)}{dt} = C(t) - \lambda N(t)
 \end{equation}
 
-where $N(t)$ is the number of radioactive nuclei in the sample, C(t) is the production term in nuclei per second, and $\lambda$ is the decay constant for the isotope in consideration. The change in radionuclei is simply the production minus the loss.
+where $N(t)$ is the number of radioactive nuclei in the sample, C(t) is the production term in nuclei per second, and $\lambda$ is the decay constant for the isotope in consideration.
+The change in radionuclei is simply the production minus the loss.
+The relationship between activity and radionuclides, $A(t) = \lambda N(t)$ allows us to convert \EQ{eqn:bateman} into the following,
 
 \begin{equation}
 \label{eqn:bateman_activity}
-\frac{A(t)}{dt} = \lambda (C(t) - A(t))
+\frac{A(t)}{dt} = \lambda (C(t) - A(t)).
 \end{equation}
+
+We can then divide each of the terms by $C_{sat}$ which is the isotopic production at nominal power.
+This value is equal to the saturation activity, since the activity at $t = \inf$ for nominal power is equal to the production at that power.
 
 \begin{equation}
 \label{eqn:bateman_ratios}
 \frac{A(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
 \end{equation}
 
+Two facts allow us to simplify \EQ{eqn:bateman_ratios} into a useful form.
+First, because $A_sat = C_sat$, any $A(t) / C_{sat} = A(t) / A_{sat}$, so we can replace these terms with a defined term, $R_{sat}(t)$ which is the ratio of the activity at time $t$ to the saturation activity.
+Second, although we don't have access to the $C(t)$ or $C_{sat}$ terms since they require the (currently unknown) flux, we do have access to power data.
+Because isotopic production is approximately proportional to reactor power, $C(t) \propto P(t)$, this means that $C(t) / C_{sat} \approx P(t) / P_{nominal}$.
+We will replace this power ratio with the term $P_{f}(t)$, which is simply the time dependent ratio of the power to the nominal power.
+
 \begin{equation}
 \label{eqn:bateman_r_sat}
 \frac{R_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
 \end{equation}
 
+This equation can be solved to find $R_{sat}$ at the time of measurement using a numerical solver, in our case, {\tt scipy}'s {\tt odeint}.
+The data for $P_{f}(t)$ is simply normalized strip chart data collected from an in-core fission chamber.
 
 
 \subsection{Bonner Sphere Spectrometer}
