@@ -91,7 +91,7 @@ The data for $P_{f}(t)$ is simply normalized strip chart data collected from an 
 \caption{The correction factors and foil activities.}
 \begin{tabular}{ r | r | r | r | l }
 \toprule
-Position (in.)  & $A_{meas}$  & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$\\
+Position (in.)  & $A_{meas}$ & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$\\
 0 & 1.48373626e+03 & 1.00089748 & 0.02268378 & 65468.28629567 \\
 1 & 5.86027460e+01 & 1.00590363 & 0.02262131 &  2605.89285917  \\
 2 & 8.92905830e+00 & 1.03805564 & 0.02196285 &   422.02438091  \\
@@ -107,7 +107,26 @@ Position (in.)  & $A_{meas}$  & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$\\
 
 \subsection{Bonner Sphere Spectrometer}
 
+The BSS data was processed simply by taking the area under the LiI reaction peaks and dividing that value by the live time of the detector.
+These values are presented in \TAB{tab:bss}.
 
+
+% the bss count rates
+\begin{table}[h]\centering
+\label{tab:bss}
+\caption{The BSS count rates from the experiment.}
+\begin{tabular}{ r | l }
+\toprule
+Sphere (in.)  & Count Rate $s^{-1}$\\
+Bare & 1626.7554373583173\\
+2  & 1062.4080759576198\\
+3 & 3891.1364960397206\\
+5 & 417.2440868019122\\
+8 & 139.72617625337557\\
+10 & 70.75128009873939\\
+12 & 37.430711516055815\\
+\end{tabular}
+\end{table}
 
 
 
