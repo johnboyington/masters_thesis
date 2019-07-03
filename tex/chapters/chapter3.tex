@@ -43,14 +43,14 @@ The adjoint solution obtained in this way is used to generate the weight window 
 ADVANTG also creates biasing parameters for the source.
 Both the weight windows and biasing parameters work together to provide a significant reduction in computational time for obtaining accurate tally results on difficult transport problems.
 % then i'll explain why it's useful for our problem
-In the case of the NEBP, the large source-to-tally distance, small tally solid angle, and large amount of present moderating and absorbing materials mean that the transport problem is a challenging one, but that ADVANTG can prove extremely useful when applied.
+In the case of the NEBP, the large source-to-tally distance, small tally solid angle, and large amount of present moderating and absorbing materials present a challenging transport problem, but one that ADVANTG can prove extremely useful to when applied.
 
 % how did i apply it to our problem
-There were first a few issues that needed to be addressed with the formulation of the transport problem before ADVANTG could be used effectively.
+However, there were first a few issues that needed to be addressed with the formulation of the transport problem before ADVANTG could be used effectively.
 
 % first, we rotated the model
-Recall, the NEBP sits at a 50$^{\circ}$ angle from the core.
-Denovo solves problems on a 3-D fixed mesh, meaning that capturing the details of the NEBP will not be intuitive, as the axis of the beam doesn't directly lie along one of the axes.
+Recall that the NEBP aligns 50$^{\circ}$ azimuthally from the main $x$-axis.
+Denovo solves problems on a 3-D fixed mesh, meaning that capturing the details of the NEBP will be counterintuitive, as the axis of the beam doesn't directly lie along one of the axes.
 In addition to this, the full transport problem requires a large amount of memory to solve, which became a limiting factor when selecting ADVANTG parameters.
 Because of these issues, the model needed to be rotated so that way the beam could lie on axis and the mesh resolution could be altered in a way that fully captured the effects of the beam and collimator while not wasting memory solving for fluxes in the structural material outside of the beam.
 Alterations were then made to the input-generating python scripts to allow the user to rotate the entire model by altering a single parameter.
