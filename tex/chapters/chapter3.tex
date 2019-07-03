@@ -8,6 +8,7 @@
 This section contains a complete description of the neutronic modeling for the NEBP.
 % before you measure it, it helps to have a model
 It's often necessary, as in this case, to model a neutronic environment before attempting to measure it, as the modeling results can inform certain measurement methods and parameters.
+The measurement systems used in later analyses required calculated response functions which built-in the flux's angular dependence obtained from this modeling effort.
 The final result from this section also provides the default spectrum to ultimately be used in the unfolding of the final neutron spectrum after measurement.
 % there were many problems encountered along the way that lengthened the process of obtaining the final results, most regarding computation time
 Many problems were encountered during this analysis, often related to computational difficulty/time, that lengthened the process of obtaining the final results.
@@ -15,4 +16,4 @@ These problems, along with the applied solutions, are presented.
 % first mcnp kcode, then sdef, then advantg, then finally the tally results
 We begin with the NEBP model's KCODE implementation in MCNP, followed by a conversion to a steady-state problem, the application of variance reduction, and finally, the beam-aperture tally results.
 % the steps here ultimately led to success in solving a difficult transport problem and could be used in other things like this.
-The steps here ultimately led to success in solving a difficult transport problem and these steps taken can likely be applied to similar situations, such as other reactor beam transport problems or any problem with severe collimation of an isotropics source.
+The steps here ultimately led to success in solving a difficult transport problem and these steps taken can likely be applied to similar situations, such as other reactor beam transport problems or, more broadly speaking, any problem with severe collimation of an isotropics source.
