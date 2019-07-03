@@ -15,18 +15,18 @@
 
 % why model?
 Before conducting any flux measurement of the beam port, the experimental setups were first modeled in MCNP.
-The purpose of this is twofold: one, this generates predicted detector responses to aid in the selection of experimental parameters and give an idea for the physicality of initially obtained results, and two, response functions are generated that are ultimately used in the unfolding of the final spectrum.
+The purpose of this is twofold: one, this generates predictive detector responses to aid in the selection of experimental parameters and provides a metric for the accuracy of initially measured results, and two, response functions are generated for the devices that are ultimately used in the unfolding of the final spectrum.
 % can i use the full model?
 However, due to the (computational) size of the full reactor model, it would be very expensive to generate these experimental responses and response functions.
-Also, the beam port flux, not in-core source spectrum is what we desire to measure, so the response functions would not be properly generated using the full model in this analysis.
+Also, the beam port flux, not in-core source spectrum is what we desire to measure, so the response functions would not relate back to the proper flux using the full model.
 % no, we need a decoupled model
 Necessarily, a decoupled model of the beam and experimental configurations must be used for this portion of the simulation.
 This will simplify the geometry and transport significantly, allowing for reduced computation times and also for the ultimate unfolding of the correct neutron spectrum.
 % is it valid to decouple?
 As to the validity of this decoupling, as long as the full surface current leaving the outer boundary of the full model is captured in the decoupled model, then this approach is neutronically equivalent to a non-decoupled approach.
 % yeah, as long as the coupled surfaces capture the outgoing flux, in our case that's justified because a vast majority comes down the beam
-In our case, as indicated by the flux results from the previous chapter, the majority of departing neutrons leave the beam through the collimator void.
-The tallies include a large area around this beam, too, to account for any neutrons that excape the beam.
+In our case, as indicated by the flux results from the previous chapter, the vast majority of departing neutrons leave the beam through the collimator void.
+The tallies include a large area around this beam, too, to account for any neutrons that escape the beam.
 This flux value decreases rapidly further from the center of the beam, and so it is believed that any neutrons that escape the collimator, leave through the structural material around the collimator, and still manage to interact in any detector will contribute in a statistically insignificant way.
 
 % what does the decoupled model include?
