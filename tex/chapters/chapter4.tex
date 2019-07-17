@@ -67,7 +67,7 @@ This value is equal to the saturation activity, since the activity at $t = \inf$
 \end{equation}
 
 Two facts allow us to simplify \EQ{eqn:bateman_ratios} into a useful form.
-First, because $A_sat = C_sat$, any $A(t) / C_{sat} = A(t) / A_{sat}$, so we can replace these terms with a defined term, $R_{sat}(t)$ which is the ratio of the activity at time $t$ to the saturation activity.
+First, because $A_{sat} = C_{sat}$, any $A(t) / C_{sat} = A(t) / A_{sat}$, so we can replace these terms with a defined term, $R_{sat}(t)$ which is the ratio of the activity at time $t$ to the saturation activity.
 Second, although we don't have access to the $C(t)$ or $C_{sat}$ terms since they require the (currently unknown) flux, we do have access to power data.
 Because isotopic production is approximately proportional to reactor power, $C(t) \propto P(t)$, this means that $C(t) / C_{sat} \approx P(t) / P_{nominal}$.
 We will replace this power ratio with the term $P_{f}(t)$, which is simply the time dependent ratio of the power to the nominal power.
@@ -89,18 +89,18 @@ The data for $P_{f}(t)$ is simply normalized strip chart data collected from an 
 \begin{table}[h]\centering
 \label{tab:a_sat}
 \caption{The correction factors and foil activities.}
-\begin{tabular}{ r | r | r | r | l }
+\begin{tabular}{ r | r | r | l | r }
 \toprule
-Position (in.)  & $A_{meas}$ & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$\\
-0 & 1.48373626e+03 & 1.00089748 & 0.02268378 & 65468.28629567 \\
-1 & 5.86027460e+01 & 1.00590363 & 0.02262131 &  2605.89285917  \\
-2 & 8.92905830e+00 & 1.03805564 & 0.02196285 &   422.02438091  \\
-3 & 4.06821290e+00 & 1.06581552 & 0.0204511  &   212.01617444  \\
-4 & 2.58165872e+00 & 1.14023228 & 0.01574428  &   186.96886973  \\
-5 & 1.60404768e+00 & 1.2797683 & 0.01340611 &      153.12486185  \\
-6 & 7.21675010e-01 & 1.26894006 & 0.00794792 &       115.22035675  \\
-7 & 3.68363379e-01 & 1.27340132 & 0.00483425 &      97.0315587   \\
-8 & 1.73328239e-01 & 1.4158706 & 0.00256568 &       95.65112019\\
+Position (in.)  & $A_{meas}$ (Bq) & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$  (Bq)\\
+0 & 1483.73 & 1.00089 & 0.02268 & 65468.28 \\
+1 & 58.60 & 1.00590 & 0.02262 &  2605.89  \\
+2 & 8.92 & 1.03805 & 0.02196 &   422.02  \\
+3 & 4.06 & 1.06581 & 0.0204  &   212.01  \\
+4 & 2.58 & 1.14023 & 0.01574  &   186.96  \\
+5 & 1.60 & 1.27976 & 0.01340 &      153.12  \\
+6 & 0.72 & 1.26894 & 0.00794 &       115.22  \\
+7 & 0.37 & 1.27340 & 0.00483 &      97.03   \\
+8 & 0.17 & 1.41587 & 0.00256 &       95.65\\
 \end{tabular}
 \end{table}
 
@@ -115,16 +115,16 @@ These values are presented in \TAB{tab:bss}.
 \begin{table}[h]\centering
 \label{tab:bss}
 \caption{The BSS count rates from the experiment.}
-\begin{tabular}{ r | l }
+\begin{tabular}{ r | r }
 \toprule
 Sphere (in.)  & Count Rate $s^{-1}$\\
-Bare & 1626.7554373583173\\
-2  & 1062.4080759576198\\
-3 & 3891.1364960397206\\
-5 & 417.2440868019122\\
-8 & 139.72617625337557\\
-10 & 70.75128009873939\\
-12 & 37.430711516055815\\
+Bare & 1626.76\\
+2  & 1062.40\\
+3 & 3891.13\\
+5 & 417.24\\
+8 & 139.72\\
+10 & 70.75\\
+12 & 37.43\\
 \end{tabular}
 \end{table}
 
