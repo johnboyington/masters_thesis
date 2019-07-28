@@ -6,12 +6,71 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Beam Port Characterization Experiments}
 
-%(Placeholder text)
+%% introduction
 %When measuring charged particles, the energy is directly measurable, which is nice.
+A useful effect when measuring charged particles and gamma-rays is that generally, it is possible for all of the particle's energy deposited into a detector within a relatively small time window.
 %You can't do that with neutrons because they are neutral particles, which is less nice.
-%Instead, most modern methods use discrete responses of individual detectors or detector configurations.
+Neutrons, unfortunately, do not share this property with the other particle types, making the process of obtaining spectral information about some neutronic environment less straightforward.
+% they generally have to be measured indirectly - a neutron reacts with something causing something else that is measureable
+Instead, neutrons have to be measured indirectly - a neutron will react and produce some measureable secondary effect within a detection medium.
+This effect is rarely equal to (or even proportional to) the energy of the incident neutron.
+That does not mean, however, that spectral information cannot still be obtained about a neutron flux.
+% several of these indirect interactions can be compiled to give information on a whole neutron spectrum
+In practice, with a set of different detectors, each responding to different speeds of neutrons, a collection of measurements can be compiled to produce information on the entire spectrum.
+% here we will explore two common ways neutron spectra are investigated
+Here, we will explore two common ways neutorn spectra are investigated experimentally in practice.
 
-%Will talk about Bonner Spheres and Foil Activation here.
+\subsection{Bonner Sphere Spectrometer}
+%% bonner spheres
+% a major breakthrough came in 1961 when Brablett et. al. introduced the idea of bonner spheres
+A major breakthrough came for the neutron dosimetry community in the early 1960s when Bramlett et. al. first introduced their ``new type of neutron spectrometer.''
+% they developed an active neturon spectrometer
+The ``Bonner Sphere'', named after one of the original Rice Univeristy authors, was a first-of-its-kind, active neutron spectrometer.
+% here's how it works
+The device allows measurements to be taken across the entire range of energies found within or around a nuclear reactor or other common neutron source.
+% there's a thermal sensitive crystal at the bottom
+Fundamental to the design is the thermal-sensitive LiI crystal that serves as the detection medium.
+% first, a measurement is taken in the neutron environment
+First, a measurement is taken using the bare sensor.
+% then, the smallest sphere is added
+Then, a small High Density Polyethylene sphere is placed around the crystal.
+% adding this sphere does two things, absorbs thermal neutrons and downscatters faster neutrons so they can be more readily absorbed
+The purpose of this is twofold - the sphere will remove a portion of thermal neutrons from the system and also will downscatter faster neutrons so they can be more readily absorbed by the crystal.
+% following the mesaurement with the sphere on, larger and larger spheres are used to produce faster and faster responses
+Following this measurement, larger and larger spheres will be used to produce faster and faster responses.
+% after taking all of these measurements, the entire spectrum has been measured
+After taking all of these measurements, information will have been obtained from the entire neutron spectrum.
+% using some math (which will be detailed in the next section) these measurements can be used to obtain the actual spectrum
+Using some mathematical techniques (which will be detailed in the next section) these measurement can be used to finally obtain a full, high resolution neutron spectrum.
+
+\subsection{Gold Foil Activation}
+%% gold foil activation
+% foil activation, specifically with gold foils, is a standard way of measuring flux
+Foil activation, specifically through the use of gold foils, is a standard way of measuring a neutron flux.
+% how does it work
+The foils (often wires are used, too) are placed into the neutron flux.
+Neutrons activate the foils causing them to become radioactive and emit gamma-rays.
+These gamma-rays can be measured, and the equations that govern the activation process can be used in reverse to back out the incident flux.
+% with the gold alone, only one response can measure the absolute flux
+With a gold foil alone, a single response can be obtained which yields the absolute flux of a system.
+% gold is good for this for a number of reasons
+Gold, in particular, is useful for this for a number of reasons.
+% very high thermal cross section, it has a great halflife and gamma for counting and is metallic, so it can be worked into different forms
+First, its $(n, \gamma)$ reaction has a very high thermal cross section.
+It also has a 2.7 day halflife, which is ideal, for it will not quickly decay away, yet it also doesn't take an unreasonable amount of time to reach a substantial fraction of saturation.
+The gamma-ray produced by gold is approximately 412 keV, ideal for measuring with an HPGe detector.
+It is also metallic, meaning that it can be easily worked into different forms depending on the desired measurement.
+% though, gold alone cant give spectrum, there are a number of ways in which you can get one
+Though a single gold foil cannot give information on the spectrum, there are a number of ways in which gold can be used to help measure the entire spectrum.
+% adding cadmium allows one to get a two group flux, since cadmium eats thermal neutrons
+Adding a cadmium filter around the gold will produce a two-group flux, since cadmium will absorb all of the thermal neutrons and isolate gold's major resonance.
+% gold can be used as a part of a multifoil experiment
+Gold can also be used as part of a multi-foil experiment.
+Different kinds of foils with different responses can be used to cover the whole spectrum.
+% it has also been used with the bonner spheres to produce info from the whole spectrum
+Also, gold has been used with a set of bonner spheres, acting as the primary detection medium within the center of the spheres.
+% in beam, this works
+This has been done in-beam at many different research and medical isotope production reactors.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Spectral Unfolding Methods}
@@ -391,8 +450,4 @@ STAY'NL is particularly useful for its ability to incorporate error from the mea
 % other optimization techniques, GA, ANN
 A variety of other unfolding techniques have been successfully applied to the problem of spectral unfolding.
 These include genetic algorithms, like in the code BONDI-97; artificial neural networks, seen in BUMS; and many other iterative and non-iterative methods such as the Backus-Gilbert methods, the Bryan-Caudill Model, and the code BON.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Variance Reduction Methods}
 
