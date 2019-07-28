@@ -282,3 +282,112 @@ This effect can be seen to a degree within the E ring, but it is much less prono
 By studying \FIG{fig:totals_azi}, one can again see the effect the NEBP has on the F ring's fission rates.
 This depression is seen when sweeping past the NEBP from around 12$^{\circ}$-75$^{\circ}$.
 Other peaks and vally's seen in the figure are likely the cause of control rod, central thimble, and source placement.
+
+
+% ------------------------------------------------------------------------------------------------------------------
+\section{Application of Advantg}
+
+% okay, we've got an SDEF problem, what kind of tallies would we like?
+After obtaining the fission rate tallies and creating an appropriate SDEF card, the MCNP problem formulation is now only missing a final tally.
+The tallies are setup here to capture the maximum detail and understanding of what is happening at the outer aperture of the NEBP.
+First, the outer face of the NEBP is used in a surface tally (F2) to find the fluence departing.
+This tally was divided spatially using different concentric cylinders, providing information on seven regions of the NEBP.
+The first three are all equivalent-area tallies within the collimator itself.
+This will provide an understanding of the radial distribution with the main beam.
+The fourth segment was the exterior face of the aluminum collimator.
+Then, the last three were equivalent area tallies within the BP collimator.
+This would give an idea for the quantity of neutrons that managed to escape the main beam but still contribute to detectors, dose, etc., outside of the beam.
+
+% we've also got them divided into cosine and energy
+Then, both angular and spectral groupings were used to bin each of these regions.
+For the angle, a custom, fine, 109-group structure was used.
+The first 20 bins were tenth degree increments between 0$^{\circ}$ and 2$^{\circ}$, where 0$^{\circ}$ refers to a partition edge on the beam's main axis.
+Following that, a resolution of one degree increments were used between 2$^{\circ}$ and 90$^{\circ}$
+All of the backward fluence was captured by one bin between 90$^{\circ}$ and 180$^{\circ}$.
+
+For the energy structure, the scale252 group structure was used.
+This medium-resolution structure was selected because of the trade off between wanting to capture finer spectral details and the run-time to resolve statistics.
+
+% great, can we run this?
+With the tally now in place, MCNP was run, first without any variance reduction (VR).
+Unsurprisingly, only a handful of the several million simulated particles survived to the end of the NEBP and were captured by the tally.
+It became quickly apparent that this problem needed of some form of VR to be able to achieve decent tally results in any reasonable amount of time.
+
+% let's pick advantg.
+For this application, the code ADVANTG was select to provide the VR needed to do the transport.
+
+% but what is advantg?
+ADVANTG, the AutomateD VAriaNce reducTion Generator, generates weight window parameters for a fixed-source, continuous-energy MCNP problem.
+This is accomplished by solving the 3-D discrete ordinates neutron (or photon or coupled neutron-photon) transport problem using the Denovo package.
+The adjoint solution obtained in this way is used to generate the weight window mesh to be used in the MCNP problem.
+ADVANTG also creates biasing parameters for the source.
+Both the weight windows and biasing parameters work together to provide a significant reduction in computational time for obtaining accurate tally results on difficult transport problems.
+% then i'll explain why it's useful for our problem
+In the case of the NEBP, the large source-to-tally distance, small tally solid angle, and large amount of present moderating and absorbing materials present a challenging transport problem, but one that ADVANTG can prove extremely useful to when applied.
+
+% how did i apply it to our problem
+However, there were first a few issues that needed to be addressed with the formulation of the transport problem before ADVANTG could be used effectively.
+
+% first, we rotated the model
+Recall that the NEBP aligns 50$^{\circ}$ azimuthally from the main $x$-axis.
+Denovo solves problems on a 3-D fixed mesh, meaning that capturing the details of the NEBP will be counterintuitive, as the axis of the beam doesn't directly lie along one of the axes.
+In addition to this, the full transport problem requires a large amount of memory to solve, which became a limiting factor when selecting ADVANTG parameters.
+Because of these issues, the model needed to be rotated so that way the beam could lie on axis and the mesh resolution could be altered in a way that fully captured the effects of the beam and collimator while not wasting memory solving for fluxes in the structural material outside of the beam.
+Alterations were then made to the input-generating python scripts to allow the user to rotate the entire model by altering a single parameter.
+The model was then rotated 50$^{\circ}$ clockwise so the NEBP lied on the positive $x$-axis.
+The KCODE problem was rerun to verify the rotated model still produced the same fission rates and that no biases were introduced.
+The results from this verification did match the original fission-rate tallies.
+
+% then here, i'll just talk about all of the advantg parameters and why they were used
+ADVANTG was then run with the NEBP problem.
+The parameters selected are shown in \TAB{tab:advantg_params}.
+
+% this contains all of the advantg parameters
+\begin{table}[h]\centering
+\label{tab:advantg_params}
+\caption{Input parameters used for ADVANTG.}
+\begin{tabular}{ r | l }
+\toprule
+model                     &   mcnp\\
+method                    &   cadis\\
+outputs                   &   mcnp\\
+mcnp\_input               &   ksun.inp\\
+mcnp\_tallies             &   11\\
+mesh\_refinement          &   mcnp\\
+mesh\_x                   &   -55 -22 22 184 368\\
+mesh\_y                   &   -55 -22 -12 -2 2 12 22 55\\
+mesh\_z                   &   -35 -16 -11 -5 0 35\\
+mesh\_x\_ints             &   17 25 25 25\\
+mesh\_y\_ints             &   75 14 17 22 17 14 17\\
+mesh\_z\_ints             &   17 14 35 14 17\\
+anisn\_library            &   bplus\\
+denovo\_pn\_order         &   4\\
+denovo\_quad\_num\_azi    &   15\\
+denovo\_quad\_num\_polar  &   12\\
+denovo\_x\_blocks         &   8\\
+denovo\_y\_blocks         &   8\\
+denovo\_z\_blocks         &   1\\
+\end{tabular}
+\end{table}
+
+% basically, everything comes down to runtime, memory, and FOM
+Several of the parameters are self-explanatory, but the non-intuitive ones will be discussed here.
+First, {\tt cadis} refers to the method used to solve the transport problem.
+{\tt mesh\_x}, etc. refer to the major planes where the resolution of the mesh changes and {mesh\_x\_ints}, etc. refers to the number of elements between two planes in the mesh.
+This mesh was selected to focus on the core and NEBP, so the region surrounding the beam is high resolution and the regions outside of the core and beam are low resolution.
+The {\tt bplus} library was selected because it contained all of the materials used in the model and had a relatively large number of groups (47).
+The degree of anisotropy modeled is adjusted by the {\tt denovo\_pn\_order}, which was selected to be 4.
+A higher order in this case would increase the runtime, but not necessarily produce a more accurate solution for this particular problem.
+The parameters, {\tt denovo\_quad\_num\_azi} and {\tt denovo\_quad\_num\_polar} refer to the number of angles used by the problem.
+Because the problem has a high angular dependence (a beam of neutrons streaming down a long collimator), these were selected to be higher than the defaults.
+Increasing this parameter also helped to reduce ray effects present within the solution.
+Finally, {\tt denovo\_x\_blocks}, etc. refer to the parallelization scheme.
+The computer used for this calculation had 64 cores available, so these values 8, 8, and 1 all multiply to that value.
+
+% so i ran it, that gave me a wwinp file that was how many MB?
+Using these parameters, ADVANTG was run and biasing parameters and a weight window input file was produced.
+
+% here i will talk about the weight windows and the images from VISIT.
+% let's put pics here of the wws and talk about them
+% like, quite a bit of discussion here is warranted
+% then, talk about some of the modifications to the source term and stuff.
