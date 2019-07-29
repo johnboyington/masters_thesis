@@ -23,7 +23,7 @@ Here, we will explore two common ways neutorn spectra are investigated experimen
 \subsection{Bonner Sphere Spectrometer}
 %% bonner spheres
 % a major breakthrough came in 1961 when Brablett et. al. introduced the idea of bonner spheres
-A major breakthrough came for the neutron dosimetry community in the early 1960s when Bramlett et. al. first introduced their ``new type of neutron spectrometer.''
+A major breakthrough came for the neutron dosimetry community in the early 1960s when Bramlett et. al. first introduced their ``new type of neutron spectrometer'' \cite{bramblett1960new}.
 % they developed an active neturon spectrometer
 The ``Bonner Sphere'', named after one of the original Rice Univeristy authors, was a first-of-its-kind, active neutron spectrometer.
 % here's how it works
@@ -68,7 +68,7 @@ Adding a cadmium filter around the gold will produce a two-group flux, since cad
 Gold can also be used as part of a multi-foil experiment.
 Different kinds of foils with different responses can be used to cover the whole spectrum.
 % it has also been used with the bonner spheres to produce info from the whole spectrum
-Also, gold has been used with a set of bonner spheres, acting as the primary detection medium within the center of the spheres.
+Also, gold has been used with a set of bonner spheres, acting as the primary detection medium within the center of the spheres \cite{viererbl2012comparison} \cite{wang2008goldbonner}.
 % in beam, this works
 This has been done in-beam at many different research and medical isotope production reactors.
 
@@ -176,7 +176,7 @@ Convenient as this appears, a skeptic may inquire as to the viability of such a 
 Before continuing, it may be helpful to provide a discussion of the fidelity of our current reactor models.
 % taking for example a typical lwr, a spectrum should generally consist of a superposition of 3 features
 Let's take for example a typical light water reactor (LWR).
-In the general case, the neutron spectrum present in such a reactor can be justifiably simplified to the superposition of three features.
+In the general case, the neutron spectrum present in such a reactor can be justifiably simplified to the superposition of three features \cite{lewis2008fundamentals}.
 % these features are the fission neutron spectrum, the 1/e region and the maxwellian distribution
 The fast region is comprised of fission neutrons, commonly modeled via Watt's distribution; the thermal end resembles a gas dependent on reactor temperature and can be modeled as a Maxwell-Boltzmann distribution; and downscattering, a slowing down process proportional to the inverse of the neutron energy, affixes the two peaks.
 % these all can conveniently be represented mathematically, however, the exact values of certain constants are unknown
@@ -208,7 +208,7 @@ Programs such as MCNP and Geant have paved a road from the domain of typical or 
 \subsubsection{Sand II}
 
 % the sand ii algorithm was introduced in 1967 by McElroy et. al. at air force weapons lab in a paper titled 'A COMPUTER-AUTOMATED V0 ITERATIVE METHOD FOR NEUTRON FLUX SPECTRA DETERMINATIONBY FOIL ACTIVATION'
-The Sand II algorithm was first introduced in a 1967 paper from the Air Force Weapons Lab by McElroy et. al. describing `A Computer-Automated Iterative Method for Neutron Flux Spectra determination by Foil Activation'.
+The Sand II algorithm was first introduced in a 1967 paper from the Air Force Weapons Lab by McElroy et. al. describing `A Computer-Automated Iterative Method for Neutron Flux Spectra determination by Foil Activation' \cite{mcelroy1967computer}.
 % the codes purpose was unfolding, specifically in the case of
 Sand II was built specifically with foil activation unfolding in mind, using a specially-designed, iterative, spectral adjustment procedure.
 % it used a default spectrum as the first step in an iterative scheme
@@ -267,7 +267,7 @@ The solution is then recomputed without this troublesome and unphysical value.
 % other codes
 The Sand II algorithm has seen a lot of application since its introduction in the sixties.
 Many other codes have built upon the foundation of the algorithm since then, such as Sand IV and MSANDB.
-The popular unfolding code, Gravel, utilizes the same algorithm, but includes one small change.
+The popular unfolding code, Gravel, utilizes the same algorithm, but includes one small change \cite{reginatto2004umg}.
 The weighting function is updated like so,
 
 % the modified gravel weighting function
@@ -287,7 +287,7 @@ Another feature of Gravel in its current distribution is the removal of the requ
 
 % introduction
 % doroshenko et. al. released an algorithm
-In 1975, an algorithm was introduced by Doroshenko et. al. to tackle the problem of spectral unfolding.
+In 1975, an algorithm was introduced by Doroshenko et. al. to tackle the problem of spectral unfolding \cite{doroshenko1977new}.
 % the basis of the algorithm was unfolding via maximization of `directed divergence'
 The basis of the algorithm was to provide a solution that satisfies \EQ{eqn:disc-response} while also maximizing a quantity called `directed divergence'.
 % directed divergence, or entropy is an information measure that is related to the likelihood of a neutron spectrum taking a particular shape
@@ -347,7 +347,7 @@ The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko m
 \subsubsection{MAXED}
 
 % introduction
-Other maximum entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a fortran-based, maximum entropy, unfolding code from Reginatto and Goldhagen was introduced that has since seen wide-spread use and huge popularity across the field of neutron spectral unfolding.
+Other maximum entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a fortran-based, maximum entropy, unfolding code from Reginatto and Goldhagen was introduced that has since seen wide-spread use and huge popularity across the field of neutron spectral unfolding \cite{reginatto1999maxed}.
 
 This algorithm, MAXED, begins with \EQ{eqn:disc-response} but adds an additional constraint
 
@@ -407,7 +407,7 @@ Without proper $a priori$ information, the solution should not be considered use
 Although a formal or complete treatment of entropy extends beyond the scope of this work, a note will be included here, since two of the above methods are derived from this information theory.
 
 % entropy is a measure of the information contained within some signal
-Entropy is a quantifiable measure of the potential information contained within some signal.
+Entropy is a quantifiable measure of the potential information contained within some signal \cite{guiasu1985principle}.
 % the higher the entropy, the less likely there is information contained
 The higher the entropy, the less likely it is for information to be encoded within the signal.
 % the signal is considered more random

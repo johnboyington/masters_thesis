@@ -13,7 +13,7 @@
 \subsection{NEBP Decoupling}
 
 % why model?
-Before conducting any flux measurement of the beam port, the experimental setups were first modeled in MCNP.
+Before conducting any flux measurement of the beam port, the experimental setups were first modeled in MCNP \cite{goorley2012initial}.
 The purpose of this is twofold: one, this generates predictive detector responses to aid in the selection of experimental parameters and provides a metric for the accuracy of initially measured results, and two, response functions are generated for the devices that are ultimately used in the unfolding of the final spectrum.
 % can i use the full model?
 However, due to the (computational) size of the full reactor model, it would be very expensive to generate these experimental responses and response functions.
@@ -312,7 +312,7 @@ We will replace this power ratio with the term $P_{f}(t)$, which is simply the t
 \frac{R_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
 \end{equation}
 
-This equation can be solved to find $R_{sat}$ at the time of measurement using a numerical solver, in our case, {\tt scipy}'s {\tt odeint}.
+This equation can be solved to find $R_{sat}$ at the time of measurement using a numerical solver, in our case, {\tt scipy}'s {\tt odeint} \cite{jones2001scipy}.
 The data for $P_{f}(t)$ is simply normalized strip chart data collected from an in-core fission chamber.
 
 
