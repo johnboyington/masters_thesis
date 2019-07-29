@@ -37,7 +37,7 @@ The model, though still currently under development, contains a majority of the 
 There are 85 fuel elements, containing fresh fuel, that are able to be automatically discretized axially, radially, and azimuthally into up to 10,000 cells.
 The four control rods are also included, and a user may specify their exact position to match that of in-core experiments.
 The central thimble, grid plates, and source location are all also included in the core model, which is surrounded by a graphite reflector.
-This model can be seen in \FIG{fig:existing}.
+This model can be seen in \FIG{fig:existing} and can be used to create input files for different transport codes, such as MCNP \cite{goorley2012initial}.
 
 % the existing reactor model
 \begin{figure}
@@ -317,7 +317,7 @@ It became quickly apparent that this problem needed of some form of VR to be abl
 For this application, the code ADVANTG was select to provide the VR needed to do the transport.
 
 % but what is advantg?
-ADVANTG, the AutomateD VAriaNce reducTion Generator, generates weight window parameters for a fixed-source, continuous-energy MCNP problem.
+ADVANTG, the AutomateD VAriaNce reducTion Generator, generates weight window parameters for a fixed-source, continuous-energy MCNP problem \cite{mosher2013advantg}.
 This is accomplished by solving the 3-D discrete ordinates neutron (or photon or coupled neutron-photon) transport problem using the Denovo package.
 The adjoint solution obtained in this way is used to generate the weight window mesh to be used in the MCNP problem.
 ADVANTG also creates biasing parameters for the source.
