@@ -350,7 +350,7 @@ Position (in.)  & $A_{meas}$ (Bq) & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$  (Bq
 
 \subsection{Bonner Sphere Spectrometer}
 
-The BSS data was processed simply by taking the area under the LiI reaction peaks and dividing that value by the live time of the detector.
+The BSS data was processed simply by taking the area under the Li reaction peaks and dividing that value by the live time of the detector.
 These values are presented in \TAB{tab:bss}.
 
 % bss response integration
@@ -360,6 +360,18 @@ These values are presented in \TAB{tab:bss}.
 \caption[8" BSS Spectrum]{The 8" sphere's gamma-ray spectrum and the model used to find the integral response.}
 \label{fig:bs4_spectrum}
 \end{figure}
+
+A typical spectrum obtained from the BSS portion of the experiment is shown in \FIG{fig:bs4_spectrum}.
+The area under the Li reaction peaks was found by fitting a model to the data.
+The model is shown in \EQ{eqn:model}.
+It is the superposition of a decaying exponential function to fit the noise, and a normal distribution to fit the reaction.
+The $C$ term in the normal represents the area under the curve, since the area of an unscaled normal distribution is unity.
+
+% equation used to fit the bss spectra
+\begin{equation}
+\label{eqn:model}
+c(E) = A e^{-BE} + C \frac{1}{\sqrt{2 \pi D^2}} e^{-(E - F)^2 / 2 D^2}
+\end{equation}
 
 
 % the bss count rates
