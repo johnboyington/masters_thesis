@@ -65,82 +65,81 @@
     August 12, 2019}
 
 \begin{document}
-    % These two commands allow bonus slides at the end
-    % The bonus slides will not be numbered
-    \newcommand{\beginbackup}{
-        \newcounter{framenumbervorappendix}
-        \setcounter{framenumbervorappendix}{\value{framenumber}}
-    }
-    \newcommand{\backupend}{
-        \addtocounter{framenumbervorappendix}{-\value{framenumber}}
-        \addtocounter{framenumber}{\value{framenumbervorappendix}}
-    }
-    
-    \begin{frame}
-        \titlepage
-    \end{frame}
+% These two commands allow bonus slides at the end
+% The bonus slides will not be numbered
+\newcommand{\beginbackup}{
+    \newcounter{framenumbervorappendix}
+    \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+    \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+    \addtocounter{framenumber}{\value{framenumbervorappendix}}
+}
 
-    \begin{frame}
-     \frametitle{Outline}
-      \begin{itemize}
-       \item Overview of TREAT Facility
-       \item Out-of-core hodoscope detectors
-       
-       \begin{itemize}
-        \item ZnS(Ag) scintillation detectors
-        \item Fast-sensitive Microstructured Semiconductor Neutron Detectors (MSNDs)
-       \end{itemize}
-       \item In-core Micro-Pocket Fission Detector (MPFD)
-       \item Conclusion
-%        \item *Fuel motion device for burnup measurements
-      \end{itemize}
-    \end{frame}
+
+%%% Introduction (2) ---------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%% title slide
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%% presentation outline
+\begin{frame}
+\frametitle{Outline}
+\begin{itemize}
+\item Neutron Spectrometry and Deconvolution
+\item Simulated Work
+\item Experimental Work
+\item Conclusions and Future Work
+\end{itemize}
+\end{frame}
+
+%%% Lit Review Stuff (6) ---------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%% bonner sphere spectrometers
+%%%%%%%%%%%%%%%%%%%%% gold foil based spectrometers
+%%%%%%%%%%%%%%%%%%%%% the mathematic formulation/unfolding
+%%%%%%%%%%%%%%%%%%%%% doroshenko directed divergence
+%%%%%%%%%%%%%%%%%%%%% gravel/sandii
+%%%%%%%%%%%%%%%%%%%%% maxed
+
+%%% NEBP Modeling Effort (10) ---------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%% modeling steps/overview
+%%%%%%%%%%%%%%%%%%%%% existing model
+%%%%%%%%%%%%%%%%%%%%% nebp additions
+%%%%%%%%%%%%%%%%%%%%% fission tally results I
+%%%%%%%%%%%%%%%%%%%%% fission tally results II
+%%%%%%%%%%%%%%%%%%%%% applyting advantg
+%%%%%%%%%%%%%%%%%%%%% notes on speedup/runtime/cores,etc.
+%%%%%%%%%%%%%%%%%%%%% energy distribution
+%%%%%%%%%%%%%%%%%%%%% cosine distribution
+%%%%%%%%%%%%%%%%%%%%% radial distribution
+
+%%% NEBP Experimental Campaign (14) ---------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%% modeling steps
+%%%%%%%%%%%%%%%%%%%%% foil tube response functions
+%%%%%%%%%%%%%%%%%%%%% bonner sphere response functions
+%%%%%%%%%%%%%%%%%%%%% experimental procedures: ft
+%%%%%%%%%%%%%%%%%%%%% experimental procedures: bss
+%%%%%%%%%%%%%%%%%%%%% gold foil post processing
+%%%%%%%%%%%%%%%%%%%%% transient mathematics
+%%%%%%%%%%%%%%%%%%%%% bss postprocessing
+%%%%%%%%%%%%%%%%%%%%% response comparison: ft
+%%%%%%%%%%%%%%%%%%%%% response comparison: bss
+%%%%%%%%%%%%%%%%%%%%% spectral unfolding: parameters
+%%%%%%%%%%%%%%%%%%%%% spectral unfolding: doroshenko
+%%%%%%%%%%%%%%%%%%%%% spectral unfolding: gravel
+%%%%%%%%%%%%%%%%%%%%% spectral unfolding: maxed
+
+%%% Conclusions & Future Work (3) ---------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%% conclusions
+%%%%%%%%%%%%%%%%%%%%% future work
+%%%%%%%%%%%%%%%%%%%%% references
+
+
+
 
 \end{document}
 
-% major outline
 
-%%% Introduction (2) ---------------------------------------------------------------------------------------
-% title slide
-% presentation outline
 
-%%% Lit Review Stuff (6) ---------------------------------------------------------------------------------------
-% bonner sphere spectrometers
-% gold foil based spectrometers
-% the mathematic formulation/unfolding
-% doroshenko directed divergence
-% gravel/sandii
-% maxed
-
-%%% NEBP Modeling Effort (10) ---------------------------------------------------------------------------------------
-% modeling steps/overview
-% existing model
-% nebp additions
-% fission tally results I
-% fission tally results II
-% applyting advantg
-% notes on speedup/runtime/cores,etc.
-% energy distribution
-% cosine distribution
-% radial distribution
-
-%%% NEBP Experimental Campaign (14) ---------------------------------------------------------------------------------------
-% modeling steps
-% foil tube response functions
-% bonner sphere response functions
-% experimental procedures: ft
-% experimental procedures: bss
-% gold foil post processing
-% transient mathematics
-% bss postprocessing
-% response comparison: ft
-% response comparison: bss
-% spectral unfolding: parameters
-% spectral unfolding: doroshenko
-% spectral unfolding: gravel
-% spectral unfolding: maxed
-
-%%% Conclusions & Future Work (3) ---------------------------------------------------------------------------------------
-% conclusions
-% future work
-% references
