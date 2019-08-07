@@ -134,8 +134,39 @@ N_k + \epsilon_k = \sum_i R_{ki} \phi_i, \quad k = 1,\ldots, m .
 
 
 %%%%%%%%%%%%%%%%%%%%% doroshenko directed divergence
+\begin{frame}
+\frametitle{Doroshenko Directed Divergence}
+
+\begin{equation}
+\label{eqn:doroshenko}
+\phi_j^{k + 1} = \phi_j^{k} (\frac{\sum_i \frac{R_{ji}}{\sum_j R_{ij} \phi_j^k}}{\sum_i \frac{R_{ji}}{N_i}}) 
+\end{equation}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%% gravel/sandii
+\begin{frame}
+\frametitle{Gravel}
+
+\begin{equation}
+\label{eqn:sandii}
+\phi_j^{k + 1} = \phi_j^{k} exp(\frac{\sum_i W_{ji}^k \log(\frac{N_i}{\sum_{j'} R_{ij'} \phi_{j'}^k})}{\sum_i W_{ji}^k}) ,
+\end{equation}
+
+\begin{equation}
+\label{eqn:gravel-w}
+W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{\sigma_i^2} ,
+\end{equation}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%% maxed
+\begin{frame}
+\frametitle{MAXED}
+\begin{equation}
+\label{eqn:maxed-skilling}
+S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
+\end{equation}
+\end{frame}
 
 
 %%% NEBP Modeling Effort (10) ---------------------------------------------------------------------------------------
