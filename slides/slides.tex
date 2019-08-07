@@ -2,7 +2,7 @@
 
 \usepackage[british]{babel}
 \usepackage{graphicx,ru,url}
-\graphicspath{{./figures/}}
+\graphicspath{{../tex/figures/}}
 \usepackage{amsmath}
 % Use Times for math font and text font.
 \RequirePackage[T1]{fontenc}
@@ -96,14 +96,50 @@
 \end{frame}
 
 %%% Lit Review Stuff (6) ---------------------------------------------------------------------------------------
+\section{Neutron Spectrometry and Deconvolution}
 %%%%%%%%%%%%%%%%%%%%% bonner sphere spectrometers
+\begin{frame}
+\frametitle{Bonner Sphere Spectrometers}
+\begin{columns}[c]
+\begin{column}{.5\textwidth}
+\begin{figure}
+\includegraphics[width=\textwidth]{bss}
+\caption{Bonner Sphere Spectrometer}
+\end{figure}
+\end{column}
+\begin{column}{.5\textwidth}
+Text\\
+Text\\
+Text\\
+\end{column}
+\end{columns}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%% gold foil based spectrometers
+\begin{frame}
+\frametitle{Foil-based Spectrometers}
+
+Text here about gold foil spectrometers.
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%% the mathematic formulation/unfolding
+\begin{frame}
+\frametitle{Problem Formulation}
+\begin{equation}
+\label{eqn:disc-response}
+N_k + \epsilon_k = \sum_i R_{ki} \phi_i, \quad k = 1,\ldots, m .
+\end{equation}
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%% doroshenko directed divergence
 %%%%%%%%%%%%%%%%%%%%% gravel/sandii
 %%%%%%%%%%%%%%%%%%%%% maxed
 
+
 %%% NEBP Modeling Effort (10) ---------------------------------------------------------------------------------------
+\section{Simulated Work}
 %%%%%%%%%%%%%%%%%%%%% modeling steps/overview
 %%%%%%%%%%%%%%%%%%%%% existing model
 %%%%%%%%%%%%%%%%%%%%% nebp additions
@@ -116,6 +152,7 @@
 %%%%%%%%%%%%%%%%%%%%% radial distribution
 
 %%% NEBP Experimental Campaign (14) ---------------------------------------------------------------------------------------
+\section{Experimental Work}
 %%%%%%%%%%%%%%%%%%%%% modeling steps
 %%%%%%%%%%%%%%%%%%%%% foil tube response functions
 %%%%%%%%%%%%%%%%%%%%% bonner sphere response functions
@@ -132,6 +169,7 @@
 %%%%%%%%%%%%%%%%%%%%% spectral unfolding: maxed
 
 %%% Conclusions & Future Work (3) ---------------------------------------------------------------------------------------
+\section{Conclusions and Future Work}
 %%%%%%%%%%%%%%%%%%%%% conclusions
 %%%%%%%%%%%%%%%%%%%%% future work
 %%%%%%%%%%%%%%%%%%%%% references
