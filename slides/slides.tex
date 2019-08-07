@@ -207,11 +207,25 @@ S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
 \begin{frame}
 \frametitle{Fission Tally Results}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.58\textwidth]{radial_rr_density_B}
+\includegraphics[height = 0.8\textheight]{rr_dist_B1}
+\includegraphics[height = 0.8\textheight]{axial_rr_density_F}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% fission tally results II
 \begin{frame}
 \frametitle{Fission Tally Results}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{totals_azi}
+\caption{}
+\end{figure}
 
 \end{frame}
 
@@ -219,11 +233,40 @@ S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
 \begin{frame}
 \frametitle{Applying ADVANTG}
 
+\begin{table}[h]\centering
+\label{tab:advantg_params}
+\caption{Input parameters used for ADVANTG.}
+\begin{tabular}{ r | l }
+\toprule
+model                     &   mcnp\\
+method                    &   cadis\\
+outputs                   &   mcnp\\
+mcnp\_input               &   ksun.inp\\
+mcnp\_tallies             &   11\\
+mesh\_refinement          &   mcnp\\
+mesh\_x                   &   -55 -22 22 184 368\\
+mesh\_y                   &   -55 -22 -12 -2 2 12 22 55\\
+mesh\_z                   &   -35 -16 -11 -5 0 35\\
+mesh\_x\_ints             &   17 25 25 25\\
+mesh\_y\_ints             &   75 14 17 22 17 14 17\\
+mesh\_z\_ints             &   17 14 35 14 17\\
+anisn\_library            &   bplus\\
+denovo\_pn\_order         &   4\\
+denovo\_quad\_num\_azi    &   15\\
+denovo\_quad\_num\_polar  &   12\\
+denovo\_x\_blocks         &   8\\
+denovo\_y\_blocks         &   8\\
+denovo\_z\_blocks         &   1\\
+\end{tabular}
+\end{table}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% notes on speedup/runtime/cores,etc.
 \begin{frame}
 \frametitle{Runtime, speedup, etc.}
+
+It sped up.
 
 \end{frame}
 
@@ -231,17 +274,49 @@ S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
 \begin{frame}
 \frametitle{Spectral Flux}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.5\textwidth]{flux_erg}
+\includegraphics[width = 0.5\textwidth]{flux_rad_erg}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% cosine distribution
 \begin{frame}
 \frametitle{Angular Flux}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.5\textwidth]{flux_cos}
+\includegraphics[width = 0.5\textwidth]{flux_cos_detail}
+\caption{}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Angular Flux}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.5\textwidth]{flux_rad_cos}
+\includegraphics[width = 0.5\textwidth]{flux_rad_cos_detail}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% radial distribution
 \begin{frame}
 \frametitle{Radial Flux}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{flux_rad}
+\caption{}
+\end{figure}
 
 \end{frame}
 
