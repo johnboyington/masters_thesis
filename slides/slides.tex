@@ -326,11 +326,19 @@ It sped up.
 \begin{frame}
 \frametitle{Response Function Generation}
 
+Made some RFs.
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% foil tube response functions
 \begin{frame}
 \frametitle{Foil Tube Response Functions}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{ft_au}
+\caption{}
+\end{figure}
 
 \end{frame}
 
@@ -338,11 +346,19 @@ It sped up.
 \begin{frame}
 \frametitle{Bonner Sphere Response Functions}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{bs}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% experimental procedures: ft
 \begin{frame}
 \frametitle{Foil Tube Experimental Procedures}
+
+Ran the experiment.
 
 \end{frame}
 
@@ -350,17 +366,44 @@ It sped up.
 \begin{frame}
 \frametitle{Bonner Sphere Spectrometer Experimental Procedures}
 
+Ran the experiment.
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% gold foil post processing
 \begin{frame}
 \frametitle{Foil Tube Postprocessing}
 
+\begin{equation}
+\label{eqn:a_sat}
+A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
+\end{equation}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% transient mathematics
 \begin{frame}
 \frametitle{Capturing Flux Transients}
+
+\begin{equation}
+\label{eqn:bateman}
+\frac{dN(t)}{dt} = C(t) - \lambda N(t)
+\end{equation}
+
+\begin{equation}
+\label{eqn:bateman_activity}
+\frac{A(t)}{dt} = \lambda (C(t) - A(t)).
+\end{equation}
+
+\begin{equation}
+\label{eqn:bateman_ratios}
+\frac{A(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
+\end{equation}
+
+\begin{equation}
+\label{eqn:bateman_r_sat}
+\frac{R_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
+\end{equation}
 
 \end{frame}
 
@@ -373,11 +416,23 @@ It sped up.
 \begin{frame}
 \frametitle{Bonner Sphere Postprocessing}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{bs4_spectrum}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% response comparison: ft
 \begin{frame}
 \frametitle{Response Comparison: Foil Tube}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{compare_activities}
+\caption{}
+\end{figure}
 
 \end{frame}
 
@@ -385,11 +440,19 @@ It sped up.
 \begin{frame}
 \frametitle{Response Comparison: Bonner Sphere}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{compare_countrates}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% spectral unfolding: parameters
 \begin{frame}
 \frametitle{Spectral Unfolding Parameters}
+
+Had some parameters.
 
 \end{frame}
 
@@ -397,17 +460,46 @@ It sped up.
 \begin{frame}
 \frametitle{Spectral Unfolding: Doroshenko Directed Divergence}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{unfolded_do}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% spectral unfolding: gravel
 \begin{frame}
 \frametitle{Spectral Unfolding: Gravel}
 
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{unfolded_gr}
+\caption{}
+\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% spectral unfolding: maxed
 \begin{frame}
 \frametitle{Spectral Unfolding MAXED}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{unfolded_mx}
+\caption{}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Spectral Unfolding MAXED (Scaled)}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{unfolded_mx_sc}
+\caption{}
+\end{figure}
 
 \end{frame}
 
@@ -426,9 +518,12 @@ It sped up.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% references
-\begin{frame}
+\begin{frame}[t,allowframebreaks]\label{lastframe}
 \frametitle{References}
-
+\bibliographystyle{ans}
+% make a bibliography.bib file with your references in it
+{\scriptsize
+\bibliography{bibliography}}
 \end{frame}
 
 
