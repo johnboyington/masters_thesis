@@ -230,6 +230,13 @@ S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
 \begin{frame}
 \frametitle{Modeling Overview}
 
+\begin{itemize}
+\item Added NEBP to existing model
+\item Tallied fission rates within core to produce SDEF
+\item Applied ADVANTG variance reduction software to speedup tally convergence
+\item Tallied flux at NEBP aperture
+\end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% existing model
@@ -240,7 +247,7 @@ S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
 \centering
 \includegraphics[width = .5\textwidth]{existingyz}
 \includegraphics[width = .5\textwidth]{existingxy}
-\caption{}
+\caption{YZ (left) and XY (right) views of the existing core model with discretized fuel, control rods, graphite reflector, etc.}
 \end{figure}
 
 \end{frame}
@@ -253,7 +260,7 @@ S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
 \centering
 \includegraphics[trim=0 40 0 20, clip, width = .9\textwidth]{mcnp_newxz}\\
 \includegraphics[trim=0 120 0 120, clip, width = .9\textwidth]{mcnp_newxy}
-\caption{}
+\caption{XZ (top) and XY (bottom) views of the NEBP additions with reflector penetration, lead shadow shield, and collimator.}
 \end{figure}
 
 \end{frame}
