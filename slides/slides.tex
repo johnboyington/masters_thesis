@@ -131,6 +131,14 @@ To do a multi-dimensional, high resolution, high fidelity characterization of th
 
 %%% Lit Review Stuff (6) ---------------------------------------------------------------------------------------
 \section{Neutron Spectrometry and Deconvolution}
+%%%%%%%%%%%%%%%%%%%% how do we measure neutrons?
+\begin{frame}
+\frametitle{Neutron Spectrometry}
+
+How do we measure neutrons?
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%% bonner sphere spectrometers
 \begin{frame}
 \frametitle{Bonner Sphere Spectrometers}
@@ -138,13 +146,15 @@ To do a multi-dimensional, high resolution, high fidelity characterization of th
 \begin{column}{.5\textwidth}
 \begin{figure}
 \includegraphics[width=\textwidth]{bss}
-\caption{Bonner Sphere Spectrometer}
+\caption{Bonner Sphere Spectrometer CITE}
 \end{figure}
 \end{column}
 \begin{column}{.5\textwidth}
-Text\\
-Text\\
-Text\\
+\begin{itemize}
+\item Active detection through $^6$Li($n$, $\alpha$)T
+\item Thermally sensitive crystal
+\item Increasing HDPe sphere sizes provide different (faster) responses.
+\end{itemize}
 \end{column}
 \end{columns}
 \end{frame}
@@ -153,7 +163,12 @@ Text\\
 \begin{frame}
 \frametitle{Foil-based Spectrometers}
 
-Text here about gold foil spectrometers.
+\begin{itemize}
+\item Passive detection through various reactions, [($n$, $\gamma$), ($n$, $\alpha$), etc.]
+\item Secondary $\gamma$-ray actually what is measured
+\item Multi-foil experiment can span entire spectrum
+\item Gold (thermally sensitive) can be used in conjunction with Bonner Spheres
+\end{itemize}
 
 \end{frame}
 
@@ -164,6 +179,12 @@ Text here about gold foil spectrometers.
 \label{eqn:disc-response}
 N_k + \epsilon_k = \sum_i R_{ki} \phi_i, \quad k = 1,\ldots, m .
 \end{equation}
+
+$N_k$ Measured response of detector $k$\\
+$\epsilon_k$ (Unknown error) of detector $k$ response\\
+$R_{ki}$ Response function of detector $k$ at energy $i$\\
+$\phi_i$ Flux in energy $i$\\
+
 \end{frame}
 
 
