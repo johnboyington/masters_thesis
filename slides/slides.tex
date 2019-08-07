@@ -295,8 +295,16 @@ Example results from fission tallies within core fuel, B-ring radial (left), fue
 \begin{figure}
 \centering
 \includegraphics[width = 0.7\textwidth]{totals_azi}
-\caption{}
+\caption{Integrated fission rates as a function of core azimuthal position.}
 \end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%% what is advantg
+\begin{frame}
+\frametitle{ADVANTG}
+
+What is ADVANTG?
 
 \end{frame}
 
@@ -304,32 +312,11 @@ Example results from fission tallies within core fuel, B-ring radial (left), fue
 \begin{frame}
 \frametitle{Applying ADVANTG}
 
-\begin{table}[h]\centering
-\label{tab:advantg_params}
-\caption{Input parameters used for ADVANTG.}
-\begin{tabular}{ r | l }
-\toprule
-model                     &   mcnp\\
-method                    &   cadis\\
-outputs                   &   mcnp\\
-mcnp\_input               &   ksun.inp\\
-mcnp\_tallies             &   11\\
-mesh\_refinement          &   mcnp\\
-mesh\_x                   &   -55 -22 22 184 368\\
-mesh\_y                   &   -55 -22 -12 -2 2 12 22 55\\
-mesh\_z                   &   -35 -16 -11 -5 0 35\\
-mesh\_x\_ints             &   17 25 25 25\\
-mesh\_y\_ints             &   75 14 17 22 17 14 17\\
-mesh\_z\_ints             &   17 14 35 14 17\\
-anisn\_library            &   bplus\\
-denovo\_pn\_order         &   4\\
-denovo\_quad\_num\_azi    &   15\\
-denovo\_quad\_num\_polar  &   12\\
-denovo\_x\_blocks         &   8\\
-denovo\_y\_blocks         &   8\\
-denovo\_z\_blocks         &   1\\
-\end{tabular}
-\end{table}
+\begin{itemize}
+\item Model rotated so beam was on $x$-axis
+\item 1,570,624 voxels
+\item Parallelized for 64 cores
+\end{itemize}
 
 \end{frame}
 
