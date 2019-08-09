@@ -374,9 +374,25 @@ What is ADVANTG?
 \section{Experimental Work}
 %%%%%%%%%%%%%%%%%%%%% modeling steps
 \begin{frame}
+\frametitle{Gold Foil Tube}
+
+IMAGE OF FOIL TUBE HERE
+
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%% modeling steps
+\begin{frame}
 \frametitle{Response Function Generation}
 
-Made some RFs.
+\begin{itemize}
+\item Decoupled MCNP model used to generate response functions
+\item 
+\end{itemize}
+
+
 
 \end{frame}
 
@@ -387,7 +403,7 @@ Made some RFs.
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{ft_au}
-\caption{}
+\caption{The MCNP-generated response functions for the gold foil tube detector.}
 \end{figure}
 
 \end{frame}
@@ -399,25 +415,33 @@ Made some RFs.
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{bs}
-\caption{}
+\caption{The MCNP-generated response functions for the bonner sphere spectrometer.}
 \end{figure}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% experimental procedures: ft
 \begin{frame}
-\frametitle{Foil Tube Experimental Procedures}
+\frametitle{Experimental Procedures}
 
-Ran the experiment.
+Gold foil tube
+\begin{itemize}
+\item Tube inserted into NEBP collimator.
+\item Reactor brought to 100 kW(th).
+\item Irradiated for ~2.5 hours.
+\item Reactor powered off, foils removed from tube, bagged and labeled.
+\item Foils counted with HPGe
+\end{itemize}
 
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%% experimental procedures: bss
-\begin{frame}
-\frametitle{Bonner Sphere Spectrometer Experimental Procedures}
-
-Ran the experiment.
-
+Bonner Sphere Spectrometer
+\begin{itemize}
+\item Reactor powered to 1 kW(th).
+\item Bare detector placed directly in front of beam 28" from aperture.
+\item Shutter opened
+\item Aquired counts for 300s live time (600s for 12" sphere).
+\item Shutter closed
+\item Process repeated for different spheres covering detector (2", 3", 5", 8", 10", 12").
+\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% gold foil post processing
@@ -468,8 +492,8 @@ A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 
 \begin{figure}
 \centering
-\includegraphics[width = 0.8\textwidth]{bs4_spectrum}
-\caption{}
+\includegraphics[width = 0.7\textwidth]{bs4_spectrum}
+\caption{The aquired spectrum from the 8" sphere and model used to find the response.}
 \end{figure}
 
 \end{frame}
@@ -481,7 +505,7 @@ A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{compare_activities}
-\caption{}
+\caption{A comparison of the simulated and experimentally determined activites for the gold foil tube.}
 \end{figure}
 
 \end{frame}
@@ -493,7 +517,7 @@ A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{compare_countrates}
-\caption{}
+\caption{A comparison of the simulated and experimentally determined count rates for the bonner sphere spectrometer.}
 \end{figure}
 
 \end{frame}
@@ -502,7 +526,21 @@ A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \begin{frame}
 \frametitle{Spectral Unfolding Parameters}
 
-Had some parameters.
+Doroshenko Directed Divergence
+\begin{itemize}
+\item 50 iterations
+\end{itemize}
+
+Gravel
+\begin{itemize}
+\item 50 iterations
+\end{itemize}
+
+MAXED
+\begin{itemize}
+\item Omega = 9 (foil tube), 7 (BSS), 16 (combined)
+\item With and without pre-scaling default spectrum magnitude
+\end{itemize}
 
 \end{frame}
 
@@ -513,7 +551,7 @@ Had some parameters.
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{unfolded_do}
-\caption{}
+\caption{The unfolded spectra from Doroshenko Directed Divergence.}
 \end{figure}
 
 \end{frame}
@@ -525,7 +563,7 @@ Had some parameters.
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{unfolded_gr}
-\caption{}
+\caption{The unfolded spectra from Gravel.}
 \end{figure}
 
 \end{frame}
@@ -537,7 +575,7 @@ Had some parameters.
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{unfolded_mx}
-\caption{}
+\caption{The unfolded spectra from MAXED.}
 \end{figure}
 
 \end{frame}
@@ -548,7 +586,7 @@ Had some parameters.
 \begin{figure}
 \centering
 \includegraphics[width = 0.8\textwidth]{unfolded_mx_sc}
-\caption{}
+\caption{The unfolded spectra from MAXED (scaled).}
 \end{figure}
 
 \end{frame}
@@ -558,13 +596,21 @@ Had some parameters.
 %%%%%%%%%%%%%%%%%%%%% conclusions
 \begin{frame}
 \frametitle{Conclusions}
+\begin{itemize}
+\item Multi-dimensional, high resolution flux simulated
+\item Active and passive detection experiments conducted
+\item Final spectra unfolded with multiple methods
+\end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% future work
 \begin{frame}
 \frametitle{Future Work}
-
+\begin{itemize}
+\item Characterization of other beam ports
+\item Continued optimization of foil tube design
+\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% references
