@@ -86,9 +86,9 @@
 
 %%%%%%%%%%%%%%%%%%%%% problem statement
 \begin{frame}
-\frametitle{Problem Statement}
+\frametitle{Objective Statement}
 
-To do a multi-dimensional, high resolution, high fidelity characterization of the beam departing from the Northeast Beam Port (NEBP)
+To do a multi-dimensional, high resolution, high fidelity characterization of the neutron beam departing from the Northeast Beam Port (NEBP)
 \begin{itemize}
 \item Energy, Angle, Space
 \item Fine group structures
@@ -99,22 +99,23 @@ To do a multi-dimensional, high resolution, high fidelity characterization of th
 
 %%%%%%%%%%%%%%%%%%%%% motivation
 \begin{frame}
-\frametitle{Motivation}
+\frametitle{Motivational Significance}
 
-\begin{block}{Motivational Significance}
 \begin{itemize}
 \item Detector Characterization
 \item Model Validation
 \item Safety
 \end{itemize}
-\end{block}
 
-\begin{block}{Hypothese}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hypothese}
+
 \begin{itemize}
 \item Predominately Fast
 \item Monodirectional
 \end{itemize}
-\end{block}
 
 \end{frame}
 
@@ -146,12 +147,12 @@ How do we measure neutrons?
 \begin{column}{.5\textwidth}
 \begin{figure}
 \includegraphics[width=\textwidth]{bss}
-\caption{Bonner Sphere Spectrometer CITE}
+\caption{Bonner Sphere Spectrometer}
 \end{figure}
 \end{column}
 \begin{column}{.5\textwidth}
 \begin{itemize}
-\item Active detection through $^6$Li($n$, $\alpha$)T
+\item Active detection through $^6$Li($n$, $\alpha$)t
 \item Thermally sensitive crystal
 \item Increasing HDPe sphere sizes provide different (faster) responses.
 \end{itemize}
@@ -167,7 +168,7 @@ How do we measure neutrons?
 \item Passive detection through various reactions, [($n$, $\gamma$), ($n$, $\alpha$), etc.]
 \item Secondary $\gamma$-ray actually what is measured
 \item Multi-foil experiment can span entire spectrum
-\item Gold (thermally sensitive) can be used in conjunction with Bonner Spheres
+\item Gold (thermally sensitive) can be used in conjunction with Bonner Spheres \cite{viererbl2012comparison}
 \end{itemize}
 
 \end{frame}
@@ -183,49 +184,66 @@ N_k + \epsilon_k = \sum_i R_{ki} \phi_i, \quad k = 1,\ldots, m .
 $N_k$ Measured response of detector $k$\\
 $\epsilon_k$ (Unknown) error of detector $k$ response\\
 $R_{ki}$ Response function of detector $k$ at energy $i$\\
-$\phi_i$ Flux in energy $i$\\
+$\phi_i$ (Unknown) Flux in energy $i$\\
+\vspace{0.05\textheight}
+
+Ill posed - much more energy groups than detectors!\\
+Infinite solutions!
 
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%% doroshenko directed divergence
+%%%%%%%%%%%%%%%%%%%%% how to solve
 \begin{frame}
-\frametitle{Doroshenko Directed Divergence}
+\frametitle{How to Solve}
 
-\begin{equation}
-\label{eqn:doroshenko}
-\phi_j^{k + 1} = \phi_j^{k} (\frac{\sum_i \frac{R_{ji}}{\sum_j R_{ij} \phi_j^k}}{\sum_i \frac{R_{ji}}{N_i}}) 
-\end{equation}
+How do we arrive at one acceptable solution in a domain of infinite solutions?
+
+\begin{itemize}
+\item Default Spectrum - becomes a `tuning' problem
+\item Maximum Entropy - neutrons behave like gasses
+\end{itemize}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%% gravel/sandii
+%%%%%%%%%%%%%%%%%%%%% unfolding methods
 \begin{frame}
-\frametitle{Gravel}
+\frametitle{Unfolding Methods}
 
-\begin{equation}
-\label{eqn:sandii}
-\phi_j^{k + 1} = \phi_j^{k} exp(\frac{\sum_i W_{ji}^k \log(\frac{N_i}{\sum_{j'} R_{ij'} \phi_{j'}^k})}{\sum_i W_{ji}^k}) ,
-\end{equation}
+Doroshenko Directed Divergence
+\begin{itemize}
+\item Minimize Directed Divergence
+\item Iterative
+\end{itemize}
 
-\begin{equation}
-\label{eqn:gravel-w}
-W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{\sigma_i^2} ,
-\end{equation}
-\end{frame}
+Gravel
+\begin{itemize}
+\item Modified Sand-II
+\item Iterative
+\item Works by applying correction factors to a weighting function
+\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%% maxed
-\begin{frame}
-\frametitle{MAXED}
-\begin{equation}
-\label{eqn:maxed-skilling}
-S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
-\end{equation}
+MAXED
+\begin{itemize}
+\item Maximized Skilling entropy, a function of both the default and solution spectrum
+\end{itemize}
+
+
 \end{frame}
 
 
 %%% NEBP Modeling Effort (10) ---------------------------------------------------------------------------------------
 \section{Simulated Work}
+
+%%%%%%%%%%%%%%%%%%%%% modeling steps/overview
+\begin{frame}
+\frametitle{Simulated Work}
+
+Simulation of the NEBP flux
+
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%% modeling steps/overview
 \begin{frame}
 \frametitle{Modeling Overview}
@@ -262,6 +280,19 @@ S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j]
 \includegraphics[trim=0 120 0 120, clip, width = .9\textwidth]{mcnp_newxy}
 \caption{XZ (top) and XY (bottom) views of the NEBP additions with reflector penetration, lead shadow shield, and collimator.}
 \end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%% fission tally
+\begin{frame}
+\frametitle{Fission Tallys}
+
+\begin{itemize}
+\item 40 Axial Segments
+\item  5 Radial Segments
+\item Used to create PDFs for steady-state problem
+\end{itemize}
 
 \end{frame}
 
@@ -304,7 +335,14 @@ Example results from fission tallies within core fuel, B-ring radial (left), fue
 \begin{frame}
 \frametitle{ADVANTG}
 
-What is ADVANTG?
+The AutomateD VAriaNce reducTion Generator, generates weight window
+parameters for a fixed-source, continuous-energy MCNP problem
+
+\begin{itemize}
+\item Used Denovo discrete ordinates solver
+\item Produces weight windows to speed tally convergence
+\item Also adds source biasing parameters to MCNP input
+\end{itemize}
 
 \end{frame}
 
@@ -372,13 +410,24 @@ What is ADVANTG?
 
 %%% NEBP Experimental Campaign (14) ---------------------------------------------------------------------------------------
 \section{Experimental Work}
+%%%%%%%%%%%%%%%%%%%%% experimental work
+\begin{frame}
+\frametitle{Experimental Work}
+
+The effort to experimentally determine the spectral flux of the NEBP.
+
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%% modeling steps
 \begin{frame}
 \frametitle{Gold Foil Tube}
 
-IMAGE OF FOIL TUBE HERE
-
-
+\begin{figure}
+\centering
+\includegraphics[width = 0.8\textwidth]{foil_tube}
+\caption{The disassembled gold foil tube}
+\end{figure}
 
 
 \end{frame}
@@ -386,6 +435,14 @@ IMAGE OF FOIL TUBE HERE
 %%%%%%%%%%%%%%%%%%%%% modeling steps
 \begin{frame}
 \frametitle{Response Function Generation}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.5\textwidth]{mcnpft}
+\includegraphics[height = 0.4\textheight]{bonner}
+\caption{The foil tube model (left) and the bonner sphere model (right).}
+\end{figure}
+
 
 \begin{itemize}
 \item Decoupled MCNP model used to generate response functions
@@ -427,7 +484,7 @@ Gold foil tube
 \begin{itemize}
 \item Tube inserted into NEBP collimator.
 \item Reactor brought to 100 kW(th).
-\item Irradiated for ~2.5 hours.
+\item Irradiated for approximately 2.5 hours.
 \item Reactor powered off, foils removed from tube, bagged and labeled.
 \item Foils counted with HPGe
 \end{itemize}
@@ -439,7 +496,7 @@ Bonner Sphere Spectrometer
 \item Shutter opened
 \item Aquired counts for 300s live time (600s for 12" sphere).
 \item Shutter closed
-\item Process repeated for different spheres covering detector (2", 3", 5", 8", 10", 12").
+\item Repeated for different spheres (2", 3", 5", 8", 10", 12").
 \end{itemize}
 \end{frame}
 
@@ -452,6 +509,13 @@ Bonner Sphere Spectrometer
 A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \end{equation}
 
+$A_{meas}$ is the measured activity\\
+$R_{meas}$ corrects for decay during measurement\\
+$R_{sat}$ is the ratio between the radiation at measurement and the saturation activity\\
+$n_a$ is the number of sample atoms\\
+$K$ is the isotopic abundance\\
+$I_{rel}$ is the relative gamma intensity\\
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% transient mathematics
@@ -459,31 +523,19 @@ A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \frametitle{Capturing Flux Transients}
 
 \begin{equation}
-\label{eqn:bateman}
-\frac{dN(t)}{dt} = C(t) - \lambda N(t)
-\end{equation}
-
-\begin{equation}
-\label{eqn:bateman_activity}
-\frac{A(t)}{dt} = \lambda (C(t) - A(t)).
-\end{equation}
-
-\begin{equation}
-\label{eqn:bateman_ratios}
-\frac{A(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
-\end{equation}
-
-\begin{equation}
 \label{eqn:bateman_r_sat}
 \frac{R_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
 \end{equation}
 
+$\lambda$ is the decay constant\\
+$P_f(t)$ is the power at time $t$ relative to nominal power
+
+\vspace{0.05\textheight}
+
+Allows for {\it transient} power data to be used when calculating saturation activities!
+
 \end{frame}
 
-\begin{frame}
-\frametitle{Capturing Flux Transients cont.}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%% bss postprocessing
 \begin{frame}
@@ -592,6 +644,14 @@ MAXED
 
 %%% Conclusions & Future Work (3) ---------------------------------------------------------------------------------------
 \section{Conclusions and Future Work}
+
+%%%%%%%%%%%%%%%%%%%%% buffer slide
+\begin{frame}
+\frametitle{Conclusions and Future Work}
+
+Conclusions drawn from the experiment and motivation for future work
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%% conclusions
 \begin{frame}
 \frametitle{Conclusions}
@@ -599,6 +659,7 @@ MAXED
 \item Multi-dimensional, high resolution flux simulated
 \item Active and passive detection experiments conducted
 \item Final spectra unfolded with multiple methods
+\item Flux was predominantly monodirectional, but not as fast as expected
 \end{itemize}
 
 \end{frame}
@@ -618,10 +679,8 @@ MAXED
 \bibliographystyle{ans}
 % make a bibliography.bib file with your references in it
 {\scriptsize
-\bibliography{bibliography}}
+\bibliography{references}}
 \end{frame}
-
-
 
 
 \end{document}
