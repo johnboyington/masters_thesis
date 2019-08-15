@@ -8,24 +8,24 @@
 
 %% introduction
 %When measuring charged particles, the energy is directly measurable, which is nice.
-A useful effect when measuring charged particles and gamma-rays is that it is possible for all of the particle's energy to be deposited into a detector.
+A useful property when measuring charged particles is that it is possible for all of the particle's energy to be deposited into a detector, meaning the response of the detector will be directly proportional to the particles energy.
 %You can't do that with neutrons because they are neutral particles, which is less nice.
-Neutrons, unfortunately, do not share this property with the other particle types, making the process of obtaining spectral information about some neutronic environment less straightforward.
+Neutrons, unfortunately, do not share this property with charged particles, making the process of obtaining spectral information about any neutronic environment less straightforward.
 % they generally have to be measured indirectly - a neutron reacts with something causing something else that is measurable
 Instead, neutrons have to be measured indirectly - a neutron will react and produce some measurable secondary effect within a detection medium.
-This effect is rarely equal to (or even proportional to) the energy of the incident neutron.
+This effect is often not equal to (or even proportional to) the energy of the incident neutron.
 That does not mean, however, that spectral information cannot still be obtained about a neutron flux.
 % several of these indirect interactions can be compiled to give information on a whole neutron spectrum
 In practice, with a set of different detectors, each having a response uniquely dependent on the speed of neutrons, a collection of measurements can be compiled to produce information on the entire spectrum.
 % here we will explore two common ways neutron spectra are investigated
 Here, we will explore two common ways neutron spectra are investigated experimentally in practice.
 
-\subsection{Bonner Sphere Spectrometer}
+\subsection{Bonner Sphere Spectrometer Set}
 %% bonner spheres
 % a major breakthrough came in 1961 when Brablett et. al. introduced the idea of bonner spheres
 A major breakthrough came for the neutron dosimetry community in the early 1960s when Bramlett et. al. first introduced their ``new type of neutron spectrometer'' \cite{bramblett1960new}.
 % they developed an active neutron spectrometer
-The ``Bonner Sphere'', named after one of the original Rice University authors, was a first-of-its-kind, active neutron spectrometer.
+The ``Bonner Sphere Spectrometer'' (BSS), named after one of the original Rice University authors, was a first-of-its-kind, active neutron spectrometer.
 % here's how it works
 The device allows measurements to be taken across the entire range of energies found within or around a nuclear reactor or other common neutron source.
 % there's a thermal sensitive crystal at the bottom
@@ -33,7 +33,7 @@ Fundamental to the design is the thermal-sensitive LiI crystal that serves as th
 % first, a measurement is taken in the neutron environment
 First, a measurement is taken using the bare sensor.
 % then, the smallest sphere is added
-Then, a small High Density Polyethylene sphere is placed around the crystal.
+Then, a small high density polyethylene sphere is placed around the crystal.
 % adding this sphere does two things, absorbs thermal neutrons and downscatters faster neutrons so they can be more readily absorbed
 The purpose of this configuration is twofold: the sphere will remove a portion of thermal neutrons from the system and will thermalize faster neutrons so they can be more readily absorbed by the crystal.
 % following the measurement with the sphere on, larger and larger spheres are used to produce faster and faster responses
@@ -41,34 +41,34 @@ Following this measurement, multiple, increasingly larger sphere sizes are used 
 % after taking all of these measurements, the entire spectrum has been measured
 After taking this set of measurements, information will have been obtained representing regions across the entire neutron spectrum.
 % using some math (which will be detailed in the next section) these measurements can be used to obtain the actual spectrum
-Using some mathematical techniques (which will be detailed in the next section) these measurement can be used to finally obtain a full, high resolution neutron spectrum.
+Using specialized mathematical techniques (which will be detailed in the next section) these measurement can be used to finally obtain a full, high resolution neutron spectrum.
 
 \subsection{Gold Foil Activation}
 %% gold foil activation
 % foil activation, specifically with gold foils, is a standard way of measuring flux
 Foil activation, specifically through the use of gold foils, is a standard way of measuring a neutron flux.
 % how does it work
-The foils (often wires are used, too) are placed into the neutron flux.
-Neutrons activate the foils causing them to become radioactive and emit gamma-rays.
-These gamma-rays can be measured, and the equations that govern the activation process can be used in reverse to back out the incident flux.
+The foils are placed into the neutron flux.
+Neutrons activate the foils causing them to become radioactive and emit gamma rays.
+These gamma rays can be measured, and the equations that govern the activation process can be used to calculate the incident flux.
 % with the gold alone, only one response can measure the absolute flux
 With a gold foil alone, a single response can be obtained which yields the absolute total flux of a system.
 % gold is good for this for a number of reasons
 Gold, in particular, is useful for this process for a number of reasons.
 % very high thermal cross section, it has a great halflife and gamma for counting and is metallic, so it can be worked into different forms
 First, its $(n, \gamma)$ reaction has a very high thermal cross section.
-It also has a 2.7 day halflife, which is ideal, for it will not quickly decay away, yet it also does not take an unreasonable amount of time to reach a substantial fraction of saturation.
-The gamma-ray produced by gold is approximately 412 keV, ideal for measuring with an HPGe detector.
-It is also metallic, meaning that it can be easily worked into different forms depending on the desired measurement.
+It also has a 2.7 day half life, which is ideal, as it will not quickly decay away, yet it also does not take an unreasonable amount of time to reach a substantial fraction of saturation.
+The gamma ray produced by gold has an energy of approximately 412 keV, ideal for measuring with a high-purity germanium (HPGe) detector.
+It is also malleable, meaning that it can be easily worked into different forms depending on the desired measurement.
 % though, gold alone cant give spectrum, there are a number of ways in which you can get one
 Though a single gold foil cannot give information on the spectrum, there are a number of ways in which gold can be used to help measure the entire spectrum.
 % adding cadmium allows one to get a two group flux, since cadmium eats thermal neutrons
-Adding a cadmium filter around the gold will produce a two-group flux, since cadmium will absorb all of the thermal neutrons and isolate gold's major resonance.
+Adding a cadmium filter around the gold will produce a two-group flux, since cadmium will absorb a large portion of the thermal neutrons and isolate gold's major resonance.
 % gold can be used as a part of a multifoil experiment
 Gold can also be used as part of a multi-foil experiment.
 Different kinds of foils with different responses can be used to cover the whole spectrum.
 % it has also been used with the bonner spheres to produce info from the whole spectrum
-Also, gold has been used with a set of bonner spheres, acting as the primary detection medium within the center of the spheres \cite{viererbl2012comparison} \cite{wang2008goldbonner}.
+Also, gold has been used with a set of Bonner spheres, acting as the primary detection medium within the center of the spheres \cite{viererbl2012comparison} \cite{wang2008goldbonner}.
 % in beam, this works
 This has been done in-beam at many different research and medical isotope production reactors.
 
@@ -82,14 +82,14 @@ This has been done in-beam at many different research and medical isotope produc
 
 In practice, active and passive detectors and measurement techniques can appear very different.
 However, for the purpose of mathematical formulation, it is possible, and indeed useful, to abstract their similarities.
-The above mentioned detection methods resemble each other in that they provide a set of unique, discrete responses in the presence of an unknown, continuous neutron flux.
-These discrete responses can vary greatly between different neutron environments.
-For example, the LiI detection crystal of the Bonner Sphere Spectrometer (BSS) responds strongly to thermal neutrons and weakly to fast neutrons, whereas certain reactions utilized in activation foil analysis, such as $^{27}$Al($n, \alpha$)$^{24}$Na, will not occur below specific, fast, threshold neutron energies, thus the detector is considered to have a fast response.
+The above mentioned detection methods resemble each other in that they provide a set of unique, discrete responses in the presence of an unknown neutron flux.
+These discrete responses can vary greatly among different neutron environments.
+For example, the LiI detection crystal of the Bonner Sphere Spectrometer (BSS) responds strongly to thermal neutrons and weakly to fast neutrons, whereas certain reactions utilized in activation foil analysis, such as $^{27}$Al($n, \alpha$)$^{24}$Na, will not occur below specific, fast, threshold neutron energies; thus the detector is considered to have a fast response.
 These largely energy-dependent responses, often related to material properties and reaction cross sections, can be considered functions.
-A detector {\it response function}, is the measurable effect exhibited by a detector in a particular geometric configuration as a function of energy to a particular neutron source.
+A detector {\it response function} is the measurable effect exhibited by a detector in a particular geometric configuration as a function of energy to a particular neutron source.
 A response function is generally a function of the system geometry and the source emission profile (as a function of space, angle, and energy), but for fixed source-detector configurations, the response can be considered unidimensional in energy.
 
-With this understanding of the response and response function, the relationship between the flux, response function, and response for detector configuration $k$ can be represented as Fredholm integral equation of the first kind, i.e.,
+With this understanding of the response and response function, the relationship between the flux, response function, and response for detector configuration $k$ can be represented as a Fredholm integral equation of the first kind, i.e.,
 
 \begin{equation}
 \label{eqn:cont-response}
@@ -98,10 +98,10 @@ N_k + \epsilon_k = \int_E R_k(E) \phi(E) dE .
 
 \noindent
 Here, $N_k$ represents the measured response of the detector, $\epsilon_k$ is the unknown error associated with $N_k$, $R_k(E)$ is the response function, and $\phi(E)$ is the flux.
-By placing a detector $k$ with associated response function $R(E)$ in a neutron environment $\phi(E)$, a response $N_k$ is exhibited that deviates by $\epsilon_k$ from the expected response due to noise or other sources.
+By placing a detector $k$ with associated response function $R_k(E)$ in a neutron environment $\phi(E)$, a response $N_k$ is exhibited that deviates by $\epsilon_k$ from the expected response due to noise or other sources.
 
 As posed, this formulation bears a certain number of issues.
-It is impossible to derive a continuous function for the flux from a finite set of equations.
+It is impossible to derive an arbitrary, continuous function for the flux from a finite set of equations.
 With any discrete number of measurements, the solution remains non-unique; the equation is thus satisfied by an infinite number of solutions.
 The fact that the $\epsilon_k$ term is unknown implies that, just as there is a limit to the confidence one can have in a real measurement, there, too, is a limit on the confidence in the final spectrum.
 
@@ -149,7 +149,7 @@ A first step in applying this information is through qualitative inspection of t
 % the features in the spectrum should match that of our understanding
 It is common practice to study an unfolded flux spectrum and determine whether or not it matches our {\it a priori} understanding of a neutron flux.
 % however, this leaves the problem of infinity solutions, and doesn't assist the liklihood that we'll arrive on a reasonable solution
-Although this inspection, however useful, can allow the acceptance of a solution, it does not increase the likelihood that a physically reasonable solution will actually be arrived at.
+Although this inspection, however useful, can allow the acceptance of a solution, it does not increase the likelihood that a physically reasonable solution will actually be arrived upon.
 
 % constraints can be added and the problem viewed as an optimizaiton problem
 Another path to include this information is by imposing constraints on the deconvolution.
@@ -185,13 +185,13 @@ This LWR default spectrum model provides a reasonable starting point for unfoldi
 % we also might not be in a lwr reactor core?
 The interest in neutron spectrometry is certainly not limited to only in-core applications, so other, more general approaches for constructing default spectra are necessary.
 % even if we're not in one of these locations, we don't have to worry, numerical simulations often can provide us with a guess for the neutron spectrum; these go beyond the scope of just regular analytical solutions
-To achieve this level of detail in a default spectrum model, we must turn our attention to numerical approaches, a methodology that allows for a departure from, or maybe, remarkable enhancement to, the usefulness of analytical models.
+To achieve this level of detail in a default spectrum model, we must turn our attention to numerical approaches, a methodology that allows a departure from, or maybe, remarkable enhancement to, the usefulness of analytical models.
 % modern computers with lots of computing power allow for the modeling of incredibly complex physical features
-The computing power available to modern reactor theorists have allowed for the generation of incredibly complex representations of neutronic environments with high fidelity and often reasonable computational times.
+The computing power available to modern reactor theorists have allowed the generation of incredibly complex representations of neutronic environments with high fidelity and often reasonable computational times.
 % both MC and deterministic methods can be applied to a neturonic problem and obtain a neutron spectrum
 Subdivided into two major classes, stochastic and deterministic methods, with both bearing unique advantages, these numerical approaches are the contemporary standard for obtaining a default spectrum.
 % this allows us to depart from typical problems into the domain of any understood or semi-understood problem and allows for the application of spectral unfolding methods to almost any conceivable physically possible experimental configuration
-Programs such as MCNP and Geant have paved a road from the domain of typical or simplified problems into that of any well-understood or semi-understood neutronic problem and grant deconvolution methods value in almost any conceivable experimental configuration.
+Programs such as MCNP and Serpent have paved a road from the domain of typical or simplified problems into that of any well-understood or semi-understood neutronic problem and grant deconvolution methods value in almost any conceivable experimental configuration.
 
 % now to discuss the algorithms themselves
 % these algorithms have all been written into codes over and over again, and although that will be discussed, the underlyting algorithm is the important part, so that's what they'll be discussed in terms of
@@ -208,24 +208,23 @@ The Sand II algorithm was first introduced in a 1967 paper from the Air Force We
 % the codes purpose was unfolding, specifically in the case of
 Sand II was built specifically with foil activation unfolding in mind, using a specially-designed, iterative, spectral adjustment procedure.
 % it used a default spectrum as the first step in an iterative scheme
-The procedure utilized a user-provided default spectrum, then would use built in cross section libraries to compose the response matrix.
+The procedure employed a user-provided default spectrum and built-in cross-section libraries to compose the response matrix.
 
 % the algorithm
-The algorithm itself is a relatively simple procedure meant to minimize the differences in the measured and calculated responses.
+The algorithm is a relatively simple procedure meant to minimize the differences in the measured and calculated responses.
 % first it folded the default spectrum and the response functions
 First, the default spectrum and response functions are folded together to obtain a set of calculated responses.
 % these were compared with each measured response to obtain correction factors for each foil
 Then, these are compared with each measured response to obtain correction factors for each foil.
 % a weighting function is obtained (for each foil) based on the 'sensitivity function' (differential cross section times differential flux)
-A weighting function, which is simply the differential flux times the differential cross sections, is then obtained for each foil.
+A weighting function, which is simply the differential flux times the differential cross sections normalized to unity, is then obtained for each foil.
 % talk about weighting functions
-These weighting functions relate the input spectrum to the calculated activities.
-Perturbing an energy bin with a higher weight will lead to a more drastic change in the final calculated response.
+These weighting functions map a difference in a single activity onto energy space.
 % an energy dependent correction function is obtained by comparing the weighting functions and the correction factors
-Then, an energy dependent correction function is obtained by comparing these weighting functions with each foil's correction factor.
-This function maps the adjustment scheme required for the flux spectrum to create calculated responses that more closely resemble the measured responses.
+A correction function is produced, then, as a weighted average of the log of the correction factors.
+This function is exponentiated transform these correction functions back into linear changes (as opposed to logarithmic changes). 
 % these correction functions are applied to the flux and the flux is updated
-The correction functions are applied to the current step's flux, and an new flux is obtained.
+The correction functions are applied to the current step's flux, and a new flux is obtained.
 
 % put the actual equation here and talk about it
 The many steps from above can be written in a concise format,
@@ -246,25 +245,25 @@ W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} .
 \end{equation}
 
 % discuss the solution acceptability
-Because Sand II is iterative, there needs to be a criteria defined for solution acceptability.
+Because Sand II is iterative, there needs to be a criterion defined for solution acceptability.
 % then how close successive iterations will converge on an acceptable solution
 A user provides a value which represents the degree to which each differential flux value for two successive iterations must agree for a solution to be considered achieved.
 
 % initially, since its purpose was foil activation, it imposed a bin structure with 621 points between 10**-10 and 18 MeV.
-Because the purpose of the code was foil activation in a typical fission reactor environment, a bin structure is imposed with 621 points between $10^{-10}$ to $18$ MeV, representing the range covered by neutrons in that environment.
+Because the purpose of Sand-II is foil activation in a typical fission reactor environment, a bin structure is imposed with 621 points between $10^{-10}$ and $18$ MeV, representing the range covered by neutrons in that environment.
 % 29 foil activations came with it, too since its purpose was foil activation, those were built in
-A library is distributed with the code that contained, originally, 29 foil activation cross sections, plus built-in cover data (Cd, etc.) that could be applied to the foil cross sections.
+A library is distributed with the code that contains 29 foil activation cross sections, plus built-in cover data (Cd, etc.) that could be applied to the foil cross sections.
 
 % also mention how sand ii has a rejection criterion
-Accommodating the somewhat unpredictable or error-prone nature of experimentation, there is also a feature built into the code that will, given a user defined value in standard deviations, discard an individual foil measurement that value's distance away from the calculated value using the solution spectrum.
-This allows the user to mathematically (and automatically) classify and remove outlying data.
-The solution is then recomputed without this troublesome and unphysical value.
+Accommodating the somewhat unpredictable or error-prone nature of experimentation, there is also a feature built into the code that will, given a user-defined threshold $\sigma$, discard individual foil measurements whose values differ by more than $\sigma$ the solution spectrum.
+This threshold allows the user to mathematically (and automatically) classify and remove outlying data.
+The solution is then recomputed without this discarded value.
 
 % other codes
-The Sand II algorithm has seen a lot of application since its introduction in the sixties.
+The Sand II algorithm has been applied widely since its introduction in the 1960s.
 Many other codes have built upon the foundation of the algorithm since then, such as Sand IV and MSANDB.
-The popular unfolding code, Gravel, utilizes the same algorithm, but includes one small change \cite{reginatto2004umg}.
-The weighting function is updated like so,
+The popular unfolding code Gravel uses the same algorithm but with one small change \cite{reginatto2004umg}.
+The weighting function is updated via,
 
 % the modified gravel weighting function
 \begin{equation}
@@ -273,7 +272,7 @@ W_{ji}^k = \frac{R_{ij} \phi_{j}^k}{\sum_{j'} R_{ij'} \phi_{j'}^k} \frac{N_i^2}{
 \end{equation}
 
 \noindent
-to include a term that incorporates the measurement errors into the solution finding process.
+to include a term that incorporates the measurement errors into the solution-finding process.
 Another feature of Gravel in its current distribution is the removal of the required input format of Sand II, meaning the application is no longer locked to the domain of foil activation, but can be applied to any unfolding situation, given the proper, user-provided response functions.
 
 
@@ -290,7 +289,7 @@ The basis of the algorithm was to provide a solution that satisfies \EQ{eqn:disc
 Directed divergence, also referred to as entropy, is a measure related to the likelihood that a neutron spectrum will take a particular shape.
 A more complete treatment of entropy will be handled later.
 % in the case of doroshenko's algorithm, the following method of entropy calculation is used
-In the case of Doroshenko's algorithm, the following method of entropy calculation is used
+In the case of Doroshenko's algorithm, the entropy as defined as
 
 % entropy equation used in doroshenko
 \begin{equation}
@@ -299,7 +298,7 @@ J = - \sum_i N_i \ln(\frac{N_i}{\sum_j \phi_j R_{ij}}) .
 \end{equation}
 
 % from this definition, an iterative scheme can be derived that will tend to converge on a flux spectrum that maximized the entropy
-An iterative scheme can then be derived that will, after sufficient iteration, converge on a flux spectrum that will maximize the entropy $J$ of the spectrum.
+An iterative scheme can then be produced that will, after sufficient iteration, converge on a flux spectrum that will maximize the entropy $J$ of the spectrum.
 % this is shown in the following equation (discuss it)
 This relationship is shown in the following equation,
 
@@ -320,6 +319,7 @@ A measure of error can be computed to compare responses,
 \chi^2 = \frac{1}{N} \sum_{i=1}^N [\frac{\sum_j R_{ij} \phi_j^k - N_i}{N_i}]^2 ,
 \end{equation}
 
+\noindent
 which will tend to rapidly converge on a finite value, so the change in $\chi$ is used as a convergence criteria,
 
 % the doroshenko iteration scheme
@@ -329,12 +329,13 @@ which will tend to rapidly converge on a finite value, so the change in $\chi$ i
 \end{equation}
 
 % discuss positivity, etc.
+\noindent
 Similar to Sand II, the solution found in this way is guaranteed to be positive, given $R$ is positive.
-One advantage exhibited by this algorithm is it's relative simplicity and easiness to implement.
-It's basis in information theory means it has a grounding in mathematics that is related to neutronic behavior, an obvious advantage for the application.
+One advantage exhibited by this algorithm is its relative simplicity and easiness to implement.
+Its basis in information theory means it has a grounding in mathematics that is related to neutronic behavior, an obvious advantage for the application.
 
 % talk about different codes that use doroshenko
-The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko method, and since then it has been used in several other unfolding codes, such as the popular BUNKI, as well as AFITBUNKI and NSDUAZ.
+The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko method, and since then it has been used in several other unfolding codes, including BUNKI, AFITBUNKI, and NSDUAZ.
 
 
 
@@ -343,9 +344,9 @@ The unfolding code SPUNIT was one of the earlier codes to apply the Doroshenko m
 \subsubsection{MAXED}
 
 % introduction
-Other maximum entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a fortran-based, maximum entropy, unfolding code from Reginatto and Goldhagen was introduced that has since seen wide-spread use and huge popularity across the field of neutron spectral unfolding \cite{reginatto1999maxed}.
+Other maximum-entropy unfolding methods have been proposed since Doroshenko, such as Itoh and Tsunoda (1989), but in 1998, a Fortran-based, maximum-entropy, unfolding code from Reginatto and Goldhagen was introduced that has since seen wide-spread use across the field of neutron spectral unfolding \cite{reginatto1999maxed}.
 
-This algorithm, MAXED, begins with \EQ{eqn:disc-response} but adds an additional constraint
+This algorithm, MAXED, begins with \EQ{eqn:disc-response} but adds the additional constraint
 
 \begin{equation}
 \label{eqn:maxed-omega}
@@ -356,22 +357,24 @@ This algorithm, MAXED, begins with \EQ{eqn:disc-response} but adds an additional
 where $\Omega$ is a user-selected parameter that relates the measurement error of the detectors to the allowable deviation in the measured and calculated responses.
 
 The unique feature of MAXED is that entropy, while normally considered an information measure of the solution spectrum itself, is here instead characterized as a value associated with the deviation between the default and solution spectra.
-The code will then search for the maximum entropy solution that is most similar to the default spectrum using the following equation for entropy,
+The code will then search for the maximum entropy solution that is most similar to the default spectrum using the following definition for entropy,
 
 \begin{equation}
 \label{eqn:maxed-skilling}
-S = - \sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] .
+S = - \sum_j [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] .
 \end{equation}
 
-In this way, the in-built hypotheses in the starting spectrum are more likely conserved, as they are considered parts of the $a priori$ information inclusion process described earlier.
+\noindent
+In this way, the in-built hypotheses in the starting spectrum are more likely conserved, as they are considered parts of the $a$ \hspace{0.002\textwidth} $priori$ information inclusion process described earlier.
 
-To solve this equation, it first can be shown the the maximization of the entropy as defined above is associated with the Lagrangian,
+To solve this equation, it first can be shown that the maximization of the entropy as defined above is associated with the Lagrangian
 
 \begin{equation}
 \label{eqn:maxed-lagrangian}
 L(\phi_j, \epsilon_i, \lambda_i, \mu) = -\sum [\phi_j \ln (\frac{\phi_j}{\phi_j^{DEF}}) + \phi_j^{DEF} - \phi_j] - \sum \lambda_i [\sum R_{ij} \phi_j - N_i - \epsilon_i] - \mu [\sum (\frac{\epsilon_i}{\sigma_k})^2 - \Omega] ,
 \end{equation}
 
+\noindent
 and that $\lambda_i$ and $\mu$ are Lagrange multipliers.
 Reginatto and Goldhagen show that variation of $L$ is equivalent to the maximization of the following potential function, $Z$,
 
@@ -380,18 +383,25 @@ Reginatto and Goldhagen show that variation of $L$ is equivalent to the maximiza
 Z = \sum \phi_j^{DEF} \exp(-\sum \lambda_i R_{ij}) - [\Omega \sum (\lambda_i \sigma_i)^2]^{1/2} - \sum N_i \lambda_i .
 \end{equation}
 
+\noindent
 Although many methods can be applied to maximize the function, the chosen method for MAXED was simulated annealing for its ability to discriminate between local and global optima.
-This process will give the $\lambda_i$ that maximize $Z$ which then can be used in the following two relationships to provide a solution flux and errors associated each response,
+This process will give the $\lambda_i$ that maximize $Z$ which then can be substituted into
 
 \begin{equation}
 \label{eqn:maxed-flux}
-\phi_j = \phi_j^{DEF} \exp(- \sum_i \lambda_k R_{ij}) ,
+\phi_j = \phi_j^{DEF} \exp(- \sum_i \lambda_k R_{ij})
 \end{equation}
+
+\noindent
+and
 
 \begin{equation}
 \label{eqn:maxed-error}
-\epsilon_i = \frac{\lambda_i \sigma_i^2}{2} (\frac{4 \Omega}{\sum_j (\lambda_j \sigma_j)^2})^{1/2} .
+\epsilon_i = \frac{\lambda_i \sigma_i^2}{2} (\frac{4 \Omega}{\sum_j (\lambda_j \sigma_j)^2})^{1/2}
 \end{equation}
+
+\noindent
+to provide a solution flux and errors associated each response.
 
 % conclusions
 The method is shown to work in a variety of cases and been included in many comparative studies.
@@ -400,7 +410,7 @@ Without proper $a priori$ information, the solution should not be considered use
 
 
 \subsubsection{A Note on Entropy}
-Although a formal or complete treatment of entropy extends beyond the scope of this work, a note will be included here, since two of the above methods are derived from this information theory.
+Although a formal or complete treatment of entropy extends beyond the scope of this work, a note will be included here, because two of the above methods are derived from this information theory.
 
 % entropy is a measure of the information contained within some signal
 Entropy is a quantifiable measure of the potential information contained within some signal \cite{guiasu1985principle}.
@@ -428,7 +438,7 @@ It is for this reason that the maximization of entropy has seen such widespread 
 \subsubsection{Other Methods}
 
 % the three methods above are popular but don't begin to cover the entire armada of unfolding techniques
-Although the three above methods are among the most popular, they don't begin to represent the whole of unfolding techniques.
+Although the three above methods are among the most popular, they do not begin to represent the whole of unfolding techniques.
 
 % parametric models get used
 Several codes have been developed that utilize parametric models.
