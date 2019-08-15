@@ -392,11 +392,16 @@ Finally, {\tt denovo\_x\_blocks}, etc. refer to the parallelization scheme.
 The computer used for this calculation had 64 cores available, so these values 8, 8, and 1 all multiply to that value.
 % so i ran it, that gave me a wwinp file that was how many MB?
 Using these parameters, ADVANTG was run and biasing parameters and a weight window input file was produced.
+As an example, the adjoint flux solution for group 6 can be seen in \FIG{fig:advantg}.
 
-% here i will talk about the weight windows and the images from VISIT.
-% let's put pics here of the wws and talk about them
-% like, quite a bit of discussion here is warranted
-% then, talk about some of the modifications to the source term and stuff.
+% denovo solutions
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{tex/figures/advantgxy.png}\\
+\includegraphics[width=\textwidth]{tex/figures/advantgxz.png}
+\caption[ADVANTG Solution]{XY (top) and XZ (bottom) slices of the adjoint solution for group 6 produced from ADVANTG.}
+\label{fig:advantg}
+\end{figure}
 
 
 % ------------------------------------------------------------------------------
