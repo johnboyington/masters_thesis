@@ -12,10 +12,10 @@
 
 % why model?
 Before conducting any flux measurement of the beam port, the experimental setups were first modeled in MCNP \cite{goorley2012initial}.
-The purpose of this is twofold: one, this generates predictive detector responses to aid in the selection of experimental parameters and provides a metric for the accuracy of initially measured results, and two, response functions are generated for the devices that are ultimately used in the unfolding of the final spectrum.
+The purpose of this is twofold: (1) the model provides detector responses to aid in the selection of experimental parameters and a metric for the accuracy of initially measured results, and (2) response functions are generated for the devices that are ultimately used in the unfolding of the final spectrum.
 % can i use the full model?
 However, due to the (computational) size of the full reactor model, it would be very expensive to generate these experimental responses and response functions.
-Also, the beam port flux, not in-core source spectrum is what we desire to measure, so the response functions would not relate back to the proper flux using the full model.
+Also, the beam port flux and not the in-core spectrum is what we desire to measure, so the response functions would not relate back to the proper flux using the full model.
 % no, we need a decoupled model
 Necessarily, a decoupled model of the beam and experimental configurations must be used for this portion of the simulation.
 This will simplify the geometry and transport significantly, allowing for reduced computation times and also for the ultimate unfolding of the correct neutron spectrum.
@@ -48,62 +48,50 @@ HDPE is a strong neutron moderator, meaning that the response of each foil will 
 % it was also meant to help with beam alignment and to simplify the beam characterization process
 This design also is advantageous in that it solves issues with beam alignment and only requires a single irradiation to generate multiple responses.
 
-%
-%\begin{figure}[htb]
-%\centering
-%\includegraphics[height=4in]{tex/figures/.png}
-%\caption[]{}
-%\label{fig:}
-%\end{figure}
+% the gold foil tube
+\begin{figure}[htb]
+\centering
+\includegraphics[height=4in]{tex/figures/foil_tube.jpg}
+\caption[Gold Foil Tube]{The gold foil tube (disassembled).}
+\label{fig:foil_tube}
+\end{figure}
 
 
 % you can see the device in FIG
-The gold foil device can be seen in FIG.
+The gold foil device can be seen in \FIG{fig:foil_tube}.
 % there are three major components, the aluminum tube, the hdpe separators and the gold foils
 The tube is comprised of three separate materials, the gold foils, the HDPE separators, and the aluminum containment tube.
 % the gold foils are __ diameter and __ thickness
-Each of the gold foils are 5$mm$ in diameter and 0.1$mm$ thick.
+Each of the gold foils are 5 mm in diameter and 0.1 mm thick.
 % the hdpe was cylinders of __ size
-The HDPE sections were 1" thick cylinders.
+The HDPE sections were 1 in thick cylinders.
 % each hdpe piece had a __ size hole drilled into it where the gold foil would be situated
-A 1$mm$ depth, 5$mm$ OD hole was drilled into the front of each section where the gold foil was situated.
+A 1 mm depth, 5 mm OD hole was drilled into the front of each section where the gold foil was situated.
 % all of these would be encased in __ID __OD aluminum tubing
-All of these sections were sandwiched together and encased in 0.75" OD, 1/24" thick aluminum tubing.
+All of these sections were sandwiched together and encased in 0.75 in OD, 1/24 in thick aluminum tubing.
 % aluminum is chosen because it's relative insensitivity towards neutrons
 Aluminum was chosen because of its relative insensitivity to neutrons.
 % the whole apparatus had __ hdpe pieces and foils, with the first foil being exposed and a gap of __ at the beginning
-The whole apparatus was comprised of 12 HDPE pieces and foils, with the first, exposed foil being situated 1" from the start of the tubing.
+The whole apparatus was comprised of 12 HDPE pieces and foils, with the first, exposed foil being situated 1 in from the start of the tubing.
 
 % this device was modeled in mcnp, where f4 flux tallies, folded with the au n,g response were used with a scx card to produce the rfs
-This device was modeled in MCNP, where f4 flux tallies, folded with the $^{198}$Au(n,$\gamma$) cross sections were used with an SCX card to produce the response functions.
+This device was modeled in MCNP, where {\tt F4} flux tallies, folded with the $^{198}$Au(n,$\gamma$) cross sections were used with an SCX card to produce the response functions.
 
 \subsection{Bonner Sphere Spectrometer}
 
 % a second, active detector was included in the experiment, too, the bss
 A second, active detector was also used in the spectrometric section of the NEBP analysis, too, the Bonner Sphere Spectrometer (BSS).
 % the bonner sphere spectrometer uses a series of plastic spheres surrounding a lithium iodide detector to produce independent responses
-The bonner sphere, while explained more thoroughly in chapter 2, use a series of plastic sphere surrounding a LiI detector to produce independent neutronic responses.
+The bonner sphere, while explained more thoroughly in Chapter 2, use a series of plastic sphere surrounding a LiI detector to produce independent neutronic responses.
 
-%
-%\begin{figure}[htb]
-%\centering
-%\includegraphics[height=4in]{tex/figures/.png}
-%\caption[]{}
-%\label{fig:}
-%\end{figure}
-
-
-
-% you can see the device in FIG
-This device can be seen modeled in FIG.
 % the full device was modeled using the 4x4 mm detection crystal coupled with pmt and hdpe sphere
-The main feature of the device was the 4x4$mm$ detection crystal located at the center of the sphere, although smaller details were also captured with the model, including the photomultiplier tube and some of the detector casing material.
+The main feature of the device was the 4x4 mm$^2$ detection crystal located at the center of the sphere, although smaller details were also captured with the model, including the photomultiplier tube and some of the detector casing material.
 % positioned a distance of __ from the bp aperture
-The device was positioned a distance of 28" from the NEBP aperture.
+The device was positioned a distance of 28 in from the NEBP aperture.
 % rfs were generated for sphere sizes of __ __ __ whatver
-Response functions were generated for the bare response, as well as the 2", 3", 5", 8", 10", and 12" spheres.
+Response functions were generated for the bare response, as well as the 2, 3, 5, 8, 10, and 12 in spheres.
 % the tally used f4 folded with the n,t reaction in the crystal with the scx card again
-The F4 flux tally over the detection crystal was folded with the (n,t) reaction cross section and an SCX card was again used to produce response functions.
+The {\tt F4} flux tally over the detection crystal was folded with the (n,t) reaction cross section and an SCX card was again used to produce response functions.
 
 
 
@@ -112,10 +100,10 @@ The F4 flux tally over the detection crystal was folded with the (n,t) reaction 
 % describe any post processing used for these results to get the values in cm2
 
 Post processing for the gold foil tube and BSS response functions is relatively straightforward.
-The response function value for energy $j$, $R_j$, is multiplied by the number of energy groups, $n_{groups}$ and then converted from $b$ to $cm^2$.
+The response function value for energy $j$, $R_j$, is multiplied by the number of energy groups, $n_{groups}$ and then converted from b to cm$^2$.
 This is because the SCX card, which allows a user to tally based on what source distribution bin a particle was born in, will naturally be weighted by the probability of a particle being born in that bin.
 To generate the response functions, all bins were considered equiprobable, which means that the true result requires the simple multiplying by the number of bins.
-The $cm^2$ conversion is because flux is generally understood in $cm^{-2}s^{-1}$, so using response functions in these units allows one to avoid that conversion later.
+The cm$^2$ conversion is because flux is generally understood in cm$^{-2}$ s$^{-1}$, so using response functions in these units allows one to avoid that conversion later.
 
 \begin{equation}
 \label{eqn:postprocessing_au}
@@ -132,12 +120,12 @@ R_j = R_{j, mcnp} \times n_{groups} \times 10^{-24}
 \end{figure}
 
 % discuss the ft_au response functions
-The response functions for the gold foil tube are pictured in \FIG{fig:ft_au_rfs}.
-As distance from the tube front increases, many interesting features form and decay.
-The first response very closely resembles the $^{198}$Au(n,$\gamma$) reaction, since it is exposed to the source and backscattering contributes relatively little to this response.
+The response functions for the gold foil tube are shown in \FIG{fig:ft_au_rfs}.
+As the distance from the tube front increases, many interesting features form and decay.
+The first response very closely resembles the $^{198}$Au(n,$\gamma$) reaction because it is exposed to the source and backscattering contributes relatively little to this response.
 However, the addition of HDPE tapers the thermal tail of this response very quickly and shifts peak behavior towards the right.
 The four sections that follow the first actually have an even higher response than the exposed foil.
-Throughout the epithermal region, the relatively slow curvature doesn't seem much affected by the increasing foil distance, but in the fast region, a peak forms after 2", and then grows (relatively) and is pushed to the right as foil distance increases.
+Throughout the epithermal region, the relatively slow curvature doesn't seem much affected by the increasing foil distance, but in the fast region, a peak forms after the 2 in response, and then grows (relatively) and is pushed to the right as foil distance increases.
 Overall, the goal of producing response functions that are independent was met to at least some degree with this device design.
 
 % the bonner sphere response functions
@@ -163,7 +151,7 @@ In the foil tube's case, a scattered neutron is much more likely to escape the d
 \subsection{Gold Foil Tube}
 
 % foils were individually weighed and included in table
-First, the foils were individually weighted and those values are shown in \TAB{tab:au_masses}.
+First, the foils were individually weighed and those values are shown in \TAB{tab:au_masses}.
 % the device was assembled
 The device was then assembled as described in the modeling section.
 % outer shielding was removed from the beam port configuration
@@ -221,21 +209,12 @@ For the BSS irradiation, the device was positioned vertically in a manner that a
 % the detector was set to aquire for __ s, and then the reactor was brought to __ kwth.
 The detector was set to aquire for 300 s live time and then the reactor was brought to 1kW(th).
 % the lld setting was adjusted to where the noise could be removed, but the lithium,T peak wasn't affected
-The lld setting was electronically adjusted to reduce the detector dead time, without removing the $^6$Li(n,t) peak.
+The lower level discriminator setting was electronically adjusted to reduce the detector dead time, without removing the $^6$Li(n,t) peak.
 % spectra were aquired for each configuration
 Spectra were aquired for the bare, 2", 3", 5", 8", 10", and 12" configurations.
-For the 12" sphere, a live time of 600 seconds was used to help achieve lower counting statistics.
+For the 12" sphere, a live time of 600 seconds was used to help achieve better counting statistics.
 % the reactor was then powered off
-Following the experiment, the reactor was powered off.
-
-% ------------
-% i need to put all the detection settings and stuff here
-% ------------
-
-
-% ------------
-% also, add pictures of both setups
-% ------------
+Following the experiment, the reactor was shut down.
 
 
 % -------------------------------------------------------------------------------------------
@@ -248,7 +227,7 @@ Following the experiment, the reactor was powered off.
 % postprocessing includes taking the measured activities and converting them to saturation activities
 The postprocessing necessary for a foil activation experiment involves taking the measured activities, which are reported from the gamma spectrometry software, and backing out the saturation activities for each foil.
 % this is done using the following equation
-This is done using the following equation,
+Specifically, the saturation activity is defined as
 
 % how to get saturation activities
 \begin{equation}
@@ -257,11 +236,12 @@ A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \end{equation}
 
 % where, (explain these terms)
-where $R_{meas}$ is the ratio that corrects for decay during measurement, $R_{sat}$ is the saturation ratio which will be explained below, $n_a$ is the number of sample atoms, equal to $\rho N_A / M$, $K$ is the isotopic abundance, and $I_{rel}$ is the relative intensity of the counted gamma ray.
+\noindent
+where $R_{meas}$ is the ratio that corrects for decay during measurement, $R_{sat}$ is the saturation ratio which will be explained below, $n_a$ is the number of sample atoms (equal to $\rho N_A / M$), $K$ is the isotopic abundance, and $I_{rel}$ is the relative intensity of the counted gamma ray.
 
 % give the term and explain for r_meas
-The term, $R_{meas}$ is the ratio of the activity at the beginning of the gamma counting to the activity assuming the decay is constant during counting.
-It is given by the following equation
+The term $R_{meas}$ is the ratio of the activity at the beginning of the gamma counting to the activity assuming the decay is constant during counting.
+It is defined by
 
 % measurement ratio/correction factor
 \begin{equation}
@@ -269,7 +249,8 @@ It is given by the following equation
 R_{meas} = \frac{\lambda t_{meas}}{1 - e^{\lambda t_{meas}}},
 \end{equation}
 
-in which $\lambda$ is the decay constant and $t_{meas}$ is the time during measurement.
+\noindent
+in which $\lambda$ is the decay constant and $t_{meas}$ is the measurement time.
 
 % explain the concept of saturation ratio
 The saturation ratio, $R_{sat}$, is the ratio between the activity at the time of measurement and the saturation activity.
@@ -288,7 +269,7 @@ The relationship between activity and radionuclides, $A(t) = \lambda N(t)$ allow
 
 \begin{equation}
 \label{eqn:bateman_activity}
-\frac{A(t)}{dt} = \lambda (C(t) - A(t)).
+\frac{dA(t)}{dt} = \lambda (C(t) - A(t)).
 \end{equation}
 
 We can then divide each of the terms by $C_{sat}$ which is the isotopic production at nominal power.
@@ -296,7 +277,7 @@ This value is equal to the saturation activity, since the activity at $t = \inf$
 
 \begin{equation}
 \label{eqn:bateman_ratios}
-\frac{A(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
+\frac{dA(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
 \end{equation}
 
 Two facts allow us to simplify \EQ{eqn:bateman_ratios} into a useful form.
@@ -307,7 +288,7 @@ We will replace this power ratio with the term $P_{f}(t)$, which is simply the t
 
 \begin{equation}
 \label{eqn:bateman_r_sat}
-\frac{R_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
+\frac{dR_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
 \end{equation}
 
 This equation can be solved to find $R_{sat}$ at the time of measurement using a numerical solver, in our case, {\tt scipy}'s {\tt odeint} \cite{jones2001scipy}.
