@@ -296,11 +296,6 @@ This equation can be solved to find $R_{sat}$ at the time of measurement using a
 Here, {\tt scipy}'s {\tt odeint} \cite{jones2001scipy} was used.
 The data for $P_{f}(t)$ is simply normalized strip chart data collected from an ex-core fission chamber.
 
-
-% ---------------------
-% fix this table later
-% ---------------------
-
 % this contains all of the correction factors and foil activities
 \begin{table}[h]\centering
 \label{tab:a_sat}
@@ -327,6 +322,13 @@ Position (in.)  & $A_{meas}$ (Bq) & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$  (Bq
 \caption[Foil Activities]{A comparison of the simulated and experimentally obtained foil activities.}
 \label{fig:compare_activities}
 \end{figure}
+
+% discussion on activities
+A comparison of the simulated and experimentally determined activities is shown in \FIG{fig:compare_activities}.
+The shape seems to agree well, but there is an apparent bias causing an overprediction in the simulated results.
+The ratio between the simulated and experimental results is an average of 1.41.
+This overprediction is much higher in the foils with less HDPe attenuating the beam, corresponding to more error in the prediction of the thermal regions of the flux.
+
 
 \clearpage
 
@@ -380,6 +382,12 @@ Bare & 1626.76 $\pm$ 2.33\\
 \caption[BSS Responses]{A comparison of the simulated and experimentally obtained BSS responses.}
 \label{fig:compare_countrates}
 \end{figure}
+
+% discuss differences
+Shown in \FIG{fig:compare_countrates} is a comparison of the simulated and experimentally obtained Bonner sphere responses.
+Similar to the foil tube results, the simulated responses overpredict the experimental results.
+Here, the average ratio of simulated-to-experimental results is 1.50.
+The smaller spheres and bare configuration show a greater overprediction, which was another trend seen in the foil tube results.
 
 
 % -------------------------------------------------------------------------------------------
