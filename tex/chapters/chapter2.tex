@@ -263,7 +263,7 @@ The solution is then recomputed without this discarded value.
 The Sand II algorithm has been applied widely since its introduction in the 1960s.
 Many other codes have built upon the foundation of the algorithm since then, such as Sand IV and MSANDB \cite{simmer2010iterative}.
 The popular unfolding code Gravel uses the same algorithm but with one small change \cite{reginatto2004umg}.
-The weighting function is updated via,
+In particular, the weighting function is updated via
 
 % the modified gravel weighting function
 \begin{equation}
@@ -289,7 +289,7 @@ The basis of the algorithm was to provide a solution that satisfies \EQ{eqn:disc
 Directed divergence, also referred to as entropy, is a measure related to the likelihood that a neutron spectrum will take a particular shape.
 A more complete treatment of entropy will be handled later.
 % in the case of doroshenko's algorithm, the following method of entropy calculation is used
-In the case of Doroshenko's algorithm, the entropy as defined as
+In the case of Doroshenko's algorithm, the entropy is defined as
 
 % entropy equation used in doroshenko
 \begin{equation}
@@ -357,7 +357,7 @@ This algorithm, MAXED, begins with \EQ{eqn:disc-response} but adds the additiona
 where $\Omega$ is a user-selected parameter that relates the measurement error of the detectors to the allowable deviation in the measured and calculated responses.
 
 The unique feature of MAXED is that entropy, while normally considered an information measure of the solution spectrum itself, is here instead characterized as a value associated with the deviation between the default and solution spectra.
-The code will then search for the maximum entropy solution that is most similar to the default spectrum using the following definition for entropy,
+The code will then search for the maximum entropy solution that is most similar to the default spectrum using the following definition for entropy:
 
 \begin{equation}
 \label{eqn:maxed-skilling}
