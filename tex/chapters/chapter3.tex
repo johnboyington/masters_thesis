@@ -416,7 +416,7 @@ Using these parameters, ADVANTG was run and biasing parameters and a weight wind
 % discuss the adjoint solution here
 As an example, the adjoint flux solution for group 6 (4.9659 - 6.0653 MeV) can be seen in \FIG{fig:advantg}.
 This solution allows us to see how the weight windows will be defined.
-Regions with a high value will correspond to more particle splitting; lower values correspond to less splitting.
+Regions with a high value have high "importance," i.e., neutrons in these regions are more likely to contribute to the response of interest.  As a particle moves from a region of low importance to one of higher importance, it is split into two or more identical particles of reduced weight such that the total weight is preserved.  This splitting process leads to a greater number of particles reaching the detector and, hence, lower uncertainties. 
 The geometry of the core and beam are roughly apparent in the figure.
 The side of the core closest to the beam is weighted higher than the side furthest, since neutrons born there are most likely to make it to the tally.
 The highest values occur closest to the tally to ensure much splitting, and therefore, more particles tracked in the region of the tally.
