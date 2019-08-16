@@ -210,6 +210,16 @@ The {\tt EXT} (extent) variable means length of the cylinder, in this case the l
 Because base MCNP does not easily allow for nested dependent distributions, the {\tt RAD} (radial) distribution was considered an independent variable, and the distribution used was the normalized, averaged radial fission rate across each fuel element.
 
 \subsection{Fission Tally Results}
+
+% coremap
+\begin{figure}[htb]
+\centering
+\includegraphics[height=4in]{tex/figures/coremap.pdf}
+\caption[Core Map]{A map of the named elements in the core.}
+\label{fig:coremap}
+\end{figure}
+
+For reference, a map of the core is provided in \FIG{fig:coremap}.
 Along with the source, several plots were made of this fission rate data.
 
 % the fission rates tallied inside a fuel element
@@ -275,7 +285,7 @@ This effect can be seen to a degree within the E ring, but it is much less prono
 % the integrated fission rates for each ring
 \begin{figure}[htb]
 \centering
-\includegraphics[height=5in]{tex/figures/totals_azi.pdf}
+\includegraphics[height=5in]{tex/figures/totals_azi.png}
 \caption[Whole Core Azimuthal Fission Rate Density]{The fission rate density for each element in the core as a function of core position.}
 \label{fig:totals_azi}
 \end{figure}
