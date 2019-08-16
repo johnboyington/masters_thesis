@@ -420,6 +420,7 @@ Regions with a high value have high "importance," i.e., neutrons in these region
 The geometry of the core and beam are roughly apparent in the figure.
 The side of the core closest to the beam is weighted higher than the side furthest, since neutrons born there are most likely to make it to the tally.
 The highest values occur closest to the tally to ensure much splitting, and therefore, more particles tracked in the region of the tally.
+In the reverse direction, some particles are killed ("rouletted"), while others are kept alive with increased weight, again, so that the total weight, on the average, is preserved. With this game of splitting and rouletting, the overall computational effort of moving particles is focused on regions of phase space of the highest importance to the response of interest.
 
 % ------------------------------------------------------------------------------
 \section{Tally Results}
