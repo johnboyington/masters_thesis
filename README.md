@@ -19,7 +19,7 @@ Requriements for Master's degree - Thesis Option
 | 2. Minimum 18 hrs graded coursework | Complete |
 | 3. Complete one engineering math course | Complete |
 | 4a. Minimum 6 hours NE899| Complete |
-| 4b. Defend thesis| Incomplete |
+| 4b. Defend thesis| Complete |
 | 5. Minimum 18 hrs over 700 level | Complete |
 | 6. No 500 level courses | Complete |
 | 7. ME800 | Complete |
