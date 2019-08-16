@@ -12,10 +12,10 @@
 
 % why model?
 Before conducting any flux measurement of the beam port, the experimental setups were first modeled in MCNP \cite{goorley2012initial}.
-The purpose of this is twofold: one, this generates predictive detector responses to aid in the selection of experimental parameters and provides a metric for the accuracy of initially measured results, and two, response functions are generated for the devices that are ultimately used in the unfolding of the final spectrum.
+The purpose of this is twofold: (1) the model provides detector responses to aid in the selection of experimental parameters and a metric for the accuracy of initially measured results, and (2) response functions are generated for the devices that are ultimately used in the unfolding of the final spectrum.
 % can i use the full model?
 However, due to the (computational) size of the full reactor model, it would be very expensive to generate these experimental responses and response functions.
-Also, the beam port flux, not in-core source spectrum is what we desire to measure, so the response functions would not relate back to the proper flux using the full model.
+Also, the beam port flux and not the in-core spectrum is what we desire to measure, so the response functions would not relate back to the proper flux using the full model.
 % no, we need a decoupled model
 Necessarily, a decoupled model of the beam and experimental configurations must be used for this portion of the simulation.
 This will simplify the geometry and transport significantly, allowing for reduced computation times and also for the ultimate unfolding of the correct neutron spectrum.
@@ -48,62 +48,50 @@ HDPE is a strong neutron moderator, meaning that the response of each foil will 
 % it was also meant to help with beam alignment and to simplify the beam characterization process
 This design also is advantageous in that it solves issues with beam alignment and only requires a single irradiation to generate multiple responses.
 
-%
-%\begin{figure}[htb]
-%\centering
-%\includegraphics[height=4in]{tex/figures/.png}
-%\caption[]{}
-%\label{fig:}
-%\end{figure}
+% the gold foil tube
+\begin{figure}[htb]
+\centering
+\includegraphics[height=4in]{tex/figures/foil_tube.jpg}
+\caption[Gold Foil Tube]{The gold foil tube (disassembled).}
+\label{fig:foil_tube}
+\end{figure}
 
 
 % you can see the device in FIG
-The gold foil device can be seen in FIG.
+The gold foil device can be seen in \FIG{fig:foil_tube}.
 % there are three major components, the aluminum tube, the hdpe separators and the gold foils
 The tube is comprised of three separate materials, the gold foils, the HDPE separators, and the aluminum containment tube.
 % the gold foils are __ diameter and __ thickness
-Each of the gold foils are 5$mm$ in diameter and 0.1$mm$ thick.
+Each of the gold foils are 5 mm in diameter and 0.1 mm thick.
 % the hdpe was cylinders of __ size
-The HDPE sections were 1" thick cylinders.
+The HDPE sections were 1 in thick cylinders.
 % each hdpe piece had a __ size hole drilled into it where the gold foil would be situated
-A 1$mm$ depth, 5$mm$ OD hole was drilled into the front of each section where the gold foil was situated.
+A 1 mm depth, 5 mm OD hole was drilled into the front of each section where the gold foil was situated.
 % all of these would be encased in __ID __OD aluminum tubing
-All of these sections were sandwiched together and encased in 0.75" OD, 1/24" thick aluminum tubing.
+All of these sections were sandwiched together and encased in 0.75 in OD, 1/24 in thick aluminum tubing.
 % aluminum is chosen because it's relative insensitivity towards neutrons
 Aluminum was chosen because of its relative insensitivity to neutrons.
 % the whole apparatus had __ hdpe pieces and foils, with the first foil being exposed and a gap of __ at the beginning
-The whole apparatus was comprised of 12 HDPE pieces and foils, with the first, exposed foil being situated 1" from the start of the tubing.
+The whole apparatus was comprised of 12 HDPE pieces and foils, with the first, exposed foil being situated 1 in from the start of the tubing.
 
 % this device was modeled in mcnp, where f4 flux tallies, folded with the au n,g response were used with a scx card to produce the rfs
-This device was modeled in MCNP, where f4 flux tallies, folded with the $^{198}$Au(n,$\gamma$) cross sections were used with an SCX card to produce the response functions.
+This device was modeled in MCNP, where {\tt F4} flux tallies, folded with the $^{198}$Au(n,$\gamma$) cross sections were used with an SCX card to produce the response functions.
 
 \subsection{Bonner Sphere Spectrometer}
 
 % a second, active detector was included in the experiment, too, the bss
 A second, active detector was also used in the spectrometric section of the NEBP analysis, too, the Bonner Sphere Spectrometer (BSS).
 % the bonner sphere spectrometer uses a series of plastic spheres surrounding a lithium iodide detector to produce independent responses
-The bonner sphere, while explained more thoroughly in chapter 2, use a series of plastic sphere surrounding a LiI detector to produce independent neutronic responses.
+The BSS, while explained more thoroughly in Chapter 2, use a series of plastic spheres surrounding a LiI detector to produce independent neutronic responses.
 
-%
-%\begin{figure}[htb]
-%\centering
-%\includegraphics[height=4in]{tex/figures/.png}
-%\caption[]{}
-%\label{fig:}
-%\end{figure}
-
-
-
-% you can see the device in FIG
-This device can be seen modeled in FIG.
 % the full device was modeled using the 4x4 mm detection crystal coupled with pmt and hdpe sphere
-The main feature of the device was the 4x4$mm$ detection crystal located at the center of the sphere, although smaller details were also captured with the model, including the photomultiplier tube and some of the detector casing material.
+The main feature of the device was the 4x4 mm$^2$ detection crystal located at the center of the sphere, although smaller details were also captured with the model, including the photomultiplier tube and some of the detector casing material.
 % positioned a distance of __ from the bp aperture
-The device was positioned a distance of 28" from the NEBP aperture.
+The device was positioned a distance of 28 in from the NEBP aperture.
 % rfs were generated for sphere sizes of __ __ __ whatver
-Response functions were generated for the bare response, as well as the 2", 3", 5", 8", 10", and 12" spheres.
+Response functions were generated for the bare response, as well as the 2, 3, 5, 8, 10, and 12 in spheres.
 % the tally used f4 folded with the n,t reaction in the crystal with the scx card again
-The F4 flux tally over the detection crystal was folded with the (n,t) reaction cross section and an SCX card was again used to produce response functions.
+The {\tt F4} flux tally over the detection crystal was folded with the (n,t) reaction cross section and an SCX card was again used to produce response functions.
 
 
 
@@ -112,10 +100,10 @@ The F4 flux tally over the detection crystal was folded with the (n,t) reaction 
 % describe any post processing used for these results to get the values in cm2
 
 Post processing for the gold foil tube and BSS response functions is relatively straightforward.
-The response function value for energy $j$, $R_j$, is multiplied by the number of energy groups, $n_{groups}$ and then converted from $b$ to $cm^2$.
+The response function value for energy $j$, $R_j$, is multiplied by the number of energy groups, $n_{groups}$ and then converted from b to cm$^2$.
 This is because the SCX card, which allows a user to tally based on what source distribution bin a particle was born in, will naturally be weighted by the probability of a particle being born in that bin.
 To generate the response functions, all bins were considered equiprobable, which means that the true result requires the simple multiplying by the number of bins.
-The $cm^2$ conversion is because flux is generally understood in $cm^{-2}s^{-1}$, so using response functions in these units allows one to avoid that conversion later.
+The cm$^2$ conversion is because flux is generally understood in cm$^{-2}$ s$^{-1}$, so using response functions in these units allows one to avoid that conversion later.
 
 \begin{equation}
 \label{eqn:postprocessing_au}
@@ -126,24 +114,24 @@ R_j = R_{j, mcnp} \times n_{groups} \times 10^{-24}
 % the gold foil tube response functions
 \begin{figure}[htb]
 \centering
-\includegraphics[height=4in]{tex/figures/ft_au.png}
+\includegraphics[height=4in]{tex/figures/ft_au.pdf}
 \caption[Gold Foil Tube Response Functions]{The response functions for the gold foil tube.}
 \label{fig:ft_au_rfs}
 \end{figure}
 
 % discuss the ft_au response functions
-The response functions for the gold foil tube are pictured in \FIG{fig:ft_au_rfs}.
-As distance from the tube front increases, many interesting features form and decay.
-The first response very closely resembles the $^{198}$Au(n,$\gamma$) reaction, since it is exposed to the source and backscattering contributes relatively little to this response.
+The response functions for the gold foil tube are shown in \FIG{fig:ft_au_rfs}.
+As the distance from the tube front increases, many interesting features form and decay.
+The first response very closely resembles the $^{198}$Au(n,$\gamma$) reaction because it is exposed to the source and backscattering contributes relatively little to this response.
 However, the addition of HDPE tapers the thermal tail of this response very quickly and shifts peak behavior towards the right.
 The four sections that follow the first actually have an even higher response than the exposed foil.
-Throughout the epithermal region, the relatively slow curvature doesn't seem much affected by the increasing foil distance, but in the fast region, a peak forms after 2", and then grows (relatively) and is pushed to the right as foil distance increases.
+Throughout the epithermal region, the relatively slow curvature doesn't seem much affected by the increasing foil distance, but in the fast region, a peak forms after the 2 in response, and then grows (relatively) and is pushed to the right as foil distance increases.
 Overall, the goal of producing response functions that are independent was met to at least some degree with this device design.
 
 % the bonner sphere response functions
 \begin{figure}[htb]
 \centering
-\includegraphics[height=4in]{tex/figures/bs.png}
+\includegraphics[height=4in]{tex/figures/bs.pdf}
 \caption[Bonner Sphere Spectrometer Response Functions]{The response functions for the Bonner Sphere Spectrometer.}
 \label{fig:bs_rfs}
 \end{figure}
@@ -163,7 +151,7 @@ In the foil tube's case, a scattered neutron is much more likely to escape the d
 \subsection{Gold Foil Tube}
 
 % foils were individually weighed and included in table
-First, the foils were individually weighted and those values are shown in \TAB{tab:au_masses}.
+First, the foils were individually weighed and those values are shown in \TAB{tab:au_masses}.
 % the device was assembled
 The device was then assembled as described in the modeling section.
 % outer shielding was removed from the beam port configuration
@@ -199,7 +187,7 @@ The foils were moved to an individual counting station, where they were sequenti
 \caption{The masses of the gold foils.}
 \begin{tabular}{ r | r | l }
 \toprule
-Foil ID  & Position (in.)     &   Foil Mass (g)\\
+Foil ID  & Position (in.)     &   Foil Mass (g) $\pm$ 0.1 mg\\
 2 & 0 & 0.0320\\
 13 & 1 & 0.0312\\
 4 & 2 & 0.0320\\
@@ -221,21 +209,12 @@ For the BSS irradiation, the device was positioned vertically in a manner that a
 % the detector was set to aquire for __ s, and then the reactor was brought to __ kwth.
 The detector was set to aquire for 300 s live time and then the reactor was brought to 1kW(th).
 % the lld setting was adjusted to where the noise could be removed, but the lithium,T peak wasn't affected
-The lld setting was electronically adjusted to reduce the detector dead time, without removing the $^6$Li(n,t) peak.
+The lower level discriminator setting was electronically adjusted to reduce the detector dead time, without removing the $^6$Li(n,t) peak.
 % spectra were aquired for each configuration
 Spectra were aquired for the bare, 2", 3", 5", 8", 10", and 12" configurations.
-For the 12" sphere, a live time of 600 seconds was used to help achieve lower counting statistics.
+For the 12" sphere, a live time of 600 seconds was used to help achieve better counting statistics.
 % the reactor was then powered off
-Following the experiment, the reactor was powered off.
-
-% ------------
-% i need to put all the detection settings and stuff here
-% ------------
-
-
-% ------------
-% also, add pictures of both setups
-% ------------
+Following the experiment, the reactor was shut down.
 
 
 % -------------------------------------------------------------------------------------------
@@ -248,7 +227,7 @@ Following the experiment, the reactor was powered off.
 % postprocessing includes taking the measured activities and converting them to saturation activities
 The postprocessing necessary for a foil activation experiment involves taking the measured activities, which are reported from the gamma spectrometry software, and backing out the saturation activities for each foil.
 % this is done using the following equation
-This is done using the following equation,
+Specifically, the saturation activity is defined as
 
 % how to get saturation activities
 \begin{equation}
@@ -257,11 +236,12 @@ A_{sat} = A_{meas} \frac{R_{meas}}{R_{sat} n_a K I_{rel}} ,
 \end{equation}
 
 % where, (explain these terms)
-where $R_{meas}$ is the ratio that corrects for decay during measurement, $R_{sat}$ is the saturation ratio which will be explained below, $n_a$ is the number of sample atoms, equal to $\rho N_A / M$, $K$ is the isotopic abundance, and $I_{rel}$ is the relative intensity of the counted gamma ray.
+\noindent
+where $R_{meas}$ is the ratio that corrects for decay during measurement, $R_{sat}$ is the saturation ratio which will be explained below, $n_a$ is the number of sample atoms (equal to $\rho N_A / M$), $K$ is the isotopic abundance, and $I_{rel}$ is the relative intensity of the counted gamma ray.
 
 % give the term and explain for r_meas
-The term, $R_{meas}$ is the ratio of the activity at the beginning of the gamma counting to the activity assuming the decay is constant during counting.
-It is given by the following equation
+The term $R_{meas}$ is the ratio of the activity at the beginning of the gamma counting to the activity assuming the decay is constant during counting.
+It is defined by
 
 % measurement ratio/correction factor
 \begin{equation}
@@ -269,7 +249,8 @@ It is given by the following equation
 R_{meas} = \frac{\lambda t_{meas}}{1 - e^{\lambda t_{meas}}},
 \end{equation}
 
-in which $\lambda$ is the decay constant and $t_{meas}$ is the time during measurement.
+\noindent
+in which $\lambda$ is the decay constant and $t_{meas}$ is the measurement time.
 
 % explain the concept of saturation ratio
 The saturation ratio, $R_{sat}$, is the ratio between the activity at the time of measurement and the saturation activity.
@@ -288,7 +269,7 @@ The relationship between activity and radionuclides, $A(t) = \lambda N(t)$ allow
 
 \begin{equation}
 \label{eqn:bateman_activity}
-\frac{A(t)}{dt} = \lambda (C(t) - A(t)).
+\frac{dA(t)}{dt} = \lambda (C(t) - A(t)).
 \end{equation}
 
 We can then divide each of the terms by $C_{sat}$ which is the isotopic production at nominal power.
@@ -296,27 +277,24 @@ This value is equal to the saturation activity, since the activity at $t = \inf$
 
 \begin{equation}
 \label{eqn:bateman_ratios}
-\frac{A(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
+\frac{dA(t) / C_{sat}}{dt} = \lambda (\frac{C(t)}{C_{sat}} - \frac{A(t)}{C_{sat}})
 \end{equation}
 
 Two facts allow us to simplify \EQ{eqn:bateman_ratios} into a useful form.
 First, because $A_{sat} = C_{sat}$, any $A(t) / C_{sat} = A(t) / A_{sat}$, so we can replace these terms with a defined term, $R_{sat}(t)$ which is the ratio of the activity at time $t$ to the saturation activity.
-Second, although we don't have access to the $C(t)$ or $C_{sat}$ terms since they require the (currently unknown) flux, we do have access to power data.
-Because isotopic production is approximately proportional to reactor power, $C(t) \propto P(t)$, this means that $C(t) / C_{sat} \approx P(t) / P_{nominal}$.
-We will replace this power ratio with the term $P_{f}(t)$, which is simply the time dependent ratio of the power to the nominal power.
+Second, although we do not have access to the $C(t)$ or $C_{sat}$ terms since they require the (currently unknown) flux, we do have access to power data.
+Because isotopic production is approximately proportional to reactor power, i.e., $C(t) \propto P(t)$, we therefore have $C(t) / C_{sat} \approx P(t) / P_{nominal}$.
+We will replace this power ratio with the term $P_{f}(t)$, which is simply the time dependent ratio of the power to the nominal power, or
 
 \begin{equation}
 \label{eqn:bateman_r_sat}
-\frac{R_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t))
+\frac{dR_{sat}(t)}{dt} = \lambda (P_{f}(t) - R_{sat}(t)) .
 \end{equation}
 
-This equation can be solved to find $R_{sat}$ at the time of measurement using a numerical solver, in our case, {\tt scipy}'s {\tt odeint} \cite{jones2001scipy}.
-The data for $P_{f}(t)$ is simply normalized strip chart data collected from an in-core fission chamber.
-
-
-% ---------------------
-% fix this table later
-% ---------------------
+\noindent
+This equation can be solved to find $R_{sat}$ at the time of measurement using a numerical solver.
+Here, {\tt scipy}'s {\tt odeint} \cite{jones2001scipy} was used.
+The data for $P_{f}(t)$ is simply normalized strip chart data collected from an ex-core fission chamber.
 
 % this contains all of the correction factors and foil activities
 \begin{table}[h]\centering
@@ -325,42 +303,49 @@ The data for $P_{f}(t)$ is simply normalized strip chart data collected from an 
 \begin{tabular}{ r | r | r | l | r }
 \toprule
 Position (in.)  & $A_{meas}$ (Bq) & $R_{meas}$  & $R_{sat}$   &   $A_{sat}$  (Bq)\\
-0 & 1483.73 & 1.00089 & 0.02268 & 65468.28 \\
-1 & 58.60 & 1.00590 & 0.02262 &  2605.89  \\
-2 & 8.92 & 1.03805 & 0.02196 &   422.02  \\
-3 & 4.06 & 1.06581 & 0.0204  &   212.01  \\
-4 & 2.58 & 1.14023 & 0.01574  &   186.96  \\
-5 & 1.60 & 1.27976 & 0.01340 &      153.12  \\
-6 & 0.72 & 1.26894 & 0.00794 &       115.22  \\
-7 & 0.37 & 1.27340 & 0.00483 &      97.03   \\
-8 & 0.17 & 1.41587 & 0.00256 &       95.65\\
+0 & 1483.73 $\pm$ 5.03\% & 1.00089 & 0.02268 & 65468.28 \\
+1 & 58.60 $\pm$ 5.11\% & 1.00590 & 0.02262 &  2605.89  \\
+2 & 8.92 $\pm$ 5.18\% & 1.03805 & 0.02196 &   422.02  \\
+3 & 4.06 $\pm$ 5.32\% & 1.06581 & 0.0204  &   212.01  \\
+4 & 2.58 $\pm$ 5.17\% & 1.14023 & 0.01574  &   186.96  \\
+5 & 1.60 $\pm$ 5.63\% & 1.27976 & 0.01340 &      153.12  \\
+6 & 0.72 $\pm$ 7.03\% & 1.26894 & 0.00794 &       115.22  \\
+7 & 0.37 $\pm$ 6.78\% & 1.27340 & 0.00483 &      97.03   \\
+8 & 0.17 $\pm$ 9.35\% & 1.41587 & 0.00256 &       95.65\\
 \end{tabular}
 \end{table}
 
 % foil responses
 \begin{figure}[htb]
 \centering
-\includegraphics[height=3in]{tex/figures/compare_activities.png}
+\includegraphics[height=3in]{tex/figures/compare_activities.pdf}
 \caption[Foil Activities]{A comparison of the simulated and experimentally obtained foil activities.}
 \label{fig:compare_activities}
 \end{figure}
+
+% discussion on activities
+A comparison of the simulated and experimentally determined activities is shown in \FIG{fig:compare_activities}.
+The shape seems to agree well, but there is an apparent bias causing an overprediction in the simulated results.
+The ratio between the simulated and experimental results is an average of 1.41.
+This overprediction is much higher in the foils with less HDPe attenuating the beam, corresponding to more error in the prediction of the thermal regions of the flux.
+
 
 \clearpage
 
 \subsection{Bonner Sphere Spectrometer}
 
-The BSS data was processed simply by taking the area under the Li reaction peaks and dividing that value by the live time of the detector.
+The BSS data was processed by taking the area under the Li reaction peaks and dividing that value by the live time of the detector.
 These values are presented in \TAB{tab:bss}.
 
 % bss response integration
 \begin{figure}[htb]
 \centering
-\includegraphics[height=3in]{tex/figures/bs4_spectrum.png}
+\includegraphics[height=3in]{tex/figures/bs4_spectrum.pdf}
 \caption[8" BSS Spectrum]{The 8" sphere's gamma-ray spectrum and the model used to find the integral response.}
 \label{fig:bs4_spectrum}
 \end{figure}
 
-A typical spectrum obtained from the BSS portion of the experiment is shown in \FIG{fig:bs4_spectrum}.
+A typical spectrum obtained from a BSS is shown in \FIG{fig:bs4_spectrum}.
 The area under the Li reaction peaks was found by fitting a model to the data.
 The model is shown in \EQ{eqn:model}.
 It is the superposition of a decaying exponential function to fit the noise, and a normal distribution to fit the reaction.
@@ -380,23 +365,29 @@ c(E) = A e^{-BE} + C \frac{1}{\sqrt{2 \pi D^2}} e^{-(E - F)^2 / 2 D^2}
 \begin{tabular}{ r | r }
 \toprule
 Sphere (in.)  & Count Rate $s^{-1}$\\
-Bare & 1626.76\\
-2  & 1062.40\\
-3 & 3891.13\\
-5 & 417.24\\
-8 & 139.72\\
-10 & 70.75\\
-12 & 37.43\\
+Bare & 1626.76 $\pm$ 2.33\\
+2  & 1062.40 $\pm$ 1.88\\
+3 & 3891.13 $\pm$ 1.72\\
+5 & 417.24 $\pm$ 1.18\\
+8 & 139.72 $\pm$ 0.68\\
+10 & 70.75 $\pm$ 0.49\\
+12 & 37.43 $\pm$ 0.25\\
 \end{tabular}
 \end{table}
 
 % bss responses
 \begin{figure}[htb]
 \centering
-\includegraphics[height=3in]{tex/figures/compare_countrates.png}
+\includegraphics[height=3in]{tex/figures/compare_countrates.pdf}
 \caption[BSS Responses]{A comparison of the simulated and experimentally obtained BSS responses.}
 \label{fig:compare_countrates}
 \end{figure}
+
+% discuss differences
+Shown in \FIG{fig:compare_countrates} is a comparison of the simulated and experimentally obtained Bonner sphere responses.
+Similar to the foil tube results, the simulated responses overpredict the experimental results.
+Here, the average ratio of simulated-to-experimental results is 1.50.
+The smaller spheres and bare configuration show a greater overprediction, which was another trend seen in the foil tube results.
 
 
 % -------------------------------------------------------------------------------------------
@@ -422,7 +413,7 @@ In this case, scaled means that the default spectrum was normalized so the avera
 
 
 \begin{figure}[htb]
-\includegraphics[height=3.8in]{tex/figures/unfolded_gr.png}
+\includegraphics[height=3.8in]{tex/figures/unfolded_gr.pdf}
 \caption[Gravel Unfolded Spectra]{The unfolded NEBP spectra obtained from using the Gravel method.}
 \label{fig:unfolded_gr}
 \end{figure}
@@ -430,7 +421,7 @@ In this case, scaled means that the default spectrum was normalized so the avera
 % here gravel results are presented first
 Here, the Gravel results are presented in \FIG{fig:unfolded_gr}
 % as seen in the figure, the bss and ft_au results show good agreeance with one another
-As seen in the figure, the foil tube and BSS results show good agreeace with one another.
+As seen in the figure, the foil tube and BSS results show good agreement with one another.
 % all of the major features from the default spectrum are preserved
 All of the major features from the default spectrum are preserved.
 % the ft_au results unfold to a slightly higher thermal flux than the bss where as the bss show slightly higher fast region
@@ -441,7 +432,7 @@ The combined results cannot be seen as they are covered by the foil tube data.
 This is due to the fact that the gravel algorithm will base its manipulation on relative error, meaning that smaller error (more well-known) responses will affect the final results more, and the errors from the foil tube are much smaller than the BSS results.
 
 \begin{figure}[htb]
-\includegraphics[height=3.8in]{tex/figures/unfolded_mx.png}
+\includegraphics[height=3.8in]{tex/figures/unfolded_mx.pdf}
 \caption[MAXED Unfolded Spectra]{The unfolded NEBP spectra obtained using the MAXED method.}
 \label{fig:unfolded_mx}
 \end{figure}
@@ -453,10 +444,10 @@ In the BSS and combined cases, the results produced appear very unphysical.
 % this is likely due to the fact that the spectrum is trying to fit the data while staying close to the default spectrum
 This is likely due to the fact that the algorithm is trying to fit the data while retaining some values close to the defaults spectrum to maximize the cross entropy between the two spectra.
 % in the ft_au case, the default spectrum remains unchanged, indicating that the default spectrum actually represents a decent fit of the data
-The default spectrum remains unchanged for the foil tube case, which indicates that the default spectrum actually represents a decent fit of the data, although it's still not as close as in the Gravel case.
+The default spectrum remains unchanged for the foil tube case, which indicates that the default spectrum actually represents a decent fit of the data, although it is still not as close as in the Gravel case.
 
 \begin{figure}[htb]
-\includegraphics[height=3.8in]{tex/figures/unfolded_mx_sc.png}
+\includegraphics[height=3.8in]{tex/figures/unfolded_mx_sc.pdf}
 \caption[MAXED Unfolded Spectra (Scaled)]{The unfolded NEBP spectra obtained from scaling the default spectrum then unfolding with the MAXED method.}
 \label{fig:unfolded_mx_sc}
 \end{figure}
@@ -467,7 +458,7 @@ It was hypothesized that scaling the defaults spectrum would remove some of the 
 The BSS and combined cases are still rather unphysical, and the foil tube solution remains unperturbed.
 
 \begin{figure}[htb]
-\includegraphics[height=3.8in]{tex/figures/unfolded_do.png}
+\includegraphics[height=3.8in]{tex/figures/unfolded_do.pdf}
 \caption[Doroshenko Unfolded Spectra]{The unfolded NEBP spectra obtained from unfolding with the Doroshenko method.}
 \label{fig:unfolded_do}
 \end{figure}
@@ -477,7 +468,7 @@ The results in \FIG{fig:unfolded_do} are from the Doroshenko unfolding.
 % unlike maxed, they appear similar to the unfolding with gravel
 Unlike MAXED, these results appear stable, like the Gravel data.
 % here, though, the differences in the datasets are exemplified
-Here, though, the differences between the datasets are more exemplefied.
+Here, though, the differences between the datasets are more exemplified.
 This is most obvious in the foil tube dataset.
 The fast end of the spectrum appears flattened as it tries to fit some of the foil data whose responses lie in that end.
 Those responses have high error and likely this feature is due to a bias in the measurement, and not an actual spectral feature.
