@@ -392,20 +392,24 @@ Finally, {\tt denovo\_x\_blocks}, etc. refer to the parallelization scheme.
 The computer used for this calculation had 64 cores available, so these values 8, 8, and 1 all multiply to that value.
 % so i ran it, that gave me a wwinp file that was how many MB?
 Using these parameters, ADVANTG was run and biasing parameters and a weight window input file was produced.
-As an example, the adjoint flux solution for group 6 can be seen in \FIG{fig:advantg}.
 
 % denovo solutions
 \begin{figure}[htb]
 \centering
-\hfill \includegraphics[width=0.2\textwidth]{tex/figures/advantg_legend.png}\\
-\includegraphics[width=\textwidth]{tex/figures/advantgxy.png}\\
+\includegraphics[width=0.8\textwidth]{tex/figures/advantgxy.png} \includegraphics[width=0.14\textwidth]{tex/figures/advantg_legend.png}\\
 \includegraphics[width=\textwidth]{tex/figures/advantgxz.png}\\
-\caption[ADVANTG Solution]{XY (top) and XZ (bottom) slices of the adjoint solution for group 6 produced from ADVANTG.}
+\caption[ADVANTG Solution]{XY (top) and XZ (bottom) slices of the adjoint solution for group 6 (4.9659 - 6.0653 MeV) produced from ADVANTG. Units here are considered arbitrary as the weight window values produced from this solution will be normalized in the MCNP problem.}
 \label{fig:advantg}
 \end{figure}
 
 
 % discuss the adjoint solution here
+As an example, the adjoint flux solution for group 6 (4.9659 - 6.0653 MeV) can be seen in \FIG{fig:advantg}.
+This solution allows us to see how the weight windows will be defined.
+Regions with a high value will correspond to more particle splitting; lower values correspond to less splitting.
+The geometry of the core and beam are roughly apparent in the figure.
+The side of the core closest to the beam is weighted higher than the side furthest, since neutrons born there are most likely to make it to the tally.
+The highest values occur closest to the tally to ensure much splitting, and therefore, more particles tracked in the region of the tally.
 
 % ------------------------------------------------------------------------------
 \section{Tally Results}
