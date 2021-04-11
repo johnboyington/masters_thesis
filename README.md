@@ -10,7 +10,7 @@ To remove the .pdf that is created, type `make clean`, or simply remove the file
 
 Info on master's requirements can be found in the [`Graduate Student Handbook`](https://www.mne.k-state.edu/docs/academics/graduate/18-19%20grad%20student%20handbook.pdf).
 
-Requriements for Master's degree - Thesis Option
+Requirements for Master's degree - Thesis Option
 
 
 | Requirement | Statue |
